@@ -133,6 +133,7 @@
             this.listViewPalicos = new System.Windows.Forms.ListView();
             this.columnHeaderPalicoSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPalicoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.setItemAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -283,6 +284,7 @@
             // 
             this.itemBoxToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maxItemsToolStripMenuItem,
+            this.setItemAmountToolStripMenuItem,
             this.importListToolStripMenuItem,
             this.exportToListToolStripMenuItem});
             this.itemBoxToolsToolStripMenuItem.Name = "itemBoxToolsToolStripMenuItem";
@@ -292,21 +294,21 @@
             // maxItemsToolStripMenuItem
             // 
             this.maxItemsToolStripMenuItem.Name = "maxItemsToolStripMenuItem";
-            this.maxItemsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.maxItemsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.maxItemsToolStripMenuItem.Text = "Max Items";
             this.maxItemsToolStripMenuItem.Click += new System.EventHandler(this.maxItemsToolStripMenuItem_Click);
             // 
             // importListToolStripMenuItem
             // 
             this.importListToolStripMenuItem.Name = "importListToolStripMenuItem";
-            this.importListToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.importListToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.importListToolStripMenuItem.Text = "Import From List";
             this.importListToolStripMenuItem.Click += new System.EventHandler(this.importListToolStripMenuItem_Click);
             // 
             // exportToListToolStripMenuItem
             // 
             this.exportToListToolStripMenuItem.Name = "exportToListToolStripMenuItem";
-            this.exportToListToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exportToListToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.exportToListToolStripMenuItem.Text = "Export To List";
             this.exportToListToolStripMenuItem.Click += new System.EventHandler(this.exportToListToolStripMenuItem_Click);
             // 
@@ -1144,6 +1146,13 @@
             this.columnHeaderPalicoName.Text = "Name";
             this.columnHeaderPalicoName.Width = 410;
             // 
+            // setItemAmountToolStripMenuItem
+            // 
+            this.setItemAmountToolStripMenuItem.Name = "setItemAmountToolStripMenuItem";
+            this.setItemAmountToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.setItemAmountToolStripMenuItem.Text = "Set Item Amount";
+            this.setItemAmountToolStripMenuItem.Click += new System.EventHandler(this.setItemAmountToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1297,6 +1306,7 @@
         private System.Windows.Forms.ToolStripMenuItem equipmentBoxToolsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem importEqpBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportEqpBoxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setItemAmountToolStripMenuItem;
     }
 }
 

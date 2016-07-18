@@ -695,5 +695,16 @@ namespace APMMHXSaveEditor
             eebd.Dispose();
         }
 
+        private void setItemAmountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetItemBoxItemAmountDialog sibd = new SetItemBoxItemAmountDialog(saveFile.Players[currentPlayer].ItemBox);
+            sibd.ShowDialog();
+            if (sibd.DialogResult == DialogResult.OK)
+            {
+                loadItemBoxes(currentPlayer);
+            }
+            sibd.Dispose();
+        }
+
     }
 }
