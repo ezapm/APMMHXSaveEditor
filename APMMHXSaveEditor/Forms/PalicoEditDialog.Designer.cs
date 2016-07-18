@@ -36,9 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNameGiver = new System.Windows.Forms.TextBox();
             this.labelNameGiver = new System.Windows.Forms.Label();
-            this.numericUpDownLearnedSkillRNG = new System.Windows.Forms.NumericUpDown();
             this.labelLearnedSkillRNG = new System.Windows.Forms.Label();
-            this.numericUpDownLearnedActionRNG = new System.Windows.Forms.NumericUpDown();
             this.labelLearnedActionRNG = new System.Windows.Forms.Label();
             this.textBoxRGBA = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,10 +70,10 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.textBoxLearnedActionRNG = new System.Windows.Forms.TextBox();
+            this.textBoxLearnedSkillRNG = new System.Windows.Forms.TextBox();
             this.tabControlPalico.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLearnedSkillRNG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLearnedActionRNG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnthusiasm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXP)).BeginInit();
@@ -105,15 +103,15 @@
             // tabPageGeneral
             // 
             this.tabPageGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageGeneral.Controls.Add(this.textBoxLearnedSkillRNG);
+            this.tabPageGeneral.Controls.Add(this.textBoxLearnedActionRNG);
             this.tabPageGeneral.Controls.Add(this.textBoxGreetings);
             this.tabPageGeneral.Controls.Add(this.labelGretings);
             this.tabPageGeneral.Controls.Add(this.textBoxPreviousOwner);
             this.tabPageGeneral.Controls.Add(this.label3);
             this.tabPageGeneral.Controls.Add(this.textBoxNameGiver);
             this.tabPageGeneral.Controls.Add(this.labelNameGiver);
-            this.tabPageGeneral.Controls.Add(this.numericUpDownLearnedSkillRNG);
             this.tabPageGeneral.Controls.Add(this.labelLearnedSkillRNG);
-            this.tabPageGeneral.Controls.Add(this.numericUpDownLearnedActionRNG);
             this.tabPageGeneral.Controls.Add(this.labelLearnedActionRNG);
             this.tabPageGeneral.Controls.Add(this.textBoxRGBA);
             this.tabPageGeneral.Controls.Add(this.label1);
@@ -184,13 +182,6 @@
             this.labelNameGiver.TabIndex = 18;
             this.labelNameGiver.Text = "Name Giver";
             // 
-            // numericUpDownLearnedSkillRNG
-            // 
-            this.numericUpDownLearnedSkillRNG.Location = new System.Drawing.Point(303, 99);
-            this.numericUpDownLearnedSkillRNG.Name = "numericUpDownLearnedSkillRNG";
-            this.numericUpDownLearnedSkillRNG.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownLearnedSkillRNG.TabIndex = 17;
-            // 
             // labelLearnedSkillRNG
             // 
             this.labelLearnedSkillRNG.AutoSize = true;
@@ -199,13 +190,6 @@
             this.labelLearnedSkillRNG.Size = new System.Drawing.Size(98, 13);
             this.labelLearnedSkillRNG.TabIndex = 16;
             this.labelLearnedSkillRNG.Text = "Learned Skill RNG ";
-            // 
-            // numericUpDownLearnedActionRNG
-            // 
-            this.numericUpDownLearnedActionRNG.Location = new System.Drawing.Point(170, 98);
-            this.numericUpDownLearnedActionRNG.Name = "numericUpDownLearnedActionRNG";
-            this.numericUpDownLearnedActionRNG.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownLearnedActionRNG.TabIndex = 15;
             // 
             // labelLearnedActionRNG
             // 
@@ -502,6 +486,20 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
+            // textBoxLearnedActionRNG
+            // 
+            this.textBoxLearnedActionRNG.Location = new System.Drawing.Point(170, 98);
+            this.textBoxLearnedActionRNG.Name = "textBoxLearnedActionRNG";
+            this.textBoxLearnedActionRNG.Size = new System.Drawing.Size(120, 20);
+            this.textBoxLearnedActionRNG.TabIndex = 15;
+            // 
+            // textBoxLearnedSkillRNG
+            // 
+            this.textBoxLearnedSkillRNG.Location = new System.Drawing.Point(303, 98);
+            this.textBoxLearnedSkillRNG.Name = "textBoxLearnedSkillRNG";
+            this.textBoxLearnedSkillRNG.Size = new System.Drawing.Size(120, 20);
+            this.textBoxLearnedSkillRNG.TabIndex = 17;
+            // 
             // PalicoEditDialog
             // 
             this.AcceptButton = this.buttonOK;
@@ -519,8 +517,6 @@
             this.tabControlPalico.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLearnedSkillRNG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLearnedActionRNG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnthusiasm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXP)).EndInit();
@@ -554,9 +550,7 @@
         private System.Windows.Forms.Label labelTarget;
         private System.Windows.Forms.TextBox textBoxRGBA;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDownLearnedSkillRNG;
         private System.Windows.Forms.Label labelLearnedSkillRNG;
-        private System.Windows.Forms.NumericUpDown numericUpDownLearnedActionRNG;
         private System.Windows.Forms.Label labelLearnedActionRNG;
         private System.Windows.Forms.ListView listViewEquippedAction;
         private System.Windows.Forms.ColumnHeader columnHeaderEqActionSlot;
@@ -579,5 +573,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNameGiver;
         private System.Windows.Forms.Label labelNameGiver;
+        private System.Windows.Forms.TextBox textBoxLearnedSkillRNG;
+        private System.Windows.Forms.TextBox textBoxLearnedActionRNG;
     }
 }

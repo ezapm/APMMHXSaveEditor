@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using APMMHXSaveEditor.Data;
 
 namespace APMMHXSaveEditor.Forms
 {
@@ -17,14 +18,14 @@ namespace APMMHXSaveEditor.Forms
         public PalicoSkillEditorDialog(byte skillID)
         {
             InitializeComponent();
-            numericUpDownSkillID.Maximum = 255;
+            comboBoxPalicoSkills.DataSource = GameConstants.PalicoSkills;
             this.SkillID = skillID;
-            numericUpDownSkillID.Value = skillID;
+            comboBoxPalicoSkills.SelectedIndex = skillID;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            this.SkillID = (byte)numericUpDownSkillID.Value;
+            this.SkillID = (byte)comboBoxPalicoSkills.SelectedIndex;
             this.DialogResult = DialogResult.OK;
         }
 

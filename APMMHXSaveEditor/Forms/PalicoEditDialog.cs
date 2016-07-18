@@ -23,13 +23,13 @@ namespace APMMHXSaveEditor.Forms
             InitializeComponent();
             this.palico = palico;
 
-            comboBoxForte.DataSource = GameConstants.Palico_Forte;
+            comboBoxForte.DataSource = GameConstants.PalicoForte;
             numericUpDownXP.Maximum = UInt32.MaxValue;
             numericUpDownLevel.Maximum = 255;
             numericUpDownTarget.Maximum = 255;
             numericUpDownEnthusiasm.Maximum = 255;
-            numericUpDownLearnedActionRNG.Maximum = UInt16.MaxValue;
-            numericUpDownLearnedSkillRNG.Maximum = UInt16.MaxValue;
+            textBoxLearnedActionRNG.MaxLength = 4;
+            textBoxLearnedSkillRNG.MaxLength = 4;
             textBoxName.MaxLength = 16;
             textBoxNameGiver.MaxLength = 16;
             textBoxPreviousOwner.MaxLength = 16;
@@ -42,8 +42,8 @@ namespace APMMHXSaveEditor.Forms
             numericUpDownXP.Value = palico.XP;
             numericUpDownEnthusiasm.Value = palico.Enthusiasm;
             numericUpDownTarget.Value = palico.Target;
-            numericUpDownLearnedActionRNG.Value = palico.LearnedActionRNG;
-            numericUpDownLearnedSkillRNG.Value = palico.LearnedSkillRNG;
+            textBoxLearnedActionRNG.Text = BitConverter.ToString(BitConverter.GetBytes(palico.LearnedActionRNG)).Replace("-", "");
+            textBoxLearnedSkillRNG.Text = BitConverter.ToString(BitConverter.GetBytes(palico.LearnedSkillRNG)).Replace("-", "");
             textBoxNameGiver.Text = palico.NameGiver;
             textBoxPreviousOwner.Text = palico.PreviousMaster;
             textBoxGreetings.Text = palico.Greeting;
@@ -63,7 +63,7 @@ namespace APMMHXSaveEditor.Forms
             for (int i = 0; i < palico.EquippedActions.Length; i++)
             {
                 ListViewItem lviAction = new ListViewItem((i + 1).ToString());
-                lviAction.SubItems.Add(string.Format("Action ID {0}", palico.EquippedActions[i].ToString()));
+                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[palico.EquippedActions[i]]);
                 listViewEquippedAction.Items.Add(lviAction);
             }
         }
@@ -74,7 +74,7 @@ namespace APMMHXSaveEditor.Forms
             for (int i = 0; i < palico.EquippedActions.Length; i++)
             {
                 ListViewItem lviSkill = new ListViewItem((i + 1).ToString());
-                lviSkill.SubItems.Add(string.Format("Skill ID {0}", palico.EquippedSkills[i].ToString()));
+                lviSkill.SubItems.Add(GameConstants.PalicoSkills[palico.EquippedSkills[i]]);
                 listViewEquippedSkills.Items.Add(lviSkill);
             }
         }
@@ -85,7 +85,7 @@ namespace APMMHXSaveEditor.Forms
             for (int i = 0; i < palico.LearnedActions.Length; i++)
             {
                 ListViewItem lviAction = new ListViewItem((i + 1).ToString());
-                lviAction.SubItems.Add(string.Format("Action ID {0}", palico.LearnedActions[i].ToString()));
+                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[palico.LearnedActions[i]]);
                 listViewLearnedActions.Items.Add(lviAction);
             }
         }
@@ -93,10 +93,10 @@ namespace APMMHXSaveEditor.Forms
         private void loadLearnedSkills()
         {
             listViewLearnedSkills.Items.Clear();
-            for (int i = 0; i < palico.LearnedActions.Length; i++)
+            for (int i = 0; i < palico.LearnedSkills.Length; i++)
             {
                 ListViewItem lviSkill = new ListViewItem((i + 1).ToString());
-                lviSkill.SubItems.Add(string.Format("Skill ID {0}", palico.LearnedSkills[i].ToString()));
+                lviSkill.SubItems.Add(GameConstants.PalicoSkills[palico.LearnedSkills[i]]);
                 listViewLearnedSkills.Items.Add(lviSkill);
             }
         }
@@ -110,6 +110,11 @@ namespace APMMHXSaveEditor.Forms
             if (textBoxRGBA.Text.Length != 8)
             {
                 MessageBox.Show("Make sure RGBA color is 4 bytes (AABBCCFF).", "Invalid RGBA");
+                return;
+            }
+            else if (textBoxLearnedActionRNG.Text.Length != 4 || textBoxLearnedSkillRNG.Text.Length != 4)
+            {
+                MessageBox.Show("Invalid Learned Action or Skill RNG Value", "Invalid RNG Value(s)");
             }
             try
             {
@@ -120,8 +125,8 @@ namespace APMMHXSaveEditor.Forms
                 palico.Forte = (byte)comboBoxForte.SelectedIndex;
                 palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
                 palico.Target = (byte)numericUpDownTarget.Value;
-                palico.LearnedActionRNG = (UInt16)numericUpDownLearnedActionRNG.Value;
-                palico.LearnedSkillRNG = (UInt16)numericUpDownLearnedSkillRNG.Value;
+                palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
+                palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
                 palico.NameGiver = textBoxNameGiver.Text;
                 palico.PreviousMaster = textBoxPreviousOwner.Text;
                 palico.Greeting = textBoxGreetings.Text;
