@@ -14,11 +14,12 @@ namespace APMMHXSaveEditor.Data
        
 
         //Palico Equipment
-        public static readonly string[] Palico_Equipment_Type = { "Chest", "Head", "Weapon", "-----" };
+        public static readonly string[] PalicoEquipmentType = { "Chest", "Head", "Weapon", "-----" };
 
         //Palcio Data
-        public static readonly string[] Palico_Forte = { "None/Leadership", "Fighting", "Protection", "Support", "Healing", "Bombing", "Stealing", "Treasure", "Launching", "Stamina" };
-
+        public static readonly string[] PalicoForte = { "None/Leadership", "Fighting", "Protection", "Support", "Healing", "Bombing", "Stealing", "Treasure", "Launching", "Stamina" };
+        public static readonly string[] PalicoSupportMoves = { "-----", "Herb Horn", "Health Horn", "True Health Horn", "Detox Horn", "Cheer Horn", "Demon Horn", "Armor Horn", "Ultrasonic Horn ", "Mini Barrel Bombay", "Barrel Bombay", "Big Barrel Bombay", "Mega Barrel Bombay", "Giga Barrel Bombay", "Bounce Bombay", "Flash Bombay", "Anti-Monster Mine", "Anti-Monster Mine+", "Pitfall Purr-ision", "Shock Purr-ision", "Poison Purr-ision", "Trampoliner", "Vase of Vitality", "Parting Gift", "Emergency Retreat", "Big Boomerangs", "Piercing Boomerangs", "Camoflage", "Weapon Upgrade", "Furr-ious", "Taunt", "Palico Rally", "Dung Bombay", "Go, Fight, Win", "Soothing Roll", "Explosive Roll", "Pilfer", "Plundering", "Felyne Comet", "Claw Dance", "Sumo Stomp", "Chestnut Cannon", "Shock Tripper", "Excavator", "Mega Boomerang", "Rath-of-meow", "NULL [46]" };
+        public static readonly string[] PalicoSkills = { "-----", "Health Up (S)", "Health Up (L)", "Attack Up (S)", "Attack Up (L)", "Defense Up (S)", "Defense Up (L)", "Omniresistance", "Critical Up (S)", "Critical Up (L)", "Handicraft", "Bombay Boost", "Element Attack Up", "Status Attack Up", "Knockout King", "Stamina Drain", "Guard (S)", "Guard (L)", "Guard Boost", "Support Priority", "Support Boost", "Support Move +1", "Pilfer Boost", "Revival Pro", "Heat/Bomb Res", "Negate Posion", "Negate Wind", "Negate Paralysis", "Negate Stun", "Negate Confusion", "Tremor Res", "Earplugs", "Negate Sleep", "Biology", "Iron Hide", "Non-Stick Fur", "Nine Lives (Attack) 36", "Nine Lives (Defense)37", "Last Stand", "Anger Prone", "Counter Boost", "Monsterdar", "Boomerang Pro", "Pro Trapper", "Gathering Pro", "Slacker Slap", "Health Harmonics", "Goldenfish Catcher", "Baddest Cat Ever", "High Cadence", "World's Strongest", "Zombie", "Desperation", "Nagatobimaru", "Fanalis", "Aera", "Ranged Attack Up", "Sonic Mini Bombay", "Fashion Sense", "Universal", "DUMMY", "DUMMY", "DUMMY", "Wind Waker", "Landmaster", "Super Mushroom", "Shopkeeping", "Triforce", "Morph Ball Bomb", "Megaflare", "DEF-Centric", "STAM-Centric", "Fire Res Up", "Water Res Up", "Thunder Res Up", "Ice Res Up", "Dragon Res Up", "NULL [77]" };
 
         public static UInt32 GetItemIDFromName(string item)
         {
