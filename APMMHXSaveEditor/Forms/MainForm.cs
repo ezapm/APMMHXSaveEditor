@@ -706,5 +706,70 @@ namespace APMMHXSaveEditor
             sibd.Dispose();
         }
 
+        private void deleteAllItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Clear ALL items from item box?", "Delete all items?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearItems(saveFile.Players[currentPlayer].ItemBox);
+            }
+        }
+
+        private void buttonClearItemBox_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Clear ALL items from current item box?", "Delete all items?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearItems(saveFile.Players[currentPlayer].ItemBox,
+                    (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX),
+                    ((comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX) + Constants.ITEM_PER_BOX));
+                loadItemBoxes(currentPlayer);
+            }
+        }
+
+        private void buttonClearItemPouch_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Clear ALL items from current item pouch?", "Delete all items?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearItems(saveFile.Players[currentPlayer].ItemPouch,
+                    (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH),
+                    ((comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH) + Constants.ITEM_PER_POUCH));
+                loadItemPouch(currentPlayer);
+            }
+        }
+
+        private void buttonClearEquipmentBox_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Delete ALL equipment from current Equipment Box?", "Delete all equipment?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearEquipment(saveFile.Players[currentPlayer].EquipmentBox,
+                    (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX),
+                    ((comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX) + Constants.ITEM_PER_BOX));
+                loadEquipmentBox(currentPlayer);
+            }
+        }
+
+        private void deleteAllEquipmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Delete ALL equipment from current Equipment Box?", "Delete all equipment?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearEquipment(saveFile.Players[currentPlayer].EquipmentBox);
+                loadEquipmentBox(currentPlayer);
+            }
+        }
+
     }
 }

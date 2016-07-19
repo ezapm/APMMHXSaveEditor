@@ -71,5 +71,61 @@ namespace APMMHXSaveEditor.Util
                 }
             }
         }
+
+        /// <summary>
+        /// Set all ItemID ItemAmount in Item[] to 0
+        /// </summary>
+        /// <param name="items">Item array to clear out</param>
+        public static void ClearItems(Item[] items)
+        {
+            foreach (Item item in items)
+            {
+                item.ItemID = 0;
+                item.ItemAmount = 0;
+            }
+        }
+
+        /// <summary>
+        /// Set all ItemID ItemAmount in Item[] to 0 in a set range
+        /// </summary>
+        /// <param name="items">Item list to clear</param>
+        /// <param name="startIndex">Start index (index 0)</param>
+        /// <param name="endIndex">End index</param>
+        public static void ClearItems(Item[] items, int startIndex, int endIndex)
+        {
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                items[i].ItemID = 0;
+                items[i].ItemAmount = 0;
+            }
+        }
+
+        /// <summary>
+        /// Set all bytes in equipment[] to 0 
+        /// </summary>
+        /// <param name="equipments"></param>
+        public static void ClearEquipment(Equipment[] equipments)
+        {
+            foreach (Equipment equip in equipments)
+            {
+                Array.Clear(equip.EquipmentBytes, 0, Constants.SIZEOF_EQUIPMENT);
+            }
+        }
+
+
+        /// <summary>
+        /// Set all bytes in equipment[] to 0 in a specified range
+        /// </summary>
+        /// <param name="equipments">Equipment[] to clear</param>
+        /// <param name="startIndex">Start index (index 0)</param>
+        /// <param name="endIndex">End index</param>
+        public static void ClearEquipment(Equipment[] equipments, int startIndex, int endIndex)
+        {
+            for (int eqIndex = startIndex; eqIndex < endIndex; eqIndex++)
+            {
+                Array.Clear(equipments[eqIndex].EquipmentBytes, 0, Constants.SIZEOF_EQUIPMENT);
+            }
+        }
+
     }
 }

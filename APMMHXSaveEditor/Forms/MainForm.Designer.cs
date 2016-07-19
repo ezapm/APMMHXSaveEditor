@@ -45,8 +45,10 @@
             this.allCraftablePalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBoxToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setItemAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipmentBoxToolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.importEqpBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEqpBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +110,7 @@
             this.labelHair = new System.Windows.Forms.Label();
             this.labelGender = new System.Windows.Forms.Label();
             this.tabPageEquipmentBoxSlot = new System.Windows.Forms.TabPage();
+            this.buttonClearEquipmentBox = new System.Windows.Forms.Button();
             this.buttonEditEquipment = new System.Windows.Forms.Button();
             this.comboBoxEquipmentBox = new System.Windows.Forms.ComboBox();
             this.listViewEquipment = new System.Windows.Forms.ListView();
@@ -115,6 +118,7 @@
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderEquipmentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageItemBox = new System.Windows.Forms.TabPage();
+            this.buttonClearItemBox = new System.Windows.Forms.Button();
             this.buttonEditItemBox = new System.Windows.Forms.Button();
             this.comboBoxItemBox = new System.Windows.Forms.ComboBox();
             this.listViewItemBox = new System.Windows.Forms.ListView();
@@ -122,6 +126,7 @@
             this.columnHeaderItemBoxID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderItemBoxAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageItemPouch = new System.Windows.Forms.TabPage();
+            this.buttonClearItemPouch = new System.Windows.Forms.Button();
             this.buttonEditItemPouch = new System.Windows.Forms.Button();
             this.comboBoxPouch = new System.Windows.Forms.ComboBox();
             this.listViewItemPouch = new System.Windows.Forms.ListView();
@@ -133,7 +138,7 @@
             this.listViewPalicos = new System.Windows.Forms.ListView();
             this.columnHeaderPalicoSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPalicoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.setItemAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -286,7 +291,8 @@
             this.maxItemsToolStripMenuItem,
             this.setItemAmountToolStripMenuItem,
             this.importListToolStripMenuItem,
-            this.exportToListToolStripMenuItem});
+            this.exportToListToolStripMenuItem,
+            this.deleteAllItemsToolStripMenuItem});
             this.itemBoxToolsToolStripMenuItem.Name = "itemBoxToolsToolStripMenuItem";
             this.itemBoxToolsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.itemBoxToolsToolStripMenuItem.Text = "Item Box Tools";
@@ -297,6 +303,13 @@
             this.maxItemsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.maxItemsToolStripMenuItem.Text = "Max Items";
             this.maxItemsToolStripMenuItem.Click += new System.EventHandler(this.maxItemsToolStripMenuItem_Click);
+            // 
+            // setItemAmountToolStripMenuItem
+            // 
+            this.setItemAmountToolStripMenuItem.Name = "setItemAmountToolStripMenuItem";
+            this.setItemAmountToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.setItemAmountToolStripMenuItem.Text = "Set Item Amount";
+            this.setItemAmountToolStripMenuItem.Click += new System.EventHandler(this.setItemAmountToolStripMenuItem_Click);
             // 
             // importListToolStripMenuItem
             // 
@@ -312,11 +325,19 @@
             this.exportToListToolStripMenuItem.Text = "Export To List";
             this.exportToListToolStripMenuItem.Click += new System.EventHandler(this.exportToListToolStripMenuItem_Click);
             // 
+            // deleteAllItemsToolStripMenuItem
+            // 
+            this.deleteAllItemsToolStripMenuItem.Name = "deleteAllItemsToolStripMenuItem";
+            this.deleteAllItemsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.deleteAllItemsToolStripMenuItem.Text = "Delete All Items";
+            this.deleteAllItemsToolStripMenuItem.Click += new System.EventHandler(this.deleteAllItemsToolStripMenuItem_Click);
+            // 
             // equipmentBoxToolsToolStripMenuItem1
             // 
             this.equipmentBoxToolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importEqpBoxToolStripMenuItem,
-            this.exportEqpBoxToolStripMenuItem});
+            this.exportEqpBoxToolStripMenuItem,
+            this.deleteAllEquipmentToolStripMenuItem});
             this.equipmentBoxToolsToolStripMenuItem1.Name = "equipmentBoxToolsToolStripMenuItem1";
             this.equipmentBoxToolsToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
             this.equipmentBoxToolsToolStripMenuItem1.Text = "Equipment Box Tools";
@@ -324,14 +345,14 @@
             // importEqpBoxToolStripMenuItem
             // 
             this.importEqpBoxToolStripMenuItem.Name = "importEqpBoxToolStripMenuItem";
-            this.importEqpBoxToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.importEqpBoxToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.importEqpBoxToolStripMenuItem.Text = "Import Eqp Box";
             this.importEqpBoxToolStripMenuItem.Click += new System.EventHandler(this.importEqpBoxToolStripMenuItem_Click);
             // 
             // exportEqpBoxToolStripMenuItem
             // 
             this.exportEqpBoxToolStripMenuItem.Name = "exportEqpBoxToolStripMenuItem";
-            this.exportEqpBoxToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportEqpBoxToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exportEqpBoxToolStripMenuItem.Text = "Export Eqp Box";
             this.exportEqpBoxToolStripMenuItem.Click += new System.EventHandler(this.exportEqpBoxToolStripMenuItem_Click);
             // 
@@ -862,6 +883,7 @@
             // tabPageEquipmentBoxSlot
             // 
             this.tabPageEquipmentBoxSlot.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageEquipmentBoxSlot.Controls.Add(this.buttonClearEquipmentBox);
             this.tabPageEquipmentBoxSlot.Controls.Add(this.buttonEditEquipment);
             this.tabPageEquipmentBoxSlot.Controls.Add(this.comboBoxEquipmentBox);
             this.tabPageEquipmentBoxSlot.Controls.Add(this.listViewEquipment);
@@ -871,6 +893,16 @@
             this.tabPageEquipmentBoxSlot.Size = new System.Drawing.Size(542, 271);
             this.tabPageEquipmentBoxSlot.TabIndex = 1;
             this.tabPageEquipmentBoxSlot.Text = "Equipment";
+            // 
+            // buttonClearEquipmentBox
+            // 
+            this.buttonClearEquipmentBox.Location = new System.Drawing.Point(135, 239);
+            this.buttonClearEquipmentBox.Name = "buttonClearEquipmentBox";
+            this.buttonClearEquipmentBox.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearEquipmentBox.TabIndex = 4;
+            this.buttonClearEquipmentBox.Text = "Clear Box";
+            this.buttonClearEquipmentBox.UseVisualStyleBackColor = true;
+            this.buttonClearEquipmentBox.Click += new System.EventHandler(this.buttonClearEquipmentBox_Click);
             // 
             // buttonEditEquipment
             // 
@@ -946,6 +978,7 @@
             // tabPageItemBox
             // 
             this.tabPageItemBox.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageItemBox.Controls.Add(this.buttonClearItemBox);
             this.tabPageItemBox.Controls.Add(this.buttonEditItemBox);
             this.tabPageItemBox.Controls.Add(this.comboBoxItemBox);
             this.tabPageItemBox.Controls.Add(this.listViewItemBox);
@@ -954,6 +987,16 @@
             this.tabPageItemBox.Size = new System.Drawing.Size(542, 271);
             this.tabPageItemBox.TabIndex = 2;
             this.tabPageItemBox.Text = "Item Box";
+            // 
+            // buttonClearItemBox
+            // 
+            this.buttonClearItemBox.Location = new System.Drawing.Point(135, 239);
+            this.buttonClearItemBox.Name = "buttonClearItemBox";
+            this.buttonClearItemBox.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearItemBox.TabIndex = 6;
+            this.buttonClearItemBox.Text = "Clear Box";
+            this.buttonClearItemBox.UseVisualStyleBackColor = true;
+            this.buttonClearItemBox.Click += new System.EventHandler(this.buttonClearItemBox_Click);
             // 
             // buttonEditItemBox
             // 
@@ -1028,6 +1071,7 @@
             // tabPageItemPouch
             // 
             this.tabPageItemPouch.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageItemPouch.Controls.Add(this.buttonClearItemPouch);
             this.tabPageItemPouch.Controls.Add(this.buttonEditItemPouch);
             this.tabPageItemPouch.Controls.Add(this.comboBoxPouch);
             this.tabPageItemPouch.Controls.Add(this.listViewItemPouch);
@@ -1036,6 +1080,16 @@
             this.tabPageItemPouch.Size = new System.Drawing.Size(542, 271);
             this.tabPageItemPouch.TabIndex = 4;
             this.tabPageItemPouch.Text = "Pouch";
+            // 
+            // buttonClearItemPouch
+            // 
+            this.buttonClearItemPouch.Location = new System.Drawing.Point(135, 239);
+            this.buttonClearItemPouch.Name = "buttonClearItemPouch";
+            this.buttonClearItemPouch.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearItemPouch.TabIndex = 6;
+            this.buttonClearItemPouch.Text = "Clear Pouch";
+            this.buttonClearItemPouch.UseVisualStyleBackColor = true;
+            this.buttonClearItemPouch.Click += new System.EventHandler(this.buttonClearItemPouch_Click);
             // 
             // buttonEditItemPouch
             // 
@@ -1146,12 +1200,12 @@
             this.columnHeaderPalicoName.Text = "Name";
             this.columnHeaderPalicoName.Width = 410;
             // 
-            // setItemAmountToolStripMenuItem
+            // deleteAllEquipmentToolStripMenuItem
             // 
-            this.setItemAmountToolStripMenuItem.Name = "setItemAmountToolStripMenuItem";
-            this.setItemAmountToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.setItemAmountToolStripMenuItem.Text = "Set Item Amount";
-            this.setItemAmountToolStripMenuItem.Click += new System.EventHandler(this.setItemAmountToolStripMenuItem_Click);
+            this.deleteAllEquipmentToolStripMenuItem.Name = "deleteAllEquipmentToolStripMenuItem";
+            this.deleteAllEquipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.deleteAllEquipmentToolStripMenuItem.Text = "Delete All Equipment";
+            this.deleteAllEquipmentToolStripMenuItem.Click += new System.EventHandler(this.deleteAllEquipmentToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1307,6 +1361,11 @@
         private System.Windows.Forms.ToolStripMenuItem importEqpBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportEqpBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setItemAmountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAllItemsToolStripMenuItem;
+        private System.Windows.Forms.Button buttonClearItemBox;
+        private System.Windows.Forms.Button buttonClearItemPouch;
+        private System.Windows.Forms.Button buttonClearEquipmentBox;
+        private System.Windows.Forms.ToolStripMenuItem deleteAllEquipmentToolStripMenuItem;
     }
 }
 

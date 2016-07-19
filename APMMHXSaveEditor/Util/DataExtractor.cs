@@ -122,7 +122,7 @@ namespace APMMHXSaveEditor.Util
                     palico.EquippedActions = binaryReader.ReadBytes(8);
                     palico.EquippedSkills = binaryReader.ReadBytes(8);
                     palico.LearnedActions = binaryReader.ReadBytes(16);
-                    palico.LearnedSkills = binaryReader.ReadBytes(16);
+                    palico.LearnedSkills = binaryReader.ReadBytes(12);
                     palico.LearnedActionRNG = binaryReader.ReadUInt16();
                     palico.LearnedSkillRNG = binaryReader.ReadUInt16();
                     //Skip to text

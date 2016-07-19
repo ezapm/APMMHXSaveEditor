@@ -31,7 +31,7 @@ namespace APMMHXSaveEditor.Data
 
         public override string ToString()
         {
-            if (this.Level == 0 || String.IsNullOrEmpty(this.Name))
+            if (this.Name == "")
                 return "[Empty]";
             else
                 return string.Format("[Lv. {0,2}] {1}", this.Level, this.Name);
