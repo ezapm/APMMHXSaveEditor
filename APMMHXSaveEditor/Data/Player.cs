@@ -53,6 +53,8 @@ namespace APMMHXSaveEditor.Data
         public Shop[] CraftableWeaponShops { get; set; }
         public Shop[] CraftablePalicoShops { get; set; }
 
+        public byte[] UnlockedBoxData { get; set; } //Holds data for unlocked boxes
+
         public GuildCard PlayerGuildCard { get; set; }
 
         public Player()

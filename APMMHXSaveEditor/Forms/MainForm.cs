@@ -771,5 +771,17 @@ namespace APMMHXSaveEditor
             }
         }
 
+        private void allBoxSlotsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Unlock all boxes?\nWARNING: EXPERIMENTAL FEATURE", "Unlock all boxes?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.UnlockAllBoxes(saveFile.Players[currentPlayer].UnlockedBoxData);
+                MessageBox.Show("All item boxes and palico boxes are now unlocked","Success!");
+            }
+        }
+
     }
 }

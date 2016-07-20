@@ -76,6 +76,8 @@ namespace APMMHXSaveEditor.Data
 
         public const UInt32 PLAYER_GUILD_CARD_OFFSET = 0x09F0FE; //Size 5208
 
+        public const UInt16 UNLOCKED_BOXES_OFFSET = 0x1A22; //Size 8
+
     }
 
     public static class PalicoOffsets 

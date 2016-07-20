@@ -167,6 +167,9 @@ namespace APMMHXSaveEditor.Util
                     player.CraftablePalicoShops[i] = new Shop(binaryReader.ReadBytes(Constants.SIZEOF_CRAFTABLE_PALICO_GEAR));
                 }
 
+                //Unlocked Box Data
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
+                player.UnlockedBoxData = binaryReader.ReadBytes(8);
 
                 players[index] = player;
             }
@@ -325,6 +328,10 @@ namespace APMMHXSaveEditor.Util
                 {
                     binaryWriter.Write(player.CraftablePalicoShops[i].ShopData);
                 }
+
+                //Unlocked Box Data
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
+                binaryWriter.Write(player.UnlockedBoxData);
             }
         }
 

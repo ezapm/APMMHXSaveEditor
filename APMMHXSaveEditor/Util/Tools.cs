@@ -127,5 +127,14 @@ namespace APMMHXSaveEditor.Util
             }
         }
 
+        /// <summary>
+        /// Unlock all boxes and palico boxes
+        /// </summary>
+        /// <param name="boxData">box data bytes</param>
+        public static void UnlockAllBoxes(byte[] boxData)
+        {
+            byte[] unlockData = new byte[] { 0x00, 0x20, 0x60, 0x40, 0x00, 0x20, 0x60, 0x40 };
+            Buffer.BlockCopy(unlockData, 0, boxData, 0, unlockData.Length);
+        }
     }
 }

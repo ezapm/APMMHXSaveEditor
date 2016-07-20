@@ -52,6 +52,7 @@
             this.equipmentBoxToolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.importEqpBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEqpBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportCharmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,7 +139,7 @@
             this.listViewPalicos = new System.Windows.Forms.ListView();
             this.columnHeaderPalicoSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPalicoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.deleteAllEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allBoxSlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -259,7 +260,8 @@
             this.unlockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allCraftableArmorToolStripMenuItem,
             this.allCraftableWeaponsToolStripMenuItem,
-            this.allCraftablePalicoToolStripMenuItem});
+            this.allCraftablePalicoToolStripMenuItem,
+            this.allBoxSlotsToolStripMenuItem});
             this.unlockToolStripMenuItem.Name = "unlockToolStripMenuItem";
             this.unlockToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.unlockToolStripMenuItem.Text = "Unlock";
@@ -355,6 +357,13 @@
             this.exportEqpBoxToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exportEqpBoxToolStripMenuItem.Text = "Export Eqp Box";
             this.exportEqpBoxToolStripMenuItem.Click += new System.EventHandler(this.exportEqpBoxToolStripMenuItem_Click);
+            // 
+            // deleteAllEquipmentToolStripMenuItem
+            // 
+            this.deleteAllEquipmentToolStripMenuItem.Name = "deleteAllEquipmentToolStripMenuItem";
+            this.deleteAllEquipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.deleteAllEquipmentToolStripMenuItem.Text = "Delete All Equipment";
+            this.deleteAllEquipmentToolStripMenuItem.Click += new System.EventHandler(this.deleteAllEquipmentToolStripMenuItem_Click);
             // 
             // exportCharmsToolStripMenuItem
             // 
@@ -896,6 +905,7 @@
             // 
             // buttonClearEquipmentBox
             // 
+            this.buttonClearEquipmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonClearEquipmentBox.Location = new System.Drawing.Point(135, 239);
             this.buttonClearEquipmentBox.Name = "buttonClearEquipmentBox";
             this.buttonClearEquipmentBox.Size = new System.Drawing.Size(75, 23);
@@ -990,6 +1000,7 @@
             // 
             // buttonClearItemBox
             // 
+            this.buttonClearItemBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonClearItemBox.Location = new System.Drawing.Point(135, 239);
             this.buttonClearItemBox.Name = "buttonClearItemBox";
             this.buttonClearItemBox.Size = new System.Drawing.Size(75, 23);
@@ -1083,6 +1094,7 @@
             // 
             // buttonClearItemPouch
             // 
+            this.buttonClearItemPouch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonClearItemPouch.Location = new System.Drawing.Point(135, 239);
             this.buttonClearItemPouch.Name = "buttonClearItemPouch";
             this.buttonClearItemPouch.Size = new System.Drawing.Size(75, 23);
@@ -1200,12 +1212,12 @@
             this.columnHeaderPalicoName.Text = "Name";
             this.columnHeaderPalicoName.Width = 410;
             // 
-            // deleteAllEquipmentToolStripMenuItem
+            // allBoxSlotsToolStripMenuItem
             // 
-            this.deleteAllEquipmentToolStripMenuItem.Name = "deleteAllEquipmentToolStripMenuItem";
-            this.deleteAllEquipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.deleteAllEquipmentToolStripMenuItem.Text = "Delete All Equipment";
-            this.deleteAllEquipmentToolStripMenuItem.Click += new System.EventHandler(this.deleteAllEquipmentToolStripMenuItem_Click);
+            this.allBoxSlotsToolStripMenuItem.Name = "allBoxSlotsToolStripMenuItem";
+            this.allBoxSlotsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.allBoxSlotsToolStripMenuItem.Text = "All Box Slots";
+            this.allBoxSlotsToolStripMenuItem.Click += new System.EventHandler(this.allBoxSlotsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1366,6 +1378,7 @@
         private System.Windows.Forms.Button buttonClearItemPouch;
         private System.Windows.Forms.Button buttonClearEquipmentBox;
         private System.Windows.Forms.ToolStripMenuItem deleteAllEquipmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allBoxSlotsToolStripMenuItem;
     }
 }
 
