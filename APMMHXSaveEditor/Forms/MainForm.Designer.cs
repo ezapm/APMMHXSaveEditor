@@ -43,6 +43,7 @@
             this.allCraftableArmorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCraftableWeaponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCraftablePalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allBoxSlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBoxToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setItemAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,7 +140,14 @@
             this.listViewPalicos = new System.Windows.Forms.ListView();
             this.columnHeaderPalicoSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPalicoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.allBoxSlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPagePalicoEquip = new System.Windows.Forms.TabPage();
+            this.buttonClearPalicoEquipBox = new System.Windows.Forms.Button();
+            this.buttonEditPalicoEquip = new System.Windows.Forms.Button();
+            this.comboBoxPalicoEquipBox = new System.Windows.Forms.ComboBox();
+            this.listViewPalicoEquipBox = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -167,6 +175,7 @@
             this.tabPageItemBox.SuspendLayout();
             this.tabPageItemPouch.SuspendLayout();
             this.tabPagePalico.SuspendLayout();
+            this.tabPagePalicoEquip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -287,6 +296,13 @@
             this.allCraftablePalicoToolStripMenuItem.Text = "All Craftable Palico ";
             this.allCraftablePalicoToolStripMenuItem.Click += new System.EventHandler(this.allCraftablePalicoToolStripMenuItem_Click);
             // 
+            // allBoxSlotsToolStripMenuItem
+            // 
+            this.allBoxSlotsToolStripMenuItem.Name = "allBoxSlotsToolStripMenuItem";
+            this.allBoxSlotsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.allBoxSlotsToolStripMenuItem.Text = "All Box Slots";
+            this.allBoxSlotsToolStripMenuItem.Click += new System.EventHandler(this.allBoxSlotsToolStripMenuItem_Click);
+            // 
             // itemBoxToolsToolStripMenuItem
             // 
             this.itemBoxToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -398,6 +414,7 @@
             this.tabControlMain.Controls.Add(this.tabPageItemBox);
             this.tabControlMain.Controls.Add(this.tabPageItemPouch);
             this.tabControlMain.Controls.Add(this.tabPagePalico);
+            this.tabControlMain.Controls.Add(this.tabPagePalicoEquip);
             this.tabControlMain.Location = new System.Drawing.Point(0, 27);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -1212,12 +1229,93 @@
             this.columnHeaderPalicoName.Text = "Name";
             this.columnHeaderPalicoName.Width = 410;
             // 
-            // allBoxSlotsToolStripMenuItem
+            // tabPagePalicoEquip
             // 
-            this.allBoxSlotsToolStripMenuItem.Name = "allBoxSlotsToolStripMenuItem";
-            this.allBoxSlotsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.allBoxSlotsToolStripMenuItem.Text = "All Box Slots";
-            this.allBoxSlotsToolStripMenuItem.Click += new System.EventHandler(this.allBoxSlotsToolStripMenuItem_Click);
+            this.tabPagePalicoEquip.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPagePalicoEquip.Controls.Add(this.buttonClearPalicoEquipBox);
+            this.tabPagePalicoEquip.Controls.Add(this.buttonEditPalicoEquip);
+            this.tabPagePalicoEquip.Controls.Add(this.comboBoxPalicoEquipBox);
+            this.tabPagePalicoEquip.Controls.Add(this.listViewPalicoEquipBox);
+            this.tabPagePalicoEquip.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePalicoEquip.Name = "tabPagePalicoEquip";
+            this.tabPagePalicoEquip.Size = new System.Drawing.Size(542, 271);
+            this.tabPagePalicoEquip.TabIndex = 6;
+            this.tabPagePalicoEquip.Text = "Palico Equip";
+            // 
+            // buttonClearPalicoEquipBox
+            // 
+            this.buttonClearPalicoEquipBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonClearPalicoEquipBox.Location = new System.Drawing.Point(135, 239);
+            this.buttonClearPalicoEquipBox.Name = "buttonClearPalicoEquipBox";
+            this.buttonClearPalicoEquipBox.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearPalicoEquipBox.TabIndex = 8;
+            this.buttonClearPalicoEquipBox.Text = "Clear Box";
+            this.buttonClearPalicoEquipBox.UseVisualStyleBackColor = true;
+            this.buttonClearPalicoEquipBox.Click += new System.EventHandler(this.buttonClearPalicoEquipBox_Click);
+            // 
+            // buttonEditPalicoEquip
+            // 
+            this.buttonEditPalicoEquip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditPalicoEquip.Location = new System.Drawing.Point(459, 239);
+            this.buttonEditPalicoEquip.Name = "buttonEditPalicoEquip";
+            this.buttonEditPalicoEquip.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditPalicoEquip.TabIndex = 7;
+            this.buttonEditPalicoEquip.Text = "Edit";
+            this.buttonEditPalicoEquip.UseVisualStyleBackColor = true;
+            this.buttonEditPalicoEquip.Click += new System.EventHandler(this.buttonEditPalicoEquip_Click);
+            // 
+            // comboBoxPalicoEquipBox
+            // 
+            this.comboBoxPalicoEquipBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBoxPalicoEquipBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPalicoEquipBox.FormattingEnabled = true;
+            this.comboBoxPalicoEquipBox.Items.AddRange(new object[] {
+            "Box 1",
+            "Box 2",
+            "Box 3",
+            "Box 4",
+            "Box 5",
+            "Box 6",
+            "Box 7"});
+            this.comboBoxPalicoEquipBox.Location = new System.Drawing.Point(8, 241);
+            this.comboBoxPalicoEquipBox.Name = "comboBoxPalicoEquipBox";
+            this.comboBoxPalicoEquipBox.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPalicoEquipBox.TabIndex = 6;
+            this.comboBoxPalicoEquipBox.SelectedIndexChanged += new System.EventHandler(this.comboBoxPalicoEquipBox_SelectedIndexChanged);
+            // 
+            // listViewPalicoEquipBox
+            // 
+            this.listViewPalicoEquipBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewPalicoEquipBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listViewPalicoEquipBox.FullRowSelect = true;
+            this.listViewPalicoEquipBox.GridLines = true;
+            this.listViewPalicoEquipBox.Location = new System.Drawing.Point(0, 0);
+            this.listViewPalicoEquipBox.Name = "listViewPalicoEquipBox";
+            this.listViewPalicoEquipBox.Size = new System.Drawing.Size(542, 235);
+            this.listViewPalicoEquipBox.TabIndex = 5;
+            this.listViewPalicoEquipBox.UseCompatibleStateImageBehavior = false;
+            this.listViewPalicoEquipBox.View = System.Windows.Forms.View.Details;
+            this.listViewPalicoEquipBox.DoubleClick += new System.EventHandler(this.listViewPalicoEquipBox_DoubleClick);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Slot";
+            this.columnHeader3.Width = 40;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Type";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Equipment";
+            this.columnHeader6.Width = 350;
             // 
             // MainForm
             // 
@@ -1261,6 +1359,7 @@
             this.tabPageItemBox.ResumeLayout(false);
             this.tabPageItemPouch.ResumeLayout(false);
             this.tabPagePalico.ResumeLayout(false);
+            this.tabPagePalicoEquip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1379,6 +1478,14 @@
         private System.Windows.Forms.Button buttonClearEquipmentBox;
         private System.Windows.Forms.ToolStripMenuItem deleteAllEquipmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allBoxSlotsToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPagePalicoEquip;
+        private System.Windows.Forms.Button buttonClearPalicoEquipBox;
+        private System.Windows.Forms.Button buttonEditPalicoEquip;
+        private System.Windows.Forms.ComboBox comboBoxPalicoEquipBox;
+        private System.Windows.Forms.ListView listViewPalicoEquipBox;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

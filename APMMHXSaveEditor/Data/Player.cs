@@ -47,6 +47,7 @@ namespace APMMHXSaveEditor.Data
         public Item[] ItemBox { get; set; }
         public Item[] ItemPouch { get; set; }
         public Palico[] Palicos { get; set; }
+        public Equipment[] PalicoEquipment { get; set; }
 
         //Shop Data
         public Shop[] CraftableArmorShops { get; set; }

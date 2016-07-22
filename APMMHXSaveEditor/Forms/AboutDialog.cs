@@ -20,7 +20,7 @@ namespace APMMHXSaveEditor.Forms
 
         private void AboutDialog_Load(object sender, EventArgs e)
         {
-            labelText.Text = string.Format("{0}\n\nWritten by APM\n\nContact: PM APM GameFAQs or GBATemp", Constants.EDITOR_VERSION);
+            labelText.Text = string.Format("{0}\n\nWritten by APM\n\nContact: PM APM on GBATemp", Constants.EDITOR_VERSION);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

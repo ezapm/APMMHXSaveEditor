@@ -135,6 +135,14 @@ namespace APMMHXSaveEditor.Util
                     player.Palicos[pIndex] = palico;
                 }
 
+                //Palico Equipment
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_EQUIPMENT_OFFSET, SeekOrigin.Begin);
+                player.PalicoEquipment = new Equipment[Constants.TOTAL_PALICO_EQUIPMENT_SLOTS];
+                for (int i = 0; i < Constants.TOTAL_PALICO_EQUIPMENT_SLOTS; i++)
+                {
+                    player.PalicoEquipment[i] = new Equipment(binaryReader.ReadBytes(Constants.SIZEOF_EQUIPMENT));
+                }
+                
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PLAYER_GUILD_CARD_OFFSET, SeekOrigin.Begin);
                 player.PlayerGuildCard = new GuildCard(binaryReader.ReadBytes(Constants.SIZEOF_GUILD_CARD));
 
@@ -298,7 +306,13 @@ namespace APMMHXSaveEditor.Util
                     binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.RGBA_VALUE_OFFSET, SeekOrigin.Begin);
                     binaryWriter.Write(palico.RGBAValue);
                 }
-                
+
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_EQUIPMENT_OFFSET, SeekOrigin.Begin);
+                for (int i = 0; i < Constants.TOTAL_PALICO_EQUIPMENT_SLOTS; i++)
+                {
+                    binaryWriter.Write(player.PalicoEquipment[i].EquipmentBytes);
+                }
+
                 //Guild Card
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PLAYER_GUILD_CARD_OFFSET, SeekOrigin.Begin);
                 binaryWriter.Write(player.PlayerGuildCard.GuildCardData);

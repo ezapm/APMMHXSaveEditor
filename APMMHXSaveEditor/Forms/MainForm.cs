@@ -64,6 +64,7 @@ namespace APMMHXSaveEditor
             comboBoxGender.SelectedIndex = 0;
             comboBoxItemBox.SelectedIndex = 0;
             comboBoxPouch.SelectedIndex = 0;
+            comboBoxPalicoEquipBox.SelectedIndex = 0;
 
             //allCraftableArmorToolStripMenuItem.Visible = false;
             buttonEditGuildCard.Visible = false;
@@ -99,13 +100,14 @@ namespace APMMHXSaveEditor
             listViewItemBox.Items.Clear();
             listViewItemPouch.Items.Clear();
             listViewPalicos.Items.Clear();
+            listViewPalicoEquipBox.Items.Clear();
 
             saveSlot1ToolStripMenuItem.Checked = false;
             saveSlot2ToolStripMenuItem.Checked = false;
             saveSlot3ToolStripMenuItem.Checked = false;
             saveSlot1ToolStripMenuItem.Enabled = false;
-            saveSlot1ToolStripMenuItem.Enabled = false;
-            saveSlot1ToolStripMenuItem.Enabled = false;
+            saveSlot2ToolStripMenuItem.Enabled = false;
+            saveSlot3ToolStripMenuItem.Enabled = false;
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -314,6 +316,7 @@ namespace APMMHXSaveEditor
             loadItemBoxes(currentPlayer);
             loadItemPouch(currentPlayer);
             loadPalicos(currentPlayer);
+            loadPalicoEquipBox(currentPlayer);
         }
 
 
@@ -413,6 +416,19 @@ namespace APMMHXSaveEditor
                 ListViewItem lvi = new ListViewItem((i + 1).ToString());
                 lvi.SubItems.Add(saveFile.Players[slot].Palicos[i].ToString());
                 listViewPalicos.Items.Add(lvi);
+            }
+        }
+
+        private void loadPalicoEquipBox(int slot)
+        {
+            listViewPalicoEquipBox.Items.Clear();
+            int index = comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX;
+            for (int i = 0; i < Constants.ITEM_PER_BOX; i++)
+            {
+                ListViewItem lvi = new ListViewItem((i + 1).ToString());
+                lvi.SubItems.Add(GameConstants.EquipmentTypes[saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[0]]);
+                lvi.SubItems.Add(saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[1].ToString());
+                listViewPalicoEquipBox.Items.Add(lvi);
             }
         }
 
@@ -781,6 +797,55 @@ namespace APMMHXSaveEditor
                 Tools.UnlockAllBoxes(saveFile.Players[currentPlayer].UnlockedBoxData);
                 MessageBox.Show("All item boxes and palico boxes are now unlocked","Success!");
             }
+        }
+
+        private void comboBoxPalicoEquipBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+            loadPalicoEquipBox(currentPlayer);
+        }
+
+        private void buttonClearPalicoEquipBox_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+            DialogResult dialogResult = MessageBox.Show("Clear ALL items from current palico equipment box?", "Delete all equip?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Tools.ClearEquipment(saveFile.Players[currentPlayer].PalicoEquipment, 
+                    (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX),
+                    ((comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX) + Constants.ITEM_PER_BOX));
+                loadPalicoEquipBox(currentPlayer);
+            }
+        }
+
+        private void buttonEditPalicoEquip_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            if (listViewPalicoEquipBox.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an item to edit");
+                return;
+            }
+
+            int itemSelected = listViewPalicoEquipBox.SelectedItems[0].Index + (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+
+            EquipmentEditDialog eed = new EquipmentEditDialog(saveFile.Players[currentPlayer].PalicoEquipment[itemSelected]);
+            eed.ShowDialog();
+
+            if (eed.DialogResult == DialogResult.OK)
+            {
+                loadPalicoEquipBox(currentPlayer);
+                int indexSelected = itemSelected - (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+                listViewPalicoEquipBox.Items[indexSelected].Selected = true;
+                listViewPalicoEquipBox.TopItem = listViewPalicoEquipBox.SelectedItems[0];
+            }
+            eed.Dispose();
+        }
+
+        private void listViewPalicoEquipBox_DoubleClick(object sender, EventArgs e)
+        {
+            buttonEditPalicoEquip.PerformClick();
         }
 
     }

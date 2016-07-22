@@ -68,6 +68,7 @@ namespace APMMHXSaveEditor.Data
         //public const UInt16 POKKE_POINTS_OFFSET = 0x148E; //Size 4
         //public const UInt16 YUKUMO_POINTS_OFFSET = 0x1492; //Size 4
         public const UInt32 PALICO_OFFSET = 0x019426; //Size 19140 (60 of them each 319 bytes long)
+        public const UInt32 PALICO_EQUIPMENT_OFFSET = 0x10B47; //Size 25200 (700 of them 36 bytes long)
 
         public const UInt32 SHOP_OFFSETS = 0x1D76;
         public const UInt32 CRAFTABLE_WEAPONS_OFFSET = 0x20BE;

@@ -10,12 +10,8 @@ namespace APMMHXSaveEditor.Data
     {
 
         //Equipment
-        public static readonly string[] EquipmentTypes = { "None", "Head", "Chest", "Arms", "Waist", "Legs", "Talisman", "Great Sword", "Sword and Shield", "Hammer", "Lance", "Heavy Bowgun", "Medium Bowgun?", "Light Bowgun", "Longsword", "Switch Axe", "Gunlance", "Bow", "Dual Blades", "Hunting Horn", "Insect Glaive", "Charge Blade" };
+        public static readonly string[] EquipmentTypes = { "None", "Head", "Chest", "Arms", "Waist", "Legs", "Talisman", "Great Sword", "Sword and Shield", "Hammer", "Lance", "Heavy Bowgun", "Medium Bowgun?", "Light Bowgun", "Longsword", "Switch Axe", "Gunlance", "Bow", "Dual Blades", "Hunting Horn", "Insect Glaive", "Charge Blade", "Palico Weapon", "Palico Helmet", "Palico Armor" };
        
-
-        //Palico Equipment
-        public static readonly string[] PalicoEquipmentType = { "Chest", "Head", "Weapon", "-----" };
-
         //Palcio Data
         public static readonly string[] PalicoForte = { "None/Leadership", "Fighting", "Protection", "Support", "Healing", "Bombing", "Stealing", "Treasure", "Launching", "Stamina" };
         public static readonly string[] PalicoSupportMoves = { "-----", "Herb Horn", "Health Horn", "True Health Horn", "Detox Horn", "Cheer Horn", "Demon Horn", "Armor Horn", "Ultrasonic Horn ", "Mini Barrel Bombay", "Barrel Bombay", "Big Barrel Bombay", "Mega Barrel Bombay", "Giga Barrel Bombay", "Bounce Bombay", "Flash Bombay", "Anti-Monster Mine", "Anti-Monster Mine+", "Pitfall Purr-ision", "Shock Purr-ision", "Poison Purr-ision", "Trampoliner", "Vase of Vitality", "Parting Gift", "Emergency Retreat", "Big Boomerangs", "Piercing Boomerangs", "Camoflage", "Weapon Upgrade", "Furr-ious", "Taunt", "Palico Rally", "Dung Bombay", "Go, Fight, Win", "Soothing Roll", "Explosive Roll", "Pilfer", "Plundering", "Felyne Comet", "Claw Dance", "Sumo Stomp", "Chestnut Cannon", "Shock Tripper", "Excavator", "Mega Boomerang", "Rath-of-meow", "NULL [46]" };
