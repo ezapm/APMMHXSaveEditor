@@ -473,6 +473,7 @@ namespace APMMHXSaveEditor
             ped.ShowDialog();
             if (ped.DialogResult == DialogResult.OK)
             {
+                saveFile.Players[currentPlayer].Palicos[itemSelected] = ped.Palico;
                 loadPalicos(currentPlayer);
                 listViewPalicos.Items[itemSelected].Selected = true;
                 listViewPalicos.TopItem = listViewPalicos.SelectedItems[0];
