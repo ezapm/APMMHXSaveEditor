@@ -30,6 +30,8 @@
         {
             this.tabControlPalico = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.textBoxLearnedSkillRNG = new System.Windows.Forms.TextBox();
+            this.textBoxLearnedActionRNG = new System.Windows.Forms.TextBox();
             this.textBoxGreetings = new System.Windows.Forms.TextBox();
             this.labelGretings = new System.Windows.Forms.Label();
             this.textBoxPreviousOwner = new System.Windows.Forms.TextBox();
@@ -70,8 +72,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.textBoxLearnedActionRNG = new System.Windows.Forms.TextBox();
-            this.textBoxLearnedSkillRNG = new System.Windows.Forms.TextBox();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonImport = new System.Windows.Forms.Button();
             this.tabControlPalico.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).BeginInit();
@@ -133,6 +135,20 @@
             this.tabPageGeneral.Size = new System.Drawing.Size(437, 203);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
+            // 
+            // textBoxLearnedSkillRNG
+            // 
+            this.textBoxLearnedSkillRNG.Location = new System.Drawing.Point(303, 98);
+            this.textBoxLearnedSkillRNG.Name = "textBoxLearnedSkillRNG";
+            this.textBoxLearnedSkillRNG.Size = new System.Drawing.Size(120, 20);
+            this.textBoxLearnedSkillRNG.TabIndex = 17;
+            // 
+            // textBoxLearnedActionRNG
+            // 
+            this.textBoxLearnedActionRNG.Location = new System.Drawing.Point(170, 98);
+            this.textBoxLearnedActionRNG.Name = "textBoxLearnedActionRNG";
+            this.textBoxLearnedActionRNG.Size = new System.Drawing.Size(120, 20);
+            this.textBoxLearnedActionRNG.TabIndex = 15;
             // 
             // textBoxGreetings
             // 
@@ -486,19 +502,25 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // textBoxLearnedActionRNG
+            // buttonExport
             // 
-            this.textBoxLearnedActionRNG.Location = new System.Drawing.Point(170, 98);
-            this.textBoxLearnedActionRNG.Name = "textBoxLearnedActionRNG";
-            this.textBoxLearnedActionRNG.Size = new System.Drawing.Size(120, 20);
-            this.textBoxLearnedActionRNG.TabIndex = 15;
+            this.buttonExport.Location = new System.Drawing.Point(5, 232);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(75, 23);
+            this.buttonExport.TabIndex = 3;
+            this.buttonExport.Text = "Export";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
-            // textBoxLearnedSkillRNG
+            // buttonImport
             // 
-            this.textBoxLearnedSkillRNG.Location = new System.Drawing.Point(303, 98);
-            this.textBoxLearnedSkillRNG.Name = "textBoxLearnedSkillRNG";
-            this.textBoxLearnedSkillRNG.Size = new System.Drawing.Size(120, 20);
-            this.textBoxLearnedSkillRNG.TabIndex = 17;
+            this.buttonImport.Location = new System.Drawing.Point(86, 232);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(75, 23);
+            this.buttonImport.TabIndex = 4;
+            this.buttonImport.Text = "Import";
+            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // PalicoEditDialog
             // 
@@ -507,6 +529,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(451, 268);
+            this.Controls.Add(this.buttonImport);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.tabControlPalico);
@@ -575,5 +599,7 @@
         private System.Windows.Forms.Label labelNameGiver;
         private System.Windows.Forms.TextBox textBoxLearnedSkillRNG;
         private System.Windows.Forms.TextBox textBoxLearnedActionRNG;
+        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.Button buttonImport;
     }
 }

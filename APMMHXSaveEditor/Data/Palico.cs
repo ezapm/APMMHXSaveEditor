@@ -28,7 +28,7 @@ namespace APMMHXSaveEditor.Data
         //Unknown Values
         public byte[] Unknown1 { get; set; } //Place Holder Offset 0x58 Size 8
         public byte[] Unknown2 { get; set; } //Place Holder Offset 0xDC Size 62
-        public byte[] Ukknown3 { get; set; } //Place Holder Offset 0x11E Size 33
+        public byte[] Unknown3 { get; set; } //Place Holder Offset 0x11E Size 33
 
 
         public Palico()

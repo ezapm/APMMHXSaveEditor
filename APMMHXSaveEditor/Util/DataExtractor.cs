@@ -125,13 +125,15 @@ namespace APMMHXSaveEditor.Util
                     palico.LearnedSkills = binaryReader.ReadBytes(12);
                     palico.LearnedActionRNG = binaryReader.ReadUInt16();
                     palico.LearnedSkillRNG = binaryReader.ReadUInt16();
-                    //Skip to text
-                    binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.GREETING_OFFSET, SeekOrigin.Begin);
+                    palico.Unknown1 = binaryReader.ReadBytes(8);
+                    //binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.GREETING_OFFSET, SeekOrigin.Begin);
                     palico.Greeting = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_PALICO_GREETINGS), 0, Constants.SIZEOF_PALICO_GREETINGS);
                     palico.NameGiver = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
                     palico.PreviousMaster = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
-                    binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.RGBA_VALUE_OFFSET, SeekOrigin.Begin);
+                    //binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.RGBA_VALUE_OFFSET, SeekOrigin.Begin);
+                    palico.Unknown2 = binaryReader.ReadBytes(62);
                     palico.RGBAValue = binaryReader.ReadBytes(4);
+                    palico.Unknown3 = binaryReader.ReadBytes(33);
                     player.Palicos[pIndex] = palico;
                 }
 
@@ -289,9 +291,10 @@ namespace APMMHXSaveEditor.Util
                     binaryWriter.Write(palico.LearnedSkills);
                     binaryWriter.Write(palico.LearnedActionRNG);
                     binaryWriter.Write(palico.LearnedSkillRNG);
+                    binaryWriter.Write(palico.Unknown1);
 
-                    //Skip to texts
-                    binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.GREETING_OFFSET, SeekOrigin.Begin);
+                    //Texts
+                    //binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.GREETING_OFFSET, SeekOrigin.Begin);
                     byte[] palicoGreetingsBuff = new byte[Constants.SIZEOF_PALICO_GREETINGS];
                     Encoding.UTF8.GetBytes(palico.Greeting, 0, palico.Greeting.Length, palicoGreetingsBuff, 0);
                     binaryWriter.Write(palicoGreetingsBuff);
@@ -302,9 +305,11 @@ namespace APMMHXSaveEditor.Util
                     Encoding.UTF8.GetBytes(palico.PreviousMaster, 0, palico.PreviousMaster.Length, palicoPreviousOwner, 0);
                     binaryWriter.Write(palicoPreviousOwner);
 
-                    //Skip to RGBA
-                    binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.RGBA_VALUE_OFFSET, SeekOrigin.Begin);
+                    //RGBA
+                    binaryWriter.Write(palico.Unknown2);
+                    //binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_OFFSET + (pIndex * Constants.SIZEOF_PALICO) + PalicoOffsets.RGBA_VALUE_OFFSET, SeekOrigin.Begin);
                     binaryWriter.Write(palico.RGBAValue);
+                    binaryWriter.Write(palico.Unknown3);
                 }
 
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PALICO_EQUIPMENT_OFFSET, SeekOrigin.Begin);
@@ -354,7 +359,7 @@ namespace APMMHXSaveEditor.Util
         /// </summary>
         /// <param name="buffer">byte array of items</param>
         /// <returns>Returns an item array</returns>
-        public Item[] GetItems(byte[] buff)
+        public static Item[] GetItems(byte[] buff)
         {
             double totalItems = buff.Length / 2.25; 
             Item[] items = new Item[(int)totalItems];
@@ -389,7 +394,7 @@ namespace APMMHXSaveEditor.Util
         /// </summary>
         /// <param name="items">The items to pack</param>
         /// <returns>Packed byte arrray</returns>
-        public byte[] PackItems(Item[] items)
+        public static byte[] PackItems(Item[] items)
         {
             int byteIndex = 0;
             double totalItems = 2.25 * items.Length; //Yeah this is pretty bad. Might kick me in the ass.
@@ -408,6 +413,85 @@ namespace APMMHXSaveEditor.Util
                     num2 -= 8U;
                 }
             }
+            return buffer;
+        }
+
+        /// <summary>
+        /// Get palico from byte[]
+        /// </summary>
+        /// <param name="buffer">buffer containing the palico data</param>
+        /// <returns></returns>
+        public static Palico GetPalcio(byte[] buffer)
+        {
+            Palico palico = new Palico();
+            BinaryReader binaryReader = new BinaryReader((Stream) new MemoryStream(buffer));
+
+            palico.Name = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
+            palico.XP = binaryReader.ReadUInt32();
+            palico.Level = binaryReader.ReadByte();
+            palico.Forte = binaryReader.ReadByte();
+            palico.Enthusiasm = binaryReader.ReadByte();
+            palico.Target = binaryReader.ReadByte();
+            palico.EquippedActions = binaryReader.ReadBytes(8);
+            palico.EquippedSkills = binaryReader.ReadBytes(8);
+            palico.LearnedActions = binaryReader.ReadBytes(16);
+            palico.LearnedSkills = binaryReader.ReadBytes(12);
+            palico.LearnedActionRNG = binaryReader.ReadUInt16();
+            palico.LearnedSkillRNG = binaryReader.ReadUInt16();
+            palico.Unknown1 = binaryReader.ReadBytes(8);
+            palico.Greeting = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_PALICO_GREETINGS), 0, Constants.SIZEOF_PALICO_GREETINGS);
+            palico.NameGiver = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
+            palico.PreviousMaster = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
+            palico.Unknown2 = binaryReader.ReadBytes(62);
+            palico.RGBAValue = binaryReader.ReadBytes(4);
+            palico.Unknown3 = binaryReader.ReadBytes(33);
+
+            return palico;
+        }
+
+
+        /// <summary>
+        /// Convert palico to it's byte[]
+        /// </summary>
+        /// <param name="palico">Palico to pack</param>
+        /// <returns></returns>
+        public static byte[] PackPalico(Palico palico)
+        {
+            byte[] buffer = new byte[Constants.SIZEOF_PALICO];
+            BinaryWriter binaryWriter = new BinaryWriter((Stream)new MemoryStream(buffer));
+
+            byte[] palicoNameBuff = new byte[Constants.SIZEOF_NAME];
+            Encoding.UTF8.GetBytes(palico.Name, 0, palico.Name.Length, palicoNameBuff, 0);
+            binaryWriter.Write(palicoNameBuff);
+            binaryWriter.Write(palico.XP);
+            binaryWriter.Write(palico.Level);
+            binaryWriter.Write(palico.Forte);
+            binaryWriter.Write(palico.Enthusiasm);
+            binaryWriter.Write(palico.Target);
+            binaryWriter.Write(palico.EquippedActions);
+            binaryWriter.Write(palico.EquippedSkills);
+            binaryWriter.Write(palico.LearnedActions);
+            binaryWriter.Write(palico.LearnedSkills);
+            binaryWriter.Write(palico.LearnedActionRNG);
+            binaryWriter.Write(palico.LearnedSkillRNG);
+            binaryWriter.Write(palico.Unknown1);
+
+            //Texts
+            byte[] palicoGreetingsBuff = new byte[Constants.SIZEOF_PALICO_GREETINGS];
+            Encoding.UTF8.GetBytes(palico.Greeting, 0, palico.Greeting.Length, palicoGreetingsBuff, 0);
+            binaryWriter.Write(palicoGreetingsBuff);
+            byte[] palicoNamegiverBuff = new byte[Constants.SIZEOF_NAME];
+            Encoding.UTF8.GetBytes(palico.NameGiver, 0, palico.NameGiver.Length, palicoNamegiverBuff, 0);
+            binaryWriter.Write(palicoNamegiverBuff);
+            byte[] palicoPreviousOwner = new byte[Constants.SIZEOF_NAME];
+            Encoding.UTF8.GetBytes(palico.PreviousMaster, 0, palico.PreviousMaster.Length, palicoPreviousOwner, 0);
+            binaryWriter.Write(palicoPreviousOwner);
+
+            //RGBA
+            binaryWriter.Write(palico.Unknown2);
+            binaryWriter.Write(palico.RGBAValue);
+            binaryWriter.Write(palico.Unknown3);
+
             return buffer;
         }
     }

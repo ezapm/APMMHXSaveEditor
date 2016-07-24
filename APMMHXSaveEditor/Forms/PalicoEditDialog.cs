@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using APMMHXSaveEditor.Data;
 using APMMHXSaveEditor.Forms;
 using APMMHXSaveEditor.Util;
+using System.IO;
 
 namespace APMMHXSaveEditor.Forms
 {
@@ -36,7 +37,11 @@ namespace APMMHXSaveEditor.Forms
             textBoxRGBA.MaxLength = 8;
             textBoxGreetings.MaxLength = 30;
 
-            //Loading General
+            loadPalico();
+        }
+
+        private void loadPalico()
+        {
             textBoxName.Text = palico.Name;
             numericUpDownLevel.Value = palico.Level;
             numericUpDownXP.Value = palico.XP;
@@ -54,7 +59,23 @@ namespace APMMHXSaveEditor.Forms
             loadEquippedSkills();
             loadLearnedActions();
             loadLearnedSkills();
+        }
 
+        private void savePalico()
+        {
+            //General
+            palico.Name = textBoxName.Text;
+            palico.Level = (byte)numericUpDownLevel.Value;
+            palico.XP = (UInt32)numericUpDownXP.Value;
+            palico.Forte = (byte)comboBoxForte.SelectedIndex;
+            palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
+            palico.Target = (byte)numericUpDownTarget.Value;
+            palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
+            palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
+            palico.NameGiver = textBoxNameGiver.Text;
+            palico.PreviousMaster = textBoxPreviousOwner.Text;
+            palico.Greeting = textBoxGreetings.Text;
+            palico.RGBAValue = Converters.StringToByteArray(textBoxRGBA.Text);
         }
 
         private void loadEquippedActions()
@@ -118,20 +139,7 @@ namespace APMMHXSaveEditor.Forms
             }
             try
             {
-                //General
-                palico.Name = textBoxName.Text;
-                palico.Level = (byte)numericUpDownLevel.Value;
-                palico.XP = (UInt32)numericUpDownXP.Value;
-                palico.Forte = (byte)comboBoxForte.SelectedIndex;
-                palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
-                palico.Target = (byte)numericUpDownTarget.Value;
-                palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
-                palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
-                palico.NameGiver = textBoxNameGiver.Text;
-                palico.PreviousMaster = textBoxPreviousOwner.Text;
-                palico.Greeting = textBoxGreetings.Text;
-                palico.RGBAValue = Converters.StringToByteArray(textBoxRGBA.Text);
-
+                savePalico();
                 this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
@@ -243,6 +251,68 @@ namespace APMMHXSaveEditor.Forms
             }
 
             paed.Dispose();
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            byte[] temp = DataExtractor.PackPalico(this.palico);
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "Palico File (*.catz)|*.catz|All files (*.*)|*.*";
+                    sfd.FilterIndex = 1;
+                    sfd.RestoreDirectory = true;
+                    sfd.FileName = textBoxName.Text;
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        savePalico();
+                        File.WriteAllBytes(sfd.FileName, DataExtractor.PackPalico(this.palico));
+                        this.palico = DataExtractor.GetPalcio(temp);
+                        MessageBox.Show(string.Format("Exported palico to {0}", sfd.FileName), "Success!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Unsucessful");
+                this.palico = DataExtractor.GetPalcio(temp);
+            }
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            byte[] temp = DataExtractor.PackPalico(this.palico);
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Palico File (*.catz)|*.catz|All files (*.*)|*.*";
+                ofd.FilterIndex = 1;
+
+                if (ofd.ShowDialog() != DialogResult.OK)
+                {
+                    ofd.Dispose();
+                    return;
+                }
+
+                byte[] fileData = File.ReadAllBytes(ofd.FileName);
+                if (fileData.Length != Constants.SIZEOF_PALICO)
+                {
+                    MessageBox.Show("Invalid Palico", "Error");
+                    return;
+                }
+
+                this.palico = DataExtractor.GetPalcio(fileData);
+                loadPalico();
+
+                ofd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loading Error");
+                this.palico = DataExtractor.GetPalcio(temp);
+            }
         }
 
 
