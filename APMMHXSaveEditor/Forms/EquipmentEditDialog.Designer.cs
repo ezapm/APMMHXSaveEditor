@@ -42,7 +42,10 @@
             this.labelDec3 = new System.Windows.Forms.Label();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
+            this.labelLevel = new System.Windows.Forms.Label();
+            this.numericUpDownLevel = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownItemID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // labelEquipmentType
@@ -85,7 +88,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(266, 113);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 7;
+            this.buttonCancel.TabIndex = 15;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -96,7 +99,7 @@
             this.buttonOK.Location = new System.Drawing.Point(185, 113);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 6;
+            this.buttonOK.TabIndex = 14;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -107,7 +110,7 @@
             this.labelDec1.Location = new System.Drawing.Point(12, 49);
             this.labelDec1.Name = "labelDec1";
             this.labelDec1.Size = new System.Drawing.Size(68, 13);
-            this.labelDec1.TabIndex = 8;
+            this.labelDec1.TabIndex = 6;
             this.labelDec1.Text = "Decoration 1";
             // 
             // textBoxDecoration1
@@ -115,14 +118,14 @@
             this.textBoxDecoration1.Location = new System.Drawing.Point(15, 65);
             this.textBoxDecoration1.Name = "textBoxDecoration1";
             this.textBoxDecoration1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDecoration1.TabIndex = 9;
+            this.textBoxDecoration1.TabIndex = 7;
             // 
             // textBoxDecoration2
             // 
             this.textBoxDecoration2.Location = new System.Drawing.Point(123, 65);
             this.textBoxDecoration2.Name = "textBoxDecoration2";
             this.textBoxDecoration2.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDecoration2.TabIndex = 11;
+            this.textBoxDecoration2.TabIndex = 9;
             // 
             // labelDec2
             // 
@@ -130,7 +133,7 @@
             this.labelDec2.Location = new System.Drawing.Point(120, 49);
             this.labelDec2.Name = "labelDec2";
             this.labelDec2.Size = new System.Drawing.Size(68, 13);
-            this.labelDec2.TabIndex = 10;
+            this.labelDec2.TabIndex = 8;
             this.labelDec2.Text = "Decoration 2";
             // 
             // textBoxDecoration3
@@ -138,7 +141,7 @@
             this.textBoxDecoration3.Location = new System.Drawing.Point(230, 65);
             this.textBoxDecoration3.Name = "textBoxDecoration3";
             this.textBoxDecoration3.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDecoration3.TabIndex = 13;
+            this.textBoxDecoration3.TabIndex = 11;
             // 
             // labelDec3
             // 
@@ -146,7 +149,7 @@
             this.labelDec3.Location = new System.Drawing.Point(227, 49);
             this.labelDec3.Name = "labelDec3";
             this.labelDec3.Size = new System.Drawing.Size(71, 13);
-            this.labelDec3.TabIndex = 12;
+            this.labelDec3.TabIndex = 10;
             this.labelDec3.Text = "Decoration 3 ";
             // 
             // buttonExport
@@ -154,7 +157,7 @@
             this.buttonExport.Location = new System.Drawing.Point(5, 113);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(75, 23);
-            this.buttonExport.TabIndex = 14;
+            this.buttonExport.TabIndex = 12;
             this.buttonExport.Text = "Export";
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
@@ -164,10 +167,26 @@
             this.buttonImport.Location = new System.Drawing.Point(86, 113);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(75, 23);
-            this.buttonImport.TabIndex = 15;
+            this.buttonImport.TabIndex = 13;
             this.buttonImport.Text = "Import";
             this.buttonImport.UseVisualStyleBackColor = true;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.Location = new System.Drawing.Point(227, 9);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(33, 13);
+            this.labelLevel.TabIndex = 4;
+            this.labelLevel.Text = "Level";
+            // 
+            // numericUpDownLevel
+            // 
+            this.numericUpDownLevel.Location = new System.Drawing.Point(230, 26);
+            this.numericUpDownLevel.Name = "numericUpDownLevel";
+            this.numericUpDownLevel.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownLevel.TabIndex = 5;
             // 
             // EquipmentEditDialog
             // 
@@ -176,6 +195,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(346, 142);
+            this.Controls.Add(this.numericUpDownLevel);
+            this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.textBoxDecoration3);
@@ -198,6 +219,7 @@
             this.Text = "Equipment Editor";
             this.Load += new System.EventHandler(this.EquipmentEditDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownItemID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +241,7 @@
         private System.Windows.Forms.Label labelDec3;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.Button buttonImport;
+        private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.NumericUpDown numericUpDownLevel;
     }
 }

@@ -20,6 +20,8 @@ namespace APMMHXSaveEditor.Forms
         {
             InitializeComponent();
             numericUpDownItemID.Maximum = 65535;
+            numericUpDownLevel.Minimum = 0;
+            numericUpDownLevel.Maximum = 255;
             textBoxDecoration1.MaxLength = 4;
             textBoxDecoration2.MaxLength = 4;
             textBoxDecoration3.MaxLength = 4;
@@ -31,9 +33,8 @@ namespace APMMHXSaveEditor.Forms
         private void loadData()
         {
             comboBoxEquipmentType.SelectedIndex = equipment.EquipmentBytes[0];
-            //numericUpDownItemID.Value = BitConverter.ToUInt16(new byte[2] { equipment.EquipmentBytes[1], equipment.EquipmentBytes[2] }, 0);
             numericUpDownItemID.Value = (ushort)(equipment.EquipmentBytes[2] << 8 | equipment.EquipmentBytes[1]);
-
+            numericUpDownLevel.Value = equipment.EquipmentBytes[3] + 1;
             textBoxDecoration1.Text = string.Format("{0:X2}{1:X2}", equipment.EquipmentBytes[6], equipment.EquipmentBytes[7]);
             textBoxDecoration2.Text = string.Format("{0:X2}{1:X2}", equipment.EquipmentBytes[8], equipment.EquipmentBytes[9]);
             textBoxDecoration3.Text = string.Format("{0:X2}{1:X2}", equipment.EquipmentBytes[10], equipment.EquipmentBytes[11]);
@@ -50,6 +51,7 @@ namespace APMMHXSaveEditor.Forms
             equipment.EquipmentBytes[0] = (byte)comboBoxEquipmentType.SelectedIndex;
             equipment.EquipmentBytes[1] = (byte)(((short)numericUpDownItemID.Value & 0x00FF));
             equipment.EquipmentBytes[2] = (byte)(((short)numericUpDownItemID.Value >> 8));
+            equipment.EquipmentBytes[3] = (byte)(numericUpDownLevel.Value - 1);
             equipment.EquipmentBytes[6] = Convert.ToByte(textBoxDecoration1.Text.Substring(0, 2), 16);
             equipment.EquipmentBytes[7] = Convert.ToByte(textBoxDecoration1.Text.Substring(2, 2), 16);
             equipment.EquipmentBytes[8] = Convert.ToByte(textBoxDecoration2.Text.Substring(0, 2), 16);
