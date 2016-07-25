@@ -32,8 +32,6 @@
             this.comboBoxEquipmentType = new System.Windows.Forms.ComboBox();
             this.labelItemID = new System.Windows.Forms.Label();
             this.numericUpDownItemID = new System.Windows.Forms.NumericUpDown();
-            this.labelEqpLevel = new System.Windows.Forms.Label();
-            this.numericUpDownLevel = new System.Windows.Forms.NumericUpDown();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.labelDec1 = new System.Windows.Forms.Label();
@@ -45,7 +43,6 @@
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownItemID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // labelEquipmentType
@@ -81,22 +78,6 @@
             this.numericUpDownItemID.Name = "numericUpDownItemID";
             this.numericUpDownItemID.Size = new System.Drawing.Size(90, 20);
             this.numericUpDownItemID.TabIndex = 3;
-            // 
-            // labelEqpLevel
-            // 
-            this.labelEqpLevel.AutoSize = true;
-            this.labelEqpLevel.Location = new System.Drawing.Point(227, 9);
-            this.labelEqpLevel.Name = "labelEqpLevel";
-            this.labelEqpLevel.Size = new System.Drawing.Size(33, 13);
-            this.labelEqpLevel.TabIndex = 4;
-            this.labelEqpLevel.Text = "Level";
-            // 
-            // numericUpDownLevel
-            // 
-            this.numericUpDownLevel.Location = new System.Drawing.Point(230, 26);
-            this.numericUpDownLevel.Name = "numericUpDownLevel";
-            this.numericUpDownLevel.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDownLevel.TabIndex = 5;
             // 
             // buttonCancel
             // 
@@ -205,8 +186,6 @@
             this.Controls.Add(this.labelDec1);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.numericUpDownLevel);
-            this.Controls.Add(this.labelEqpLevel);
             this.Controls.Add(this.numericUpDownItemID);
             this.Controls.Add(this.labelItemID);
             this.Controls.Add(this.comboBoxEquipmentType);
@@ -219,7 +198,6 @@
             this.Text = "Equipment Editor";
             this.Load += new System.EventHandler(this.EquipmentEditDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownItemID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,8 +209,6 @@
         private System.Windows.Forms.ComboBox comboBoxEquipmentType;
         private System.Windows.Forms.Label labelItemID;
         private System.Windows.Forms.NumericUpDown numericUpDownItemID;
-        private System.Windows.Forms.Label labelEqpLevel;
-        private System.Windows.Forms.NumericUpDown numericUpDownLevel;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label labelDec1;

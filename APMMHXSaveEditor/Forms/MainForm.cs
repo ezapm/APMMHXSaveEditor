@@ -377,7 +377,7 @@ namespace APMMHXSaveEditor
             {
                 ListViewItem lvi = new ListViewItem((i + 1).ToString());
                 lvi.SubItems.Add(GameConstants.EquipmentTypes[saveFile.Players[slot].EquipmentBox[index + i].EquipmentBytes[0]]);
-                lvi.SubItems.Add(string.Format("Equipment ID: {0}", saveFile.Players[slot].EquipmentBox[index + i].EquipmentBytes[1]));
+                lvi.SubItems.Add(string.Format("Equipment ID: {0}", (saveFile.Players[slot].EquipmentBox[index + i].EquipmentBytes[2]) << 8 | saveFile.Players[slot].EquipmentBox[index + i].EquipmentBytes[1]));
                 listViewEquipment.Items.Add(lvi);
             }
         }
