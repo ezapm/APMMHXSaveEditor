@@ -23,12 +23,15 @@ namespace APMMHXSaveEditor.Data
         public string Greeting { get; set; }
         public string NameGiver { get; set; }
         public string PreviousMaster { get; set; }
-        public byte[] RGBAValue { get; set; }
+        public byte[] CoatRGBAValue { get; set; }
+        public byte[] LeftEyeRGBAValue { get; set; }
+        public byte[] RightEyeRGBAValue { get; set; }
+        public byte[] VestRGBAValue { get; set; }
         
         //Unknown Values
         public byte[] Unknown1 { get; set; } //Place Holder Offset 0x58 Size 8
         public byte[] Unknown2 { get; set; } //Place Holder Offset 0xDC Size 62
-        public byte[] Unknown3 { get; set; } //Place Holder Offset 0x11E Size 33
+        public byte[] Unknown3 { get; set; } //Place Holder Offset 0x11E Size 21
 
 
         public Palico()

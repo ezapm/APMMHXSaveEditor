@@ -40,8 +40,6 @@
             this.labelNameGiver = new System.Windows.Forms.Label();
             this.labelLearnedSkillRNG = new System.Windows.Forms.Label();
             this.labelLearnedActionRNG = new System.Windows.Forms.Label();
-            this.textBoxRGBA = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownTarget = new System.Windows.Forms.NumericUpDown();
             this.labelTarget = new System.Windows.Forms.Label();
             this.comboBoxForte = new System.Windows.Forms.ComboBox();
@@ -74,6 +72,15 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
+            this.tabPageStyle = new System.Windows.Forms.TabPage();
+            this.textBoxCoatRGBA = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxLeftEyeRGBA = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxRightEyeRGBA = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxVestRGBA = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControlPalico.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).BeginInit();
@@ -84,6 +91,7 @@
             this.tabPageEquippedSkills.SuspendLayout();
             this.tabPageLearnedActions.SuspendLayout();
             this.tabPageLearnedSkills.SuspendLayout();
+            this.tabPageStyle.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPalico
@@ -92,6 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlPalico.Controls.Add(this.tabPageGeneral);
+            this.tabControlPalico.Controls.Add(this.tabPageStyle);
             this.tabControlPalico.Controls.Add(this.tabPageEquippedActions);
             this.tabControlPalico.Controls.Add(this.tabPageEquippedSkills);
             this.tabControlPalico.Controls.Add(this.tabPageLearnedActions);
@@ -115,8 +124,6 @@
             this.tabPageGeneral.Controls.Add(this.labelNameGiver);
             this.tabPageGeneral.Controls.Add(this.labelLearnedSkillRNG);
             this.tabPageGeneral.Controls.Add(this.labelLearnedActionRNG);
-            this.tabPageGeneral.Controls.Add(this.textBoxRGBA);
-            this.tabPageGeneral.Controls.Add(this.label1);
             this.tabPageGeneral.Controls.Add(this.numericUpDownTarget);
             this.tabPageGeneral.Controls.Add(this.labelTarget);
             this.tabPageGeneral.Controls.Add(this.comboBoxForte);
@@ -138,14 +145,14 @@
             // 
             // textBoxLearnedSkillRNG
             // 
-            this.textBoxLearnedSkillRNG.Location = new System.Drawing.Point(303, 98);
+            this.textBoxLearnedSkillRNG.Location = new System.Drawing.Point(143, 98);
             this.textBoxLearnedSkillRNG.Name = "textBoxLearnedSkillRNG";
             this.textBoxLearnedSkillRNG.Size = new System.Drawing.Size(120, 20);
             this.textBoxLearnedSkillRNG.TabIndex = 17;
             // 
             // textBoxLearnedActionRNG
             // 
-            this.textBoxLearnedActionRNG.Location = new System.Drawing.Point(170, 98);
+            this.textBoxLearnedActionRNG.Location = new System.Drawing.Point(10, 98);
             this.textBoxLearnedActionRNG.Name = "textBoxLearnedActionRNG";
             this.textBoxLearnedActionRNG.Size = new System.Drawing.Size(120, 20);
             this.textBoxLearnedActionRNG.TabIndex = 15;
@@ -201,7 +208,7 @@
             // labelLearnedSkillRNG
             // 
             this.labelLearnedSkillRNG.AutoSize = true;
-            this.labelLearnedSkillRNG.Location = new System.Drawing.Point(300, 82);
+            this.labelLearnedSkillRNG.Location = new System.Drawing.Point(140, 82);
             this.labelLearnedSkillRNG.Name = "labelLearnedSkillRNG";
             this.labelLearnedSkillRNG.Size = new System.Drawing.Size(98, 13);
             this.labelLearnedSkillRNG.TabIndex = 16;
@@ -210,27 +217,11 @@
             // labelLearnedActionRNG
             // 
             this.labelLearnedActionRNG.AutoSize = true;
-            this.labelLearnedActionRNG.Location = new System.Drawing.Point(167, 82);
+            this.labelLearnedActionRNG.Location = new System.Drawing.Point(7, 82);
             this.labelLearnedActionRNG.Name = "labelLearnedActionRNG";
             this.labelLearnedActionRNG.Size = new System.Drawing.Size(106, 13);
             this.labelLearnedActionRNG.TabIndex = 14;
             this.labelLearnedActionRNG.Text = "Learned Action RNG";
-            // 
-            // textBoxRGBA
-            // 
-            this.textBoxRGBA.Location = new System.Drawing.Point(10, 98);
-            this.textBoxRGBA.Name = "textBoxRGBA";
-            this.textBoxRGBA.Size = new System.Drawing.Size(151, 20);
-            this.textBoxRGBA.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "RGBA Value (Color)";
             // 
             // numericUpDownTarget
             // 
@@ -353,7 +344,7 @@
             this.listViewEquippedAction.GridLines = true;
             this.listViewEquippedAction.Location = new System.Drawing.Point(-1, 0);
             this.listViewEquippedAction.Name = "listViewEquippedAction";
-            this.listViewEquippedAction.Size = new System.Drawing.Size(441, 203);
+            this.listViewEquippedAction.Size = new System.Drawing.Size(438, 203);
             this.listViewEquippedAction.TabIndex = 0;
             this.listViewEquippedAction.UseCompatibleStateImageBehavior = false;
             this.listViewEquippedAction.View = System.Windows.Forms.View.Details;
@@ -390,7 +381,7 @@
             this.listViewEquippedSkills.GridLines = true;
             this.listViewEquippedSkills.Location = new System.Drawing.Point(-1, 0);
             this.listViewEquippedSkills.Name = "listViewEquippedSkills";
-            this.listViewEquippedSkills.Size = new System.Drawing.Size(442, 203);
+            this.listViewEquippedSkills.Size = new System.Drawing.Size(438, 203);
             this.listViewEquippedSkills.TabIndex = 1;
             this.listViewEquippedSkills.UseCompatibleStateImageBehavior = false;
             this.listViewEquippedSkills.View = System.Windows.Forms.View.Details;
@@ -427,7 +418,7 @@
             this.listViewLearnedActions.GridLines = true;
             this.listViewLearnedActions.Location = new System.Drawing.Point(-1, 0);
             this.listViewLearnedActions.Name = "listViewLearnedActions";
-            this.listViewLearnedActions.Size = new System.Drawing.Size(441, 203);
+            this.listViewLearnedActions.Size = new System.Drawing.Size(438, 203);
             this.listViewLearnedActions.TabIndex = 1;
             this.listViewLearnedActions.UseCompatibleStateImageBehavior = false;
             this.listViewLearnedActions.View = System.Windows.Forms.View.Details;
@@ -464,7 +455,7 @@
             this.listViewLearnedSkills.GridLines = true;
             this.listViewLearnedSkills.Location = new System.Drawing.Point(-1, 0);
             this.listViewLearnedSkills.Name = "listViewLearnedSkills";
-            this.listViewLearnedSkills.Size = new System.Drawing.Size(442, 203);
+            this.listViewLearnedSkills.Size = new System.Drawing.Size(438, 203);
             this.listViewLearnedSkills.TabIndex = 2;
             this.listViewLearnedSkills.UseCompatibleStateImageBehavior = false;
             this.listViewLearnedSkills.View = System.Windows.Forms.View.Details;
@@ -522,6 +513,87 @@
             this.buttonImport.UseVisualStyleBackColor = true;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
+            // tabPageStyle
+            // 
+            this.tabPageStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageStyle.Controls.Add(this.textBoxVestRGBA);
+            this.tabPageStyle.Controls.Add(this.label5);
+            this.tabPageStyle.Controls.Add(this.textBoxRightEyeRGBA);
+            this.tabPageStyle.Controls.Add(this.label4);
+            this.tabPageStyle.Controls.Add(this.textBoxLeftEyeRGBA);
+            this.tabPageStyle.Controls.Add(this.label2);
+            this.tabPageStyle.Controls.Add(this.textBoxCoatRGBA);
+            this.tabPageStyle.Controls.Add(this.label1);
+            this.tabPageStyle.Location = new System.Drawing.Point(4, 22);
+            this.tabPageStyle.Name = "tabPageStyle";
+            this.tabPageStyle.Size = new System.Drawing.Size(437, 203);
+            this.tabPageStyle.TabIndex = 5;
+            this.tabPageStyle.Text = "Style";
+            // 
+            // textBoxCoatRGBA
+            // 
+            this.textBoxCoatRGBA.Location = new System.Drawing.Point(10, 27);
+            this.textBoxCoatRGBA.Name = "textBoxCoatRGBA";
+            this.textBoxCoatRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxCoatRGBA.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Coat RGBA Value";
+            // 
+            // textBoxLeftEyeRGBA
+            // 
+            this.textBoxLeftEyeRGBA.Location = new System.Drawing.Point(147, 27);
+            this.textBoxLeftEyeRGBA.Name = "textBoxLeftEyeRGBA";
+            this.textBoxLeftEyeRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxLeftEyeRGBA.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(144, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Left Eye RGBA Value";
+            // 
+            // textBoxRightEyeRGBA
+            // 
+            this.textBoxRightEyeRGBA.Location = new System.Drawing.Point(281, 27);
+            this.textBoxRightEyeRGBA.Name = "textBoxRightEyeRGBA";
+            this.textBoxRightEyeRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxRightEyeRGBA.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(278, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Right Eye RGBA Value";
+            // 
+            // textBoxVestRGBA
+            // 
+            this.textBoxVestRGBA.Location = new System.Drawing.Point(10, 66);
+            this.textBoxVestRGBA.Name = "textBoxVestRGBA";
+            this.textBoxVestRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxVestRGBA.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Vest RGBA Value";
+            // 
             // PalicoEditDialog
             // 
             this.AcceptButton = this.buttonOK;
@@ -549,6 +621,8 @@
             this.tabPageEquippedSkills.ResumeLayout(false);
             this.tabPageLearnedActions.ResumeLayout(false);
             this.tabPageLearnedSkills.ResumeLayout(false);
+            this.tabPageStyle.ResumeLayout(false);
+            this.tabPageStyle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -572,8 +646,6 @@
         private System.Windows.Forms.ComboBox comboBoxForte;
         private System.Windows.Forms.NumericUpDown numericUpDownTarget;
         private System.Windows.Forms.Label labelTarget;
-        private System.Windows.Forms.TextBox textBoxRGBA;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelLearnedSkillRNG;
         private System.Windows.Forms.Label labelLearnedActionRNG;
         private System.Windows.Forms.ListView listViewEquippedAction;
@@ -601,5 +673,14 @@
         private System.Windows.Forms.TextBox textBoxLearnedActionRNG;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.Button buttonImport;
+        private System.Windows.Forms.TabPage tabPageStyle;
+        private System.Windows.Forms.TextBox textBoxCoatRGBA;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxVestRGBA;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxRightEyeRGBA;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxLeftEyeRGBA;
+        private System.Windows.Forms.Label label2;
     }
 }

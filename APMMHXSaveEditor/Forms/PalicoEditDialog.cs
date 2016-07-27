@@ -34,7 +34,10 @@ namespace APMMHXSaveEditor.Forms
             textBoxName.MaxLength = 16;
             textBoxNameGiver.MaxLength = 16;
             textBoxPreviousOwner.MaxLength = 16;
-            textBoxRGBA.MaxLength = 8;
+            textBoxCoatRGBA.MaxLength = 8;
+            textBoxLeftEyeRGBA.MaxLength = 8;
+            textBoxRightEyeRGBA.MaxLength = 8;
+            textBoxVestRGBA.MaxLength = 8;
             textBoxGreetings.MaxLength = 30;
 
             loadPalico();
@@ -53,7 +56,10 @@ namespace APMMHXSaveEditor.Forms
             textBoxPreviousOwner.Text = Palico.PreviousMaster;
             textBoxGreetings.Text = Palico.Greeting;
             comboBoxForte.SelectedIndex = Palico.Forte;
-            textBoxRGBA.Text = BitConverter.ToString(Palico.RGBAValue).Replace("-", "");
+            textBoxCoatRGBA.Text = BitConverter.ToString(Palico.CoatRGBAValue).Replace("-", "");
+            textBoxLeftEyeRGBA.Text = BitConverter.ToString(Palico.LeftEyeRGBAValue).Replace("-", "");
+            textBoxRightEyeRGBA.Text = BitConverter.ToString(Palico.RightEyeRGBAValue).Replace("-", "");
+            textBoxVestRGBA.Text = BitConverter.ToString(Palico.VestRGBAValue).Replace("-", "");
 
             loadEquippedActions();
             loadEquippedSkills();
@@ -75,7 +81,10 @@ namespace APMMHXSaveEditor.Forms
             Palico.NameGiver = textBoxNameGiver.Text;
             Palico.PreviousMaster = textBoxPreviousOwner.Text;
             Palico.Greeting = textBoxGreetings.Text;
-            Palico.RGBAValue = Converters.StringToByteArray(textBoxRGBA.Text);
+            Palico.CoatRGBAValue = Converters.StringToByteArray(textBoxCoatRGBA.Text);
+            Palico.LeftEyeRGBAValue = Converters.StringToByteArray(textBoxLeftEyeRGBA.Text);
+            Palico.RightEyeRGBAValue = Converters.StringToByteArray(textBoxRightEyeRGBA.Text);
+            Palico.VestRGBAValue = Converters.StringToByteArray(textBoxVestRGBA.Text);
         }
 
         private void loadEquippedActions()
@@ -128,9 +137,9 @@ namespace APMMHXSaveEditor.Forms
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (textBoxRGBA.Text.Length != 8)
+            if (textBoxCoatRGBA.Text.Length != 8 || textBoxLeftEyeRGBA.Text.Length != 8 || textBoxRightEyeRGBA.Text.Length != 8 || textBoxVestRGBA.Text.Length != 8)
             {
-                MessageBox.Show("Make sure RGBA color is 4 bytes (AABBCCFF).", "Invalid RGBA");
+                MessageBox.Show("Make sure RGBA color(s) is 4 bytes (AABBCCFF).", "Invalid RGBA");
                 return;
             }
             else if (textBoxLearnedActionRNG.Text.Length != 4 || textBoxLearnedSkillRNG.Text.Length != 4)
