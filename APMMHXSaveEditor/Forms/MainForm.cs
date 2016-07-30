@@ -20,8 +20,12 @@ namespace APMMHXSaveEditor
         private DataExtractor dataExtractor { get; set; }
         private string filePath { get; set; }
         private int currentPlayer { get; set; }
+
+        //Copied Stuff
         private Equipment copiedEquipment { get; set; }
         private Item copiedItem { get; set; }
+        private byte[] copiedPalicoPacked { get; set; }
+        private Equipment copiedPalicoEquipment { get; set; }
 
         public MainForm()
         {
@@ -58,6 +62,7 @@ namespace APMMHXSaveEditor
             numericUpDownVoice.Maximum = 255;
             pasteEquipmentToolStripMenuItem.Enabled = false;
             pasteItemToolStripMenuItem.Enabled = false;
+            pastePalicoToolStripMenuItem.Enabled = false;
 
             textBoxSkinColorRGBA.MaxLength = 8;
             textBoxHairColorRGBA.MaxLength = 8;
@@ -70,7 +75,6 @@ namespace APMMHXSaveEditor
             comboBoxPouch.SelectedIndex = 0;
             comboBoxPalicoEquipBox.SelectedIndex = 0;
 
-            //allCraftableArmorToolStripMenuItem.Visible = false;
             buttonEditGuildCard.Visible = false;
         }
 
@@ -1003,5 +1007,96 @@ namespace APMMHXSaveEditor
             listViewItemPouch.TopItem = listViewItemPouch.SelectedItems[0];
         }
 
+        private void listViewPalicos_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewPalicos.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStripPalico.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void copyPalicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+            copiedPalicoPacked = DataExtractor.PackPalico(saveFile.Players[currentPlayer].
+                                                            Palicos[listViewPalicos.SelectedItems[0].Index]);
+            pastePalicoToolStripMenuItem.Enabled = true;
+        }
+
+        private void pastePalicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedPalicoPacked == null || saveFile == null) { return; }
+
+            int itemSelected = listViewPalicos.SelectedItems[0].Index;
+            saveFile.Players[currentPlayer].Palicos[itemSelected] = DataExtractor.GetPalcio(copiedPalicoPacked);
+            
+            loadPalicos(currentPlayer);
+            listViewPalicos.Items[itemSelected].Selected = true;
+            listViewPalicos.TopItem = listViewPalicos.SelectedItems[0];
+        }
+
+        private void deletePalicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewPalicos.SelectedItems[0].Index;
+            saveFile.Players[currentPlayer].Palicos[itemSelected] = Tools.GetBlankPalico();
+
+            loadPalicos(currentPlayer);
+            listViewPalicos.Items[itemSelected].Selected = true;
+            listViewPalicos.TopItem = listViewPalicos.SelectedItems[0];
+        }
+
+        private void listViewPalicoEquipBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewPalicoEquipBox.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStripPalicoEquipment.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void copyPalicoEqToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewPalicoEquipBox.SelectedItems[0].Index + (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            copiedPalicoEquipment = saveFile.Players[currentPlayer].PalicoEquipment[itemSelected];
+
+            pastePalicoEqToolStripMenuItem.Enabled = true;
+        }
+
+        private void pastePalicoEqToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedPalicoEquipment == null || saveFile == null) { return; }
+
+            int itemSelected = listViewPalicoEquipBox.SelectedItems[0].Index + (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].PalicoEquipment[itemSelected] = new Equipment(copiedPalicoEquipment);
+
+            loadPalicoEquipBox(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewPalicoEquipBox.Items[indexSelected].Selected = true;
+            listViewPalicoEquipBox.TopItem = listViewPalicoEquipBox.SelectedItems[0];
+        }
+
+        private void deletePalicoEqToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewPalicoEquipBox.SelectedItems[0].Index + (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].PalicoEquipment[itemSelected] = Tools.GetBlankEquipment();
+
+            loadPalicoEquipBox(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxPalicoEquipBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewPalicoEquipBox.Items[indexSelected].Selected = true;
+            listViewPalicoEquipBox.TopItem = listViewPalicoEquipBox.SelectedItems[0];
+        }
     }
 }

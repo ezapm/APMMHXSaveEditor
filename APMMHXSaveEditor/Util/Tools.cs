@@ -146,5 +146,14 @@ namespace APMMHXSaveEditor.Util
         {
             return new Equipment(new byte[Constants.SIZEOF_EQUIPMENT]);
         }
+
+        /// <summary>
+        /// Get an empty palico
+        /// </summary>
+        /// <returns>Returns a blank palico</returns>
+        public static Palico GetBlankPalico()
+        {
+            return DataExtractor.GetPalcio(new byte[Constants.SIZEOF_PALICO]);
+        }
     }
 }

@@ -161,6 +161,14 @@
             this.copyItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripPalico = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyPalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastePalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripPalicoEquipment = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyPalicoEqToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastePalicoEqToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePalicoEqToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -192,6 +200,8 @@
             this.contextMenuStripItemBox.SuspendLayout();
             this.contextMenuStripEquipment.SuspendLayout();
             this.contextMenuStripItemPouch.SuspendLayout();
+            this.contextMenuStripPalico.SuspendLayout();
+            this.contextMenuStripPalicoEquipment.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -1238,6 +1248,7 @@
             this.listViewPalicos.UseCompatibleStateImageBehavior = false;
             this.listViewPalicos.View = System.Windows.Forms.View.Details;
             this.listViewPalicos.DoubleClick += new System.EventHandler(this.listViewPalicos_DoubleClick);
+            this.listViewPalicos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewPalicos_MouseClick);
             // 
             // columnHeaderPalicoSlot
             // 
@@ -1320,6 +1331,7 @@
             this.listViewPalicoEquipBox.UseCompatibleStateImageBehavior = false;
             this.listViewPalicoEquipBox.View = System.Windows.Forms.View.Details;
             this.listViewPalicoEquipBox.DoubleClick += new System.EventHandler(this.listViewPalicoEquipBox_DoubleClick);
+            this.listViewPalicoEquipBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewPalicoEquipBox_MouseClick);
             // 
             // columnHeader3
             // 
@@ -1426,6 +1438,66 @@
             this.deleteItemPouchItemToolStripMenuItem.Text = "Delete";
             this.deleteItemPouchItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemPouchItemToolStripMenuItem_Click);
             // 
+            // contextMenuStripPalico
+            // 
+            this.contextMenuStripPalico.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyPalicoToolStripMenuItem,
+            this.pastePalicoToolStripMenuItem,
+            this.deletePalicoToolStripMenuItem});
+            this.contextMenuStripPalico.Name = "contextMenuStripPalico";
+            this.contextMenuStripPalico.Size = new System.Drawing.Size(108, 70);
+            // 
+            // copyPalicoToolStripMenuItem
+            // 
+            this.copyPalicoToolStripMenuItem.Name = "copyPalicoToolStripMenuItem";
+            this.copyPalicoToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyPalicoToolStripMenuItem.Text = "Copy";
+            this.copyPalicoToolStripMenuItem.Click += new System.EventHandler(this.copyPalicoToolStripMenuItem_Click);
+            // 
+            // pastePalicoToolStripMenuItem
+            // 
+            this.pastePalicoToolStripMenuItem.Name = "pastePalicoToolStripMenuItem";
+            this.pastePalicoToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pastePalicoToolStripMenuItem.Text = "Paste";
+            this.pastePalicoToolStripMenuItem.Click += new System.EventHandler(this.pastePalicoToolStripMenuItem_Click);
+            // 
+            // deletePalicoToolStripMenuItem
+            // 
+            this.deletePalicoToolStripMenuItem.Name = "deletePalicoToolStripMenuItem";
+            this.deletePalicoToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deletePalicoToolStripMenuItem.Text = "Delete";
+            this.deletePalicoToolStripMenuItem.Click += new System.EventHandler(this.deletePalicoToolStripMenuItem_Click);
+            // 
+            // contextMenuStripPalicoEquipment
+            // 
+            this.contextMenuStripPalicoEquipment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyPalicoEqToolStripMenuItem,
+            this.pastePalicoEqToolStripMenuItem,
+            this.deletePalicoEqToolStripMenuItem});
+            this.contextMenuStripPalicoEquipment.Name = "contextMenuStripPalicoEquipment";
+            this.contextMenuStripPalicoEquipment.Size = new System.Drawing.Size(153, 92);
+            // 
+            // copyPalicoEqToolStripMenuItem
+            // 
+            this.copyPalicoEqToolStripMenuItem.Name = "copyPalicoEqToolStripMenuItem";
+            this.copyPalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyPalicoEqToolStripMenuItem.Text = "Copy";
+            this.copyPalicoEqToolStripMenuItem.Click += new System.EventHandler(this.copyPalicoEqToolStripMenuItem_Click);
+            // 
+            // pastePalicoEqToolStripMenuItem
+            // 
+            this.pastePalicoEqToolStripMenuItem.Name = "pastePalicoEqToolStripMenuItem";
+            this.pastePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pastePalicoEqToolStripMenuItem.Text = "Paste";
+            this.pastePalicoEqToolStripMenuItem.Click += new System.EventHandler(this.pastePalicoEqToolStripMenuItem_Click);
+            // 
+            // deletePalicoEqToolStripMenuItem
+            // 
+            this.deletePalicoEqToolStripMenuItem.Name = "deletePalicoEqToolStripMenuItem";
+            this.deletePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deletePalicoEqToolStripMenuItem.Text = "Delete";
+            this.deletePalicoEqToolStripMenuItem.Click += new System.EventHandler(this.deletePalicoEqToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1472,6 +1544,8 @@
             this.contextMenuStripItemBox.ResumeLayout(false);
             this.contextMenuStripEquipment.ResumeLayout(false);
             this.contextMenuStripItemPouch.ResumeLayout(false);
+            this.contextMenuStripPalico.ResumeLayout(false);
+            this.contextMenuStripPalicoEquipment.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1610,6 +1684,14 @@
         private System.Windows.Forms.ToolStripMenuItem copyItemPouchItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteItemPouchItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteItemPouchItemToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripPalico;
+        private System.Windows.Forms.ToolStripMenuItem copyPalicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastePalicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePalicoToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripPalicoEquipment;
+        private System.Windows.Forms.ToolStripMenuItem copyPalicoEqToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastePalicoEqToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePalicoEqToolStripMenuItem;
     }
 }
 
