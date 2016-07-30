@@ -20,6 +20,14 @@ namespace APMMHXSaveEditor.Data
 
         public Item()
         {
+            this.ItemID = 0;
+            this.ItemAmount = 0;
+        }
+
+        public Item(Item copy)
+        {
+            this.ItemID = copy.ItemID;
+            this.ItemAmount = copy.ItemAmount;
         }
 
         public override string ToString()

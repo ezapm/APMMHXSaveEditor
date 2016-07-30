@@ -20,6 +20,8 @@ namespace APMMHXSaveEditor
         private DataExtractor dataExtractor { get; set; }
         private string filePath { get; set; }
         private int currentPlayer { get; set; }
+        private Equipment copiedEquipment { get; set; }
+        private Item copiedItem { get; set; }
 
         public MainForm()
         {
@@ -54,6 +56,8 @@ namespace APMMHXSaveEditor
             numericUpDownHair.Maximum = 255;
             numericUpDownHuntingStyle.Maximum = 255;
             numericUpDownVoice.Maximum = 255;
+            pasteEquipmentToolStripMenuItem.Enabled = false;
+            pasteItemToolStripMenuItem.Enabled = false;
 
             textBoxSkinColorRGBA.MaxLength = 8;
             textBoxHairColorRGBA.MaxLength = 8;
@@ -847,6 +851,156 @@ namespace APMMHXSaveEditor
         private void listViewPalicoEquipBox_DoubleClick(object sender, EventArgs e)
         {
             buttonEditPalicoEquip.PerformClick();
+        }
+
+        private void listViewEquipment_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewEquipment.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStripEquipment.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void copyEquipmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            copiedEquipment = saveFile.Players[currentPlayer].
+                                EquipmentBox[listViewEquipment.SelectedItems[0].Index + 
+                                    (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX)];
+
+            pasteEquipmentToolStripMenuItem.Enabled = true;
+        }
+
+        private void pasteEquipmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedEquipment == null || saveFile == null) { return; }
+
+            int itemSelected = listViewEquipment.SelectedItems[0].Index + (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].EquipmentBox[itemSelected] = new Equipment(copiedEquipment);
+
+            loadEquipmentBox(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewEquipment.Items[indexSelected].Selected = true;
+            listViewEquipment.TopItem = listViewEquipment.SelectedItems[0];
+        }
+
+        private void deleteEquipmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewEquipment.SelectedItems[0].Index + (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].EquipmentBox[itemSelected] = Tools.GetBlankEquipment();
+
+            loadEquipmentBox(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewEquipment.Items[indexSelected].Selected = true;
+            listViewEquipment.TopItem = listViewEquipment.SelectedItems[0];
+        }
+
+        private void listViewItemBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewItemBox.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStripItemBox.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void copyItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            copiedItem = saveFile.Players[currentPlayer].
+                            ItemBox[listViewItemBox.SelectedItems[0].Index + 
+                            (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX)];
+
+            pasteItemToolStripMenuItem.Enabled = true;
+            pasteItemPouchItemToolStripMenuItem.Enabled = true;
+        }
+
+        private void pasteItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedItem == null || saveFile == null) { return; }
+
+            int itemSelected = listViewItemBox.SelectedItems[0].Index + (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].ItemBox[itemSelected] = new Item(copiedItem);
+
+            loadItemBoxes(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewItemBox.Items[indexSelected].Selected = true;
+            listViewItemBox.TopItem = listViewItemBox.SelectedItems[0];
+        }
+
+        private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewItemBox.SelectedItems[0].Index + (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            saveFile.Players[currentPlayer].ItemBox[itemSelected] = new Item();
+
+            loadItemBoxes(currentPlayer);
+
+            int indexSelected = itemSelected - (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX);
+            listViewItemBox.Items[indexSelected].Selected = true;
+            listViewItemBox.TopItem = listViewItemBox.SelectedItems[0];
+        }
+
+        private void listViewItemPouch_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewItemPouch.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStripItemPouch.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void copyItemPouchItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            copiedItem = saveFile.Players[currentPlayer].
+                            ItemPouch[listViewItemPouch.SelectedItems[0].Index + 
+                                (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH)];
+
+            pasteItemToolStripMenuItem.Enabled = true;
+            pasteItemPouchItemToolStripMenuItem.Enabled = true;
+        }
+
+        private void pasteItemPouchItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (copiedItem == null || saveFile == null) { return; }
+
+            int itemSelected = listViewItemPouch.SelectedItems[0].Index + (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH);
+            saveFile.Players[currentPlayer].ItemPouch[itemSelected] = new Item(copiedItem);
+
+            loadItemPouch(currentPlayer);
+            int indexSelected = itemSelected - (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH);
+            listViewItemPouch.Items[indexSelected].Selected = true;
+            listViewItemPouch.TopItem = listViewItemPouch.SelectedItems[0];
+        }
+
+        private void deleteItemPouchItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            int itemSelected = listViewItemPouch.SelectedItems[0].Index + (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH);
+            saveFile.Players[currentPlayer].ItemPouch[itemSelected] = new Item();
+
+            loadItemPouch(currentPlayer);
+            int indexSelected = itemSelected - (comboBoxPouch.SelectedIndex * Constants.ITEM_PER_POUCH);
+            listViewItemPouch.Items[indexSelected].Selected = true;
+            listViewItemPouch.TopItem = listViewItemPouch.SelectedItems[0];
         }
 
     }

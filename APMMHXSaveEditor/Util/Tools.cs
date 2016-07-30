@@ -136,5 +136,15 @@ namespace APMMHXSaveEditor.Util
             byte[] unlockData = new byte[] { 0x00, 0x20, 0x60, 0x40, 0x00, 0x20, 0x60, 0x40 };
             Buffer.BlockCopy(unlockData, 0, boxData, 0, unlockData.Length);
         }
+
+
+        /// <summary>
+        /// Get a blank equipment with proper byte size
+        /// </summary>
+        /// <returns>Returns a blank equipment</returns>
+        public static Equipment GetBlankEquipment()
+        {
+            return new Equipment(new byte[Constants.SIZEOF_EQUIPMENT]);
+        }
     }
 }

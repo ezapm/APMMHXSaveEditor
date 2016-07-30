@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,6 +149,18 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripItemBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripEquipment = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripItemPouch = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteItemPouchItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -176,6 +189,9 @@
             this.tabPageItemPouch.SuspendLayout();
             this.tabPagePalico.SuspendLayout();
             this.tabPagePalicoEquip.SuspendLayout();
+            this.contextMenuStripItemBox.SuspendLayout();
+            this.contextMenuStripEquipment.SuspendLayout();
+            this.contextMenuStripItemPouch.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -986,6 +1002,7 @@
             this.listViewEquipment.UseCompatibleStateImageBehavior = false;
             this.listViewEquipment.View = System.Windows.Forms.View.Details;
             this.listViewEquipment.DoubleClick += new System.EventHandler(this.listViewEquipment_DoubleClick);
+            this.listViewEquipment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewEquipment_MouseClick);
             // 
             // columnHeaderSlot
             // 
@@ -1081,6 +1098,7 @@
             this.listViewItemBox.UseCompatibleStateImageBehavior = false;
             this.listViewItemBox.View = System.Windows.Forms.View.Details;
             this.listViewItemBox.DoubleClick += new System.EventHandler(this.listViewItemBox_DoubleClick);
+            this.listViewItemBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewItemBox_MouseClick);
             // 
             // columnHeaderItemSlot
             // 
@@ -1165,6 +1183,7 @@
             this.listViewItemPouch.UseCompatibleStateImageBehavior = false;
             this.listViewItemPouch.View = System.Windows.Forms.View.Details;
             this.listViewItemPouch.DoubleClick += new System.EventHandler(this.listViewItemPouch_DoubleClick);
+            this.listViewItemPouch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewItemPouch_MouseClick);
             // 
             // columnHeader1
             // 
@@ -1317,6 +1336,96 @@
             this.columnHeader6.Text = "Equipment";
             this.columnHeader6.Width = 350;
             // 
+            // contextMenuStripItemBox
+            // 
+            this.contextMenuStripItemBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyItemToolStripMenuItem,
+            this.pasteItemToolStripMenuItem,
+            this.deleteItemToolStripMenuItem});
+            this.contextMenuStripItemBox.Name = "contextMenuStripItemBox";
+            this.contextMenuStripItemBox.Size = new System.Drawing.Size(108, 70);
+            // 
+            // copyItemToolStripMenuItem
+            // 
+            this.copyItemToolStripMenuItem.Name = "copyItemToolStripMenuItem";
+            this.copyItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyItemToolStripMenuItem.Text = "Copy";
+            this.copyItemToolStripMenuItem.Click += new System.EventHandler(this.copyItemToolStripMenuItem_Click);
+            // 
+            // pasteItemToolStripMenuItem
+            // 
+            this.pasteItemToolStripMenuItem.Name = "pasteItemToolStripMenuItem";
+            this.pasteItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pasteItemToolStripMenuItem.Text = "Paste";
+            this.pasteItemToolStripMenuItem.Click += new System.EventHandler(this.pasteItemToolStripMenuItem_Click);
+            // 
+            // deleteItemToolStripMenuItem
+            // 
+            this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteItemToolStripMenuItem.Text = "Delete";
+            this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
+            // 
+            // contextMenuStripEquipment
+            // 
+            this.contextMenuStripEquipment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyEquipmentToolStripMenuItem,
+            this.pasteEquipmentToolStripMenuItem,
+            this.deleteEquipmentToolStripMenuItem});
+            this.contextMenuStripEquipment.Name = "contextMenuStripEquipment";
+            this.contextMenuStripEquipment.Size = new System.Drawing.Size(108, 70);
+            // 
+            // copyEquipmentToolStripMenuItem
+            // 
+            this.copyEquipmentToolStripMenuItem.Name = "copyEquipmentToolStripMenuItem";
+            this.copyEquipmentToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyEquipmentToolStripMenuItem.Text = "Copy";
+            this.copyEquipmentToolStripMenuItem.Click += new System.EventHandler(this.copyEquipmentToolStripMenuItem_Click);
+            // 
+            // pasteEquipmentToolStripMenuItem
+            // 
+            this.pasteEquipmentToolStripMenuItem.Name = "pasteEquipmentToolStripMenuItem";
+            this.pasteEquipmentToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pasteEquipmentToolStripMenuItem.Text = "Paste";
+            this.pasteEquipmentToolStripMenuItem.Click += new System.EventHandler(this.pasteEquipmentToolStripMenuItem_Click);
+            // 
+            // deleteEquipmentToolStripMenuItem
+            // 
+            this.deleteEquipmentToolStripMenuItem.Name = "deleteEquipmentToolStripMenuItem";
+            this.deleteEquipmentToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteEquipmentToolStripMenuItem.Text = "Delete";
+            this.deleteEquipmentToolStripMenuItem.Click += new System.EventHandler(this.deleteEquipmentToolStripMenuItem_Click);
+            // 
+            // contextMenuStripItemPouch
+            // 
+            this.contextMenuStripItemPouch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyItemPouchItemToolStripMenuItem,
+            this.pasteItemPouchItemToolStripMenuItem,
+            this.deleteItemPouchItemToolStripMenuItem});
+            this.contextMenuStripItemPouch.Name = "contextMenuStripItemPouch";
+            this.contextMenuStripItemPouch.Size = new System.Drawing.Size(108, 70);
+            // 
+            // copyItemPouchItemToolStripMenuItem
+            // 
+            this.copyItemPouchItemToolStripMenuItem.Name = "copyItemPouchItemToolStripMenuItem";
+            this.copyItemPouchItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyItemPouchItemToolStripMenuItem.Text = "Copy";
+            this.copyItemPouchItemToolStripMenuItem.Click += new System.EventHandler(this.copyItemPouchItemToolStripMenuItem_Click);
+            // 
+            // pasteItemPouchItemToolStripMenuItem
+            // 
+            this.pasteItemPouchItemToolStripMenuItem.Name = "pasteItemPouchItemToolStripMenuItem";
+            this.pasteItemPouchItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pasteItemPouchItemToolStripMenuItem.Text = "Paste";
+            this.pasteItemPouchItemToolStripMenuItem.Click += new System.EventHandler(this.pasteItemPouchItemToolStripMenuItem_Click);
+            // 
+            // deleteItemPouchItemToolStripMenuItem
+            // 
+            this.deleteItemPouchItemToolStripMenuItem.Name = "deleteItemPouchItemToolStripMenuItem";
+            this.deleteItemPouchItemToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteItemPouchItemToolStripMenuItem.Text = "Delete";
+            this.deleteItemPouchItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemPouchItemToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1360,6 +1469,9 @@
             this.tabPageItemPouch.ResumeLayout(false);
             this.tabPagePalico.ResumeLayout(false);
             this.tabPagePalicoEquip.ResumeLayout(false);
+            this.contextMenuStripItemBox.ResumeLayout(false);
+            this.contextMenuStripEquipment.ResumeLayout(false);
+            this.contextMenuStripItemPouch.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1486,6 +1598,18 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripItemBox;
+        private System.Windows.Forms.ToolStripMenuItem copyItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripEquipment;
+        private System.Windows.Forms.ToolStripMenuItem copyEquipmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteEquipmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteEquipmentToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripItemPouch;
+        private System.Windows.Forms.ToolStripMenuItem copyItemPouchItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteItemPouchItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemPouchItemToolStripMenuItem;
     }
 }
 
