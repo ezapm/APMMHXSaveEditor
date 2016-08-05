@@ -78,7 +78,6 @@ namespace APMMHXSaveEditor.Data
         public const UInt32 PLAYER_GUILD_CARD_OFFSET = 0x09F0FE; //Size 5208
 
         public const UInt16 UNLOCKED_BOXES_OFFSET = 0x1A22; //Size 8
-
     }
 
     public static class PalicoOffsets 
@@ -100,4 +99,16 @@ namespace APMMHXSaveEditor.Data
         public const UInt16 PREVIOUS_MASTER_OFFSET = 0xBC; //Size 32
         public const UInt16 RGBA_VALUE_OFFSET = 0x011A; //Size 4
     }
+
+    //public static class GuildCardOffsets
+    //{
+    //    //Guild Card Offsets by Ukee
+    //    public static UInt16 VILLAGE_QUEST_OFFSETS = 0x07DA; //Size 2
+    //    public static UInt16 LOW_HUB_QUEST_OFFSETS = 0x07DC; //Size 2
+    //    public static UInt16 HIGH_HUB_QUEST_OFFSETS = 0x07DE; //Size 2
+    //    public static UInt16 SPECIAL_PERMIT_QUEST_OFFSETS = 0x07e0; //Size 2
+    //    public static UInt16 ARENA_QUEST_OFFSETS = 0x07E2; //Size 2
+    //    public static UInt16 STREET_PASS_OFFSETS = 0x07E4; //Size 2
+    //    public static UInt16 MONSTER_HUNT_OFFSETS = 0x0EE0; //Size 552 (69 Monsters, 8 Bytes Each)
+    //}
 }

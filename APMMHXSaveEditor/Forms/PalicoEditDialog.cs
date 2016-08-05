@@ -26,6 +26,7 @@ namespace APMMHXSaveEditor.Forms
 
             comboBoxForte.DataSource = GameConstants.PalicoForte;
             numericUpDownXP.Maximum = UInt32.MaxValue;
+            numericUpDownLevel.Minimum = 1;
             numericUpDownLevel.Maximum = 255;
             numericUpDownTarget.Maximum = 255;
             numericUpDownEnthusiasm.Maximum = 255;
@@ -46,7 +47,7 @@ namespace APMMHXSaveEditor.Forms
         private void loadPalico()
         {
             textBoxName.Text = Palico.Name;
-            numericUpDownLevel.Value = Palico.Level;
+            numericUpDownLevel.Value = Palico.Level + 1;
             numericUpDownXP.Value = Palico.XP;
             numericUpDownEnthusiasm.Value = Palico.Enthusiasm;
             numericUpDownTarget.Value = Palico.Target;
@@ -71,7 +72,7 @@ namespace APMMHXSaveEditor.Forms
         {
             //General
             Palico.Name = textBoxName.Text;
-            Palico.Level = (byte)numericUpDownLevel.Value;
+            Palico.Level = (byte)(numericUpDownLevel.Value - 1);
             Palico.XP = (UInt32)numericUpDownXP.Value;
             Palico.Forte = (byte)comboBoxForte.SelectedIndex;
             Palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;

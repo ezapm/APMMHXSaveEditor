@@ -10,7 +10,7 @@ namespace APMMHXSaveEditor.Data
     {
         public string Name { get; set; }
         public UInt32 XP { get; set; }
-        public byte Level { get; set; }
+        public byte Level { get; set; } //Note that level 1 = 0
         public byte Forte { get; set; }
         public byte Enthusiasm { get; set; }
         public byte Target { get; set; }
@@ -40,10 +40,10 @@ namespace APMMHXSaveEditor.Data
 
         public override string ToString()
         {
-            if (this.Name == "")
+            if (this.Name == "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0")
                 return "[Empty]";
             else
-                return string.Format("[Lv. {0,2}] {1}", this.Level, this.Name);
+                return string.Format("[Lv. {0,2}] {1}", (this.Level + 1), this.Name);
         }
     }
 }

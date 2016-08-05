@@ -52,6 +52,15 @@
             this.labelLevel = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.tabPageStyle = new System.Windows.Forms.TabPage();
+            this.textBoxVestRGBA = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxRightEyeRGBA = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxLeftEyeRGBA = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxCoatRGBA = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPageEquippedActions = new System.Windows.Forms.TabPage();
             this.listViewEquippedAction = new System.Windows.Forms.ListView();
             this.columnHeaderEqActionSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,26 +81,17 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
-            this.tabPageStyle = new System.Windows.Forms.TabPage();
-            this.textBoxCoatRGBA = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxLeftEyeRGBA = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxRightEyeRGBA = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxVestRGBA = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControlPalico.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnthusiasm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).BeginInit();
+            this.tabPageStyle.SuspendLayout();
             this.tabPageEquippedActions.SuspendLayout();
             this.tabPageEquippedSkills.SuspendLayout();
             this.tabPageLearnedActions.SuspendLayout();
             this.tabPageLearnedSkills.SuspendLayout();
-            this.tabPageStyle.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPalico
@@ -321,6 +321,87 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name";
             // 
+            // tabPageStyle
+            // 
+            this.tabPageStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageStyle.Controls.Add(this.textBoxVestRGBA);
+            this.tabPageStyle.Controls.Add(this.label5);
+            this.tabPageStyle.Controls.Add(this.textBoxRightEyeRGBA);
+            this.tabPageStyle.Controls.Add(this.label4);
+            this.tabPageStyle.Controls.Add(this.textBoxLeftEyeRGBA);
+            this.tabPageStyle.Controls.Add(this.label2);
+            this.tabPageStyle.Controls.Add(this.textBoxCoatRGBA);
+            this.tabPageStyle.Controls.Add(this.label1);
+            this.tabPageStyle.Location = new System.Drawing.Point(4, 22);
+            this.tabPageStyle.Name = "tabPageStyle";
+            this.tabPageStyle.Size = new System.Drawing.Size(437, 203);
+            this.tabPageStyle.TabIndex = 5;
+            this.tabPageStyle.Text = "Style";
+            // 
+            // textBoxVestRGBA
+            // 
+            this.textBoxVestRGBA.Location = new System.Drawing.Point(10, 66);
+            this.textBoxVestRGBA.Name = "textBoxVestRGBA";
+            this.textBoxVestRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxVestRGBA.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Vest RGBA Value";
+            // 
+            // textBoxRightEyeRGBA
+            // 
+            this.textBoxRightEyeRGBA.Location = new System.Drawing.Point(281, 27);
+            this.textBoxRightEyeRGBA.Name = "textBoxRightEyeRGBA";
+            this.textBoxRightEyeRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxRightEyeRGBA.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(278, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Right Eye RGBA Value";
+            // 
+            // textBoxLeftEyeRGBA
+            // 
+            this.textBoxLeftEyeRGBA.Location = new System.Drawing.Point(147, 27);
+            this.textBoxLeftEyeRGBA.Name = "textBoxLeftEyeRGBA";
+            this.textBoxLeftEyeRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxLeftEyeRGBA.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(144, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Left Eye RGBA Value";
+            // 
+            // textBoxCoatRGBA
+            // 
+            this.textBoxCoatRGBA.Location = new System.Drawing.Point(10, 27);
+            this.textBoxCoatRGBA.Name = "textBoxCoatRGBA";
+            this.textBoxCoatRGBA.Size = new System.Drawing.Size(122, 20);
+            this.textBoxCoatRGBA.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Coat RGBA Value";
+            // 
             // tabPageEquippedActions
             // 
             this.tabPageEquippedActions.BackColor = System.Drawing.SystemColors.Control;
@@ -495,6 +576,7 @@
             // 
             // buttonExport
             // 
+            this.buttonExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonExport.Location = new System.Drawing.Point(5, 232);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(75, 23);
@@ -505,6 +587,7 @@
             // 
             // buttonImport
             // 
+            this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonImport.Location = new System.Drawing.Point(86, 232);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(75, 23);
@@ -512,87 +595,6 @@
             this.buttonImport.Text = "Import";
             this.buttonImport.UseVisualStyleBackColor = true;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
-            // 
-            // tabPageStyle
-            // 
-            this.tabPageStyle.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageStyle.Controls.Add(this.textBoxVestRGBA);
-            this.tabPageStyle.Controls.Add(this.label5);
-            this.tabPageStyle.Controls.Add(this.textBoxRightEyeRGBA);
-            this.tabPageStyle.Controls.Add(this.label4);
-            this.tabPageStyle.Controls.Add(this.textBoxLeftEyeRGBA);
-            this.tabPageStyle.Controls.Add(this.label2);
-            this.tabPageStyle.Controls.Add(this.textBoxCoatRGBA);
-            this.tabPageStyle.Controls.Add(this.label1);
-            this.tabPageStyle.Location = new System.Drawing.Point(4, 22);
-            this.tabPageStyle.Name = "tabPageStyle";
-            this.tabPageStyle.Size = new System.Drawing.Size(437, 203);
-            this.tabPageStyle.TabIndex = 5;
-            this.tabPageStyle.Text = "Style";
-            // 
-            // textBoxCoatRGBA
-            // 
-            this.textBoxCoatRGBA.Location = new System.Drawing.Point(10, 27);
-            this.textBoxCoatRGBA.Name = "textBoxCoatRGBA";
-            this.textBoxCoatRGBA.Size = new System.Drawing.Size(122, 20);
-            this.textBoxCoatRGBA.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Coat RGBA Value";
-            // 
-            // textBoxLeftEyeRGBA
-            // 
-            this.textBoxLeftEyeRGBA.Location = new System.Drawing.Point(147, 27);
-            this.textBoxLeftEyeRGBA.Name = "textBoxLeftEyeRGBA";
-            this.textBoxLeftEyeRGBA.Size = new System.Drawing.Size(122, 20);
-            this.textBoxLeftEyeRGBA.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Left Eye RGBA Value";
-            // 
-            // textBoxRightEyeRGBA
-            // 
-            this.textBoxRightEyeRGBA.Location = new System.Drawing.Point(281, 27);
-            this.textBoxRightEyeRGBA.Name = "textBoxRightEyeRGBA";
-            this.textBoxRightEyeRGBA.Size = new System.Drawing.Size(122, 20);
-            this.textBoxRightEyeRGBA.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(278, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Right Eye RGBA Value";
-            // 
-            // textBoxVestRGBA
-            // 
-            this.textBoxVestRGBA.Location = new System.Drawing.Point(10, 66);
-            this.textBoxVestRGBA.Name = "textBoxVestRGBA";
-            this.textBoxVestRGBA.Size = new System.Drawing.Size(122, 20);
-            this.textBoxVestRGBA.TabIndex = 21;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Vest RGBA Value";
             // 
             // PalicoEditDialog
             // 
@@ -617,12 +619,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnthusiasm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).EndInit();
+            this.tabPageStyle.ResumeLayout(false);
+            this.tabPageStyle.PerformLayout();
             this.tabPageEquippedActions.ResumeLayout(false);
             this.tabPageEquippedSkills.ResumeLayout(false);
             this.tabPageLearnedActions.ResumeLayout(false);
             this.tabPageLearnedSkills.ResumeLayout(false);
-            this.tabPageStyle.ResumeLayout(false);
-            this.tabPageStyle.PerformLayout();
             this.ResumeLayout(false);
 
         }
