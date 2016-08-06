@@ -76,6 +76,12 @@
     <Compile Include="Forms\ExportEquipmentBoxDialog.Designer.cs">
       <DependentUpon>ExportEquipmentBoxDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GuildCardEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GuildCardEditorDialog.Designer.cs">
+      <DependentUpon>GuildCardEditorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ImportEquipmentBoxDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExportEquipmentBoxDialog.resx">
       <DependentUpon>ExportEquipmentBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GuildCardEditorDialog.resx">
+      <DependentUpon>GuildCardEditorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ImportEquipmentBoxDialog.resx">
       <DependentUpon>ImportEquipmentBoxDialog.cs</DependentUpon>

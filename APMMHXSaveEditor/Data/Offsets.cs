@@ -100,15 +100,20 @@ namespace APMMHXSaveEditor.Data
         public const UInt16 RGBA_VALUE_OFFSET = 0x011A; //Size 4
     }
 
-    //public static class GuildCardOffsets
-    //{
-    //    //Guild Card Offsets by Ukee
-    //    public static UInt16 VILLAGE_QUEST_OFFSETS = 0x07DA; //Size 2
-    //    public static UInt16 LOW_HUB_QUEST_OFFSETS = 0x07DC; //Size 2
-    //    public static UInt16 HIGH_HUB_QUEST_OFFSETS = 0x07DE; //Size 2
-    //    public static UInt16 SPECIAL_PERMIT_QUEST_OFFSETS = 0x07e0; //Size 2
-    //    public static UInt16 ARENA_QUEST_OFFSETS = 0x07E2; //Size 2
-    //    public static UInt16 STREET_PASS_OFFSETS = 0x07E4; //Size 2
-    //    public static UInt16 MONSTER_HUNT_OFFSETS = 0x0EE0; //Size 552 (69 Monsters, 8 Bytes Each)
-    //}
+    public static class GuildCardOffsets
+    {
+        //Guild Card Offsets by Ukee
+        public static UInt16 PLAYTIME_OFFSET = 0x088C; //Size 4
+        public static UInt16 VILLAGE_WEAPON_USAGE_OFFSET = 0x0830; //Size 30
+        public static UInt16 LOW_HUB_WEAPON_USAGE_OFFSET = 0x084E; //Size 30
+        public static UInt16 HUB_WEAPON_USAGE_OFFSET = 0x086C; //Size 30
+
+        public static UInt16 VILLAGE_QUEST_OFFSETS = 0x07DA; //Size 2
+        public static UInt16 LOW_HUB_QUEST_OFFSETS = 0x07DC; //Size 2
+        public static UInt16 HIGH_HUB_QUEST_OFFSETS = 0x07DE; //Size 2
+        public static UInt16 SPECIAL_PERMIT_QUEST_OFFSETS = 0x07e0; //Size 2
+        public static UInt16 ARENA_QUEST_OFFSETS = 0x07E2; //Size 2
+        public static UInt16 STREET_PASS_OFFSETS = 0x07E4; //Size 2
+        public static UInt16 MONSTER_HUNT_OFFSETS = 0x0EE0; //Size 552 (69 Monsters, 8 Bytes Each)
+    }
 }

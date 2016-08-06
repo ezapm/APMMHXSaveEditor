@@ -566,7 +566,7 @@
             this.labelBerunaPoints.Name = "labelBerunaPoints";
             this.labelBerunaPoints.Size = new System.Drawing.Size(73, 13);
             this.labelBerunaPoints.TabIndex = 10;
-            this.labelBerunaPoints.Text = "Beruna Points";
+            this.labelBerunaPoints.Text = "Bherna Points";
             // 
             // numericUpDownAcademyPoints
             // 
@@ -580,9 +580,9 @@
             this.labelAcademyPoints.AutoSize = true;
             this.labelAcademyPoints.Location = new System.Drawing.Point(394, 36);
             this.labelAcademyPoints.Name = "labelAcademyPoints";
-            this.labelAcademyPoints.Size = new System.Drawing.Size(83, 13);
+            this.labelAcademyPoints.Size = new System.Drawing.Size(92, 13);
             this.labelAcademyPoints.TabIndex = 8;
-            this.labelAcademyPoints.Text = "Academy Points";
+            this.labelAcademyPoints.Text = "Wycademy Points";
             // 
             // numericUpDownZenny
             // 
@@ -1475,26 +1475,26 @@
             this.pastePalicoEqToolStripMenuItem,
             this.deletePalicoEqToolStripMenuItem});
             this.contextMenuStripPalicoEquipment.Name = "contextMenuStripPalicoEquipment";
-            this.contextMenuStripPalicoEquipment.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStripPalicoEquipment.Size = new System.Drawing.Size(108, 70);
             // 
             // copyPalicoEqToolStripMenuItem
             // 
             this.copyPalicoEqToolStripMenuItem.Name = "copyPalicoEqToolStripMenuItem";
-            this.copyPalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyPalicoEqToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.copyPalicoEqToolStripMenuItem.Text = "Copy";
             this.copyPalicoEqToolStripMenuItem.Click += new System.EventHandler(this.copyPalicoEqToolStripMenuItem_Click);
             // 
             // pastePalicoEqToolStripMenuItem
             // 
             this.pastePalicoEqToolStripMenuItem.Name = "pastePalicoEqToolStripMenuItem";
-            this.pastePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pastePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.pastePalicoEqToolStripMenuItem.Text = "Paste";
             this.pastePalicoEqToolStripMenuItem.Click += new System.EventHandler(this.pastePalicoEqToolStripMenuItem_Click);
             // 
             // deletePalicoEqToolStripMenuItem
             // 
             this.deletePalicoEqToolStripMenuItem.Name = "deletePalicoEqToolStripMenuItem";
-            this.deletePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deletePalicoEqToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deletePalicoEqToolStripMenuItem.Text = "Delete";
             this.deletePalicoEqToolStripMenuItem.Click += new System.EventHandler(this.deletePalicoEqToolStripMenuItem_Click);
             // 

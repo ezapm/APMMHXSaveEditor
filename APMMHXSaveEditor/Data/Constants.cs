@@ -8,7 +8,7 @@ namespace APMMHXSaveEditor.Data
 {
     public static class Constants
     {
-        public const string EDITOR_VERSION = "APM MHGen Save Editor v0.11c";
+        public const string EDITOR_VERSION = "APM MHGen Save Editor v0.12";
 
         public const UInt16 TOTAL_ITEM_BOX_SLOTS = 1400;
         public const UInt16 TOTAL_PALICO_EQUIPMENT_SLOTS = 700;
@@ -36,5 +36,7 @@ namespace APMMHXSaveEditor.Data
         public const UInt16 TOTAL_CRAFTABLE_WEAPON_SHOPS = 14;
         public const UInt16 TOTAL_EQSHOP_SHOPS = 19;
         public const UInt16 TOTAL_CRAFTABLE_PALICO_SHOPS = 3;
+
+        public const UInt16 TOTAL_WEAPONS = 15;
     }
 }

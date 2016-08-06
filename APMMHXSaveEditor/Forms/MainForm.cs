@@ -74,8 +74,6 @@ namespace APMMHXSaveEditor
             comboBoxItemBox.SelectedIndex = 0;
             comboBoxPouch.SelectedIndex = 0;
             comboBoxPalicoEquipBox.SelectedIndex = 0;
-
-            buttonEditGuildCard.Visible = false;
         }
 
         private void clearForms()
@@ -607,7 +605,14 @@ namespace APMMHXSaveEditor
                 MessageBox.Show("Load a file first!");
                 return;
             }
-            MessageBox.Show(string.Format("{0:X2}", (saveFile.Players[currentPlayer].SaveOffset + Offsets.PLAYER_GUILD_CARD_OFFSET)), "Offset");
+
+            GuildCardEditorDialog gced = new GuildCardEditorDialog(saveFile.Players[currentPlayer].PlayerGuildCard);
+            if (gced.ShowDialog() == DialogResult.OK)
+            {
+                saveFile.Players[currentPlayer].PlayerGuildCard = gced.GuildCard;
+            }
+
+            gced.Dispose();
         }
 
 
