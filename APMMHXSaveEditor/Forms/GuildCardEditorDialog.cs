@@ -57,13 +57,15 @@ namespace APMMHXSaveEditor.Forms
             binaryReader.BaseStream.Seek(GuildCardOffsets.PLAYTIME_OFFSET, SeekOrigin.Begin);
             numericUpDownPlayTime.Value = binaryReader.ReadUInt32();
 
+            binaryReader.BaseStream.Seek(GuildCardOffsets.STREET_PASS_OFFSETS, SeekOrigin.Begin);
+            numericUpDownStreetPasses.Value = binaryReader.ReadUInt16();
+
             binaryReader.BaseStream.Seek(GuildCardOffsets.VILLAGE_QUEST_OFFSETS, SeekOrigin.Begin);
             numericUpDownVillageQuests.Value = binaryReader.ReadUInt16();
             numericUpDownLowHubQuests.Value = binaryReader.ReadUInt16();
             numericUpDownHighHubQuests.Value = binaryReader.ReadUInt16();
             numericUpDownSpecialPermitQuests.Value = binaryReader.ReadUInt16();
             numericUpDownArenaQuests.Value = binaryReader.ReadUInt16();
-            numericUpDownStreetPasses.Value = binaryReader.ReadUInt16();
 
             binaryReader.BaseStream.Seek(GuildCardOffsets.VILLAGE_WEAPON_USAGE_OFFSET, SeekOrigin.Begin);
             villageWeaponUsage = new UInt16[Constants.TOTAL_WEAPONS];
@@ -93,13 +95,15 @@ namespace APMMHXSaveEditor.Forms
             binaryWriter.BaseStream.Seek(GuildCardOffsets.PLAYTIME_OFFSET, SeekOrigin.Begin);
             binaryWriter.Write((UInt32)numericUpDownPlayTime.Value);
 
+            binaryWriter.BaseStream.Seek(GuildCardOffsets.STREET_PASS_OFFSETS, SeekOrigin.Begin);
+            binaryWriter.Write((UInt16)numericUpDownStreetPasses.Value);
+
             binaryWriter.BaseStream.Seek(GuildCardOffsets.VILLAGE_QUEST_OFFSETS, SeekOrigin.Begin);
             binaryWriter.Write((UInt16)numericUpDownVillageQuests.Value);
             binaryWriter.Write((UInt16)numericUpDownLowHubQuests.Value);
             binaryWriter.Write((UInt16)numericUpDownHighHubQuests.Value);
             binaryWriter.Write((UInt16)numericUpDownSpecialPermitQuests.Value);
             binaryWriter.Write((UInt16)numericUpDownArenaQuests.Value);
-            binaryWriter.Write((UInt16)numericUpDownStreetPasses.Value);
 
             binaryWriter.BaseStream.Seek(GuildCardOffsets.VILLAGE_WEAPON_USAGE_OFFSET, SeekOrigin.Begin);
             for (int i = 0; i < Constants.TOTAL_WEAPONS; i++)
