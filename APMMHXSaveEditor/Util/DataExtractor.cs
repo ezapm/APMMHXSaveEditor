@@ -126,6 +126,21 @@ namespace APMMHXSaveEditor.Util
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.PLAYER_GUILD_CARD_OFFSET, SeekOrigin.Begin);
                 player.PlayerGuildCard = new GuildCard(binaryReader.ReadBytes(Constants.SIZEOF_GUILD_CARD));
 
+
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.MONSTERHUNT_OFFSETS, SeekOrigin.Begin);
+                player.PlayerGuildCard.MonsterKills = new UInt16[Constants.TOTAL_MONSTERHUNTS];
+                for (int i = 0; i < Constants.TOTAL_MONSTERHUNTS; i++)
+                {
+                    player.PlayerGuildCard.MonsterKills[i] = binaryReader.ReadUInt16();
+                }
+
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.MONSTERCAPTURE_OFFSETS, SeekOrigin.Begin);
+                player.PlayerGuildCard.MonsterCaptures = new UInt16[Constants.TOTAL_MONSTERHUNTS];
+                for (int i = 0; i < Constants.TOTAL_MONSTERHUNTS; i++)
+                {
+                    player.PlayerGuildCard.MonsterCaptures[i] = binaryReader.ReadUInt16();
+                }
+
                 //Shops
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.CRAFTABLE_ARMOR_SHOP_OFFSET, SeekOrigin.Begin);
                 player.CraftableArmorShops = new Shop[Constants.TOTAL_CRAFTABLE_ARMOR_SHOPS];
@@ -264,6 +279,18 @@ namespace APMMHXSaveEditor.Util
                 //Guild Card
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.PLAYER_GUILD_CARD_OFFSET, SeekOrigin.Begin);
                 binaryWriter.Write(player.PlayerGuildCard.GuildCardData);
+
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.MONSTERHUNT_OFFSETS, SeekOrigin.Begin);
+                for (int i = 0; i < Constants.TOTAL_MONSTERHUNTS; i++)
+                {
+                    binaryWriter.Write(player.PlayerGuildCard.MonsterKills[i]);
+                }
+
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.MONSTERCAPTURE_OFFSETS, SeekOrigin.Begin);
+                for (int i = 0; i < Constants.TOTAL_MONSTERHUNTS; i++)
+                {
+                    binaryWriter.Write(player.PlayerGuildCard.MonsterCaptures[i]);
+                }
 
                 //Shops
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.CRAFTABLE_ARMOR_SHOP_OFFSET, SeekOrigin.Begin);

@@ -19,6 +19,7 @@ namespace APMMHXSaveEditor.Forms
         private UInt16[] hunterHubWeaponUsage;
         private UInt16[] arenaWeaponUsage;
         private int currentWeaponUsageIndex = -1;
+        private int currentMonsterIndex = -1;
 
         public GuildCardEditorDialog(GuildCard guildCard)
         {
@@ -37,10 +38,12 @@ namespace APMMHXSaveEditor.Forms
             numericUpDownVillageWeapons.Maximum = UInt16.MaxValue;
             numericUpDownHunterHubWeapons.Maximum = UInt16.MaxValue;
             numericUpDownArenaWeapons.Maximum = UInt16.MaxValue;
+            numericUpDownMonsterCaptures.Maximum = UInt16.MaxValue;
+            numericUpDownMonsterKills.Maximum = UInt16.MaxValue;
 
-           
             loadGuildCard();
             comboBoxWeapons.DataSource = GameConstants.WeaponTypes;
+            comboBoxMonsters.DataSource = GameConstants.MonsterHuntNames;
         }
 
         private void loadGuildCard()
@@ -90,6 +93,7 @@ namespace APMMHXSaveEditor.Forms
         private void saveGuildCard()
         {
             saveWeaponUsage();
+            saveMonsterHunts();
             BinaryWriter binaryWriter = new BinaryWriter((Stream)new MemoryStream(GuildCard.GuildCardData));
 
             binaryWriter.BaseStream.Seek(GuildCardOffsets.PLAYTIME_OFFSET, SeekOrigin.Begin);
@@ -161,5 +165,24 @@ namespace APMMHXSaveEditor.Forms
             hunterHubWeaponUsage[currentWeaponUsageIndex] = (UInt16)numericUpDownHunterHubWeapons.Value;
             arenaWeaponUsage[currentWeaponUsageIndex] = (UInt16)numericUpDownArenaWeapons.Value;
         }
+
+        private void comboBoxMonsters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentMonsterIndex != -1)
+            {
+                saveMonsterHunts();
+            }
+            currentMonsterIndex = comboBoxMonsters.SelectedIndex;
+            numericUpDownMonsterKills.Value = GuildCard.MonsterKills[currentMonsterIndex];
+            numericUpDownMonsterCaptures.Value = GuildCard.MonsterCaptures[currentMonsterIndex];
+        }
+
+        private void saveMonsterHunts()
+        {
+            GuildCard.MonsterKills[currentMonsterIndex] = (UInt16)numericUpDownMonsterKills.Value;
+            GuildCard.MonsterCaptures[currentMonsterIndex] = (UInt16)numericUpDownMonsterCaptures.Value;
+        }
+
+
     }
 }
