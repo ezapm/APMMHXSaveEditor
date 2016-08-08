@@ -16,4 +16,8 @@ Palico Editor
 
 Craftable items unlocker
 
+Guild Card Editor
+
+More to come 
+
 GBATemp thread: https://gbatemp.net/threads/apm-mhx-mhgen-save-editor.434421/
