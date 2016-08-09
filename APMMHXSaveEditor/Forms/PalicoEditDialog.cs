@@ -25,6 +25,12 @@ namespace APMMHXSaveEditor.Forms
             this.Palico = palico;
 
             comboBoxForte.DataSource = GameConstants.PalicoForte;
+            comboBoxClothing.DataSource = GameConstants.PalicoClothing;
+            comboBoxCoat.DataSource = GameConstants.PalicoCoat;
+            comboBoxEars.DataSource = GameConstants.PalicoEars;
+            comboBoxEyes.DataSource = GameConstants.PalicoEyes;
+            comboBoxTail.DataSource = GameConstants.PalicoTail;
+            comboBoxVoice.DataSource = GameConstants.PalicoVoices;
             numericUpDownXP.Maximum = UInt32.MaxValue;
             numericUpDownLevel.Minimum = 1;
             numericUpDownLevel.Maximum = 255;
@@ -62,10 +68,19 @@ namespace APMMHXSaveEditor.Forms
             textBoxRightEyeRGBA.Text = BitConverter.ToString(Palico.RightEyeRGBAValue).Replace("-", "");
             textBoxVestRGBA.Text = BitConverter.ToString(Palico.VestRGBAValue).Replace("-", "");
 
+            comboBoxClothing.SelectedIndex = Palico.Clothing;
+            comboBoxCoat.SelectedIndex = Palico.Coat;
+            comboBoxEars.SelectedIndex = Palico.Ears;
+            comboBoxEyes.SelectedIndex = Palico.Eyes;
+            comboBoxTail.SelectedIndex = Palico.Tail;
+            comboBoxVoice.SelectedIndex = Palico.Voice;
+
             loadEquippedActions();
             loadEquippedSkills();
             loadLearnedActions();
             loadLearnedSkills();
+
+            checkBoxDLC.Checked = ((Palico.Unknown2[4] >> 4) & 8) == 8;
         }
 
         private void savePalico()
@@ -77,8 +92,10 @@ namespace APMMHXSaveEditor.Forms
             Palico.Forte = (byte)comboBoxForte.SelectedIndex;
             Palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
             Palico.Target = (byte)numericUpDownTarget.Value;
+
             Palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
             Palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
+           
             Palico.NameGiver = textBoxNameGiver.Text;
             Palico.PreviousMaster = textBoxPreviousOwner.Text;
             Palico.Greeting = textBoxGreetings.Text;
@@ -86,6 +103,8 @@ namespace APMMHXSaveEditor.Forms
             Palico.LeftEyeRGBAValue = Converters.StringToByteArray(textBoxLeftEyeRGBA.Text);
             Palico.RightEyeRGBAValue = Converters.StringToByteArray(textBoxRightEyeRGBA.Text);
             Palico.VestRGBAValue = Converters.StringToByteArray(textBoxVestRGBA.Text);
+
+            Palico.Unknown2[4] = checkBoxDLC.Checked ? (byte)(Palico.Unknown2[4] | 0x80) : (byte)(Palico.Unknown2[4] & 0x70);
         }
 
         private void loadEquippedActions()

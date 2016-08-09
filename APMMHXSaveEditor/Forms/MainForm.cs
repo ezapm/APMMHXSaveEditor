@@ -879,7 +879,7 @@ namespace APMMHXSaveEditor
 
             copiedEquipment = saveFile.Players[currentPlayer].
                                 EquipmentBox[listViewEquipment.SelectedItems[0].Index + 
-                                    (comboBoxItemBox.SelectedIndex * Constants.ITEM_PER_BOX)];
+                                    (comboBoxEquipmentBox.SelectedIndex * Constants.ITEM_PER_BOX)];
 
             pasteEquipmentToolStripMenuItem.Enabled = true;
         }

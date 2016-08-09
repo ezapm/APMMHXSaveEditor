@@ -54,13 +54,13 @@
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageStyle = new System.Windows.Forms.TabPage();
             this.textBoxVestRGBA = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelVestRGBA = new System.Windows.Forms.Label();
             this.textBoxRightEyeRGBA = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelRightEyeRGBA = new System.Windows.Forms.Label();
             this.textBoxLeftEyeRGBA = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelLeftEyeRGBA = new System.Windows.Forms.Label();
             this.textBoxCoatRGBA = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCoatRGBA = new System.Windows.Forms.Label();
             this.tabPageEquippedActions = new System.Windows.Forms.TabPage();
             this.listViewEquippedAction = new System.Windows.Forms.ListView();
             this.columnHeaderEqActionSlot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -81,6 +81,19 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
+            this.labelVoice = new System.Windows.Forms.Label();
+            this.comboBoxVoice = new System.Windows.Forms.ComboBox();
+            this.comboBoxEyes = new System.Windows.Forms.ComboBox();
+            this.labelEyes = new System.Windows.Forms.Label();
+            this.comboBoxClothing = new System.Windows.Forms.ComboBox();
+            this.labelClothing = new System.Windows.Forms.Label();
+            this.comboBoxCoat = new System.Windows.Forms.ComboBox();
+            this.labelCoat = new System.Windows.Forms.Label();
+            this.comboBoxEars = new System.Windows.Forms.ComboBox();
+            this.labelEars = new System.Windows.Forms.Label();
+            this.comboBoxTail = new System.Windows.Forms.ComboBox();
+            this.labelTail = new System.Windows.Forms.Label();
+            this.checkBoxDLC = new System.Windows.Forms.CheckBox();
             this.tabControlPalico.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTarget)).BeginInit();
@@ -114,6 +127,7 @@
             // tabPageGeneral
             // 
             this.tabPageGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageGeneral.Controls.Add(this.checkBoxDLC);
             this.tabPageGeneral.Controls.Add(this.textBoxLearnedSkillRNG);
             this.tabPageGeneral.Controls.Add(this.textBoxLearnedActionRNG);
             this.tabPageGeneral.Controls.Add(this.textBoxGreetings);
@@ -161,7 +175,7 @@
             // 
             this.textBoxGreetings.Location = new System.Drawing.Point(10, 176);
             this.textBoxGreetings.Name = "textBoxGreetings";
-            this.textBoxGreetings.Size = new System.Drawing.Size(413, 20);
+            this.textBoxGreetings.Size = new System.Drawing.Size(346, 20);
             this.textBoxGreetings.TabIndex = 23;
             // 
             // labelGretings
@@ -324,83 +338,95 @@
             // tabPageStyle
             // 
             this.tabPageStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageStyle.Controls.Add(this.comboBoxTail);
+            this.tabPageStyle.Controls.Add(this.labelTail);
+            this.tabPageStyle.Controls.Add(this.comboBoxEars);
+            this.tabPageStyle.Controls.Add(this.labelEars);
+            this.tabPageStyle.Controls.Add(this.comboBoxCoat);
+            this.tabPageStyle.Controls.Add(this.labelCoat);
+            this.tabPageStyle.Controls.Add(this.comboBoxClothing);
+            this.tabPageStyle.Controls.Add(this.labelClothing);
+            this.tabPageStyle.Controls.Add(this.comboBoxEyes);
+            this.tabPageStyle.Controls.Add(this.labelEyes);
+            this.tabPageStyle.Controls.Add(this.comboBoxVoice);
+            this.tabPageStyle.Controls.Add(this.labelVoice);
             this.tabPageStyle.Controls.Add(this.textBoxVestRGBA);
-            this.tabPageStyle.Controls.Add(this.label5);
+            this.tabPageStyle.Controls.Add(this.labelVestRGBA);
             this.tabPageStyle.Controls.Add(this.textBoxRightEyeRGBA);
-            this.tabPageStyle.Controls.Add(this.label4);
+            this.tabPageStyle.Controls.Add(this.labelRightEyeRGBA);
             this.tabPageStyle.Controls.Add(this.textBoxLeftEyeRGBA);
-            this.tabPageStyle.Controls.Add(this.label2);
+            this.tabPageStyle.Controls.Add(this.labelLeftEyeRGBA);
             this.tabPageStyle.Controls.Add(this.textBoxCoatRGBA);
-            this.tabPageStyle.Controls.Add(this.label1);
+            this.tabPageStyle.Controls.Add(this.labelCoatRGBA);
             this.tabPageStyle.Location = new System.Drawing.Point(4, 22);
             this.tabPageStyle.Name = "tabPageStyle";
             this.tabPageStyle.Size = new System.Drawing.Size(437, 203);
             this.tabPageStyle.TabIndex = 5;
-            this.tabPageStyle.Text = "Style";
+            this.tabPageStyle.Text = "Design";
             // 
             // textBoxVestRGBA
             // 
-            this.textBoxVestRGBA.Location = new System.Drawing.Point(10, 66);
+            this.textBoxVestRGBA.Location = new System.Drawing.Point(10, 140);
             this.textBoxVestRGBA.Name = "textBoxVestRGBA";
             this.textBoxVestRGBA.Size = new System.Drawing.Size(122, 20);
             this.textBoxVestRGBA.TabIndex = 21;
             // 
-            // label5
+            // labelVestRGBA
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Vest RGBA Value";
+            this.labelVestRGBA.AutoSize = true;
+            this.labelVestRGBA.Location = new System.Drawing.Point(7, 124);
+            this.labelVestRGBA.Name = "labelVestRGBA";
+            this.labelVestRGBA.Size = new System.Drawing.Size(91, 13);
+            this.labelVestRGBA.TabIndex = 20;
+            this.labelVestRGBA.Text = "Vest RGBA Value";
             // 
             // textBoxRightEyeRGBA
             // 
-            this.textBoxRightEyeRGBA.Location = new System.Drawing.Point(281, 27);
+            this.textBoxRightEyeRGBA.Location = new System.Drawing.Point(271, 105);
             this.textBoxRightEyeRGBA.Name = "textBoxRightEyeRGBA";
             this.textBoxRightEyeRGBA.Size = new System.Drawing.Size(122, 20);
             this.textBoxRightEyeRGBA.TabIndex = 19;
             // 
-            // label4
+            // labelRightEyeRGBA
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(278, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Right Eye RGBA Value";
+            this.labelRightEyeRGBA.AutoSize = true;
+            this.labelRightEyeRGBA.Location = new System.Drawing.Point(268, 89);
+            this.labelRightEyeRGBA.Name = "labelRightEyeRGBA";
+            this.labelRightEyeRGBA.Size = new System.Drawing.Size(116, 13);
+            this.labelRightEyeRGBA.TabIndex = 18;
+            this.labelRightEyeRGBA.Text = "Right Eye RGBA Value";
             // 
             // textBoxLeftEyeRGBA
             // 
-            this.textBoxLeftEyeRGBA.Location = new System.Drawing.Point(147, 27);
+            this.textBoxLeftEyeRGBA.Location = new System.Drawing.Point(140, 105);
             this.textBoxLeftEyeRGBA.Name = "textBoxLeftEyeRGBA";
             this.textBoxLeftEyeRGBA.Size = new System.Drawing.Size(122, 20);
             this.textBoxLeftEyeRGBA.TabIndex = 17;
             // 
-            // label2
+            // labelLeftEyeRGBA
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Left Eye RGBA Value";
+            this.labelLeftEyeRGBA.AutoSize = true;
+            this.labelLeftEyeRGBA.Location = new System.Drawing.Point(137, 89);
+            this.labelLeftEyeRGBA.Name = "labelLeftEyeRGBA";
+            this.labelLeftEyeRGBA.Size = new System.Drawing.Size(109, 13);
+            this.labelLeftEyeRGBA.TabIndex = 16;
+            this.labelLeftEyeRGBA.Text = "Left Eye RGBA Value";
             // 
             // textBoxCoatRGBA
             // 
-            this.textBoxCoatRGBA.Location = new System.Drawing.Point(10, 27);
+            this.textBoxCoatRGBA.Location = new System.Drawing.Point(10, 101);
             this.textBoxCoatRGBA.Name = "textBoxCoatRGBA";
             this.textBoxCoatRGBA.Size = new System.Drawing.Size(122, 20);
             this.textBoxCoatRGBA.TabIndex = 15;
             // 
-            // label1
+            // labelCoatRGBA
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Coat RGBA Value";
+            this.labelCoatRGBA.AutoSize = true;
+            this.labelCoatRGBA.Location = new System.Drawing.Point(7, 85);
+            this.labelCoatRGBA.Name = "labelCoatRGBA";
+            this.labelCoatRGBA.Size = new System.Drawing.Size(92, 13);
+            this.labelCoatRGBA.TabIndex = 14;
+            this.labelCoatRGBA.Text = "Coat RGBA Value";
             // 
             // tabPageEquippedActions
             // 
@@ -596,6 +622,124 @@
             this.buttonImport.UseVisualStyleBackColor = true;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
+            // labelVoice
+            // 
+            this.labelVoice.AutoSize = true;
+            this.labelVoice.Location = new System.Drawing.Point(7, 4);
+            this.labelVoice.Name = "labelVoice";
+            this.labelVoice.Size = new System.Drawing.Size(34, 13);
+            this.labelVoice.TabIndex = 22;
+            this.labelVoice.Text = "Voice";
+            // 
+            // comboBoxVoice
+            // 
+            this.comboBoxVoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVoice.FormattingEnabled = true;
+            this.comboBoxVoice.Location = new System.Drawing.Point(10, 20);
+            this.comboBoxVoice.Name = "comboBoxVoice";
+            this.comboBoxVoice.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVoice.TabIndex = 23;
+            // 
+            // comboBoxEyes
+            // 
+            this.comboBoxEyes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEyes.FormattingEnabled = true;
+            this.comboBoxEyes.Location = new System.Drawing.Point(140, 20);
+            this.comboBoxEyes.Name = "comboBoxEyes";
+            this.comboBoxEyes.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEyes.TabIndex = 25;
+            // 
+            // labelEyes
+            // 
+            this.labelEyes.AutoSize = true;
+            this.labelEyes.Location = new System.Drawing.Point(137, 4);
+            this.labelEyes.Name = "labelEyes";
+            this.labelEyes.Size = new System.Drawing.Size(30, 13);
+            this.labelEyes.TabIndex = 24;
+            this.labelEyes.Text = "Eyes";
+            // 
+            // comboBoxClothing
+            // 
+            this.comboBoxClothing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClothing.FormattingEnabled = true;
+            this.comboBoxClothing.Location = new System.Drawing.Point(271, 20);
+            this.comboBoxClothing.Name = "comboBoxClothing";
+            this.comboBoxClothing.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxClothing.TabIndex = 27;
+            // 
+            // labelClothing
+            // 
+            this.labelClothing.AutoSize = true;
+            this.labelClothing.Location = new System.Drawing.Point(268, 4);
+            this.labelClothing.Name = "labelClothing";
+            this.labelClothing.Size = new System.Drawing.Size(45, 13);
+            this.labelClothing.TabIndex = 26;
+            this.labelClothing.Text = "Clothing";
+            // 
+            // comboBoxCoat
+            // 
+            this.comboBoxCoat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCoat.FormattingEnabled = true;
+            this.comboBoxCoat.Location = new System.Drawing.Point(10, 60);
+            this.comboBoxCoat.Name = "comboBoxCoat";
+            this.comboBoxCoat.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCoat.TabIndex = 29;
+            // 
+            // labelCoat
+            // 
+            this.labelCoat.AutoSize = true;
+            this.labelCoat.Location = new System.Drawing.Point(7, 44);
+            this.labelCoat.Name = "labelCoat";
+            this.labelCoat.Size = new System.Drawing.Size(29, 13);
+            this.labelCoat.TabIndex = 28;
+            this.labelCoat.Text = "Coat";
+            // 
+            // comboBoxEars
+            // 
+            this.comboBoxEars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEars.FormattingEnabled = true;
+            this.comboBoxEars.Location = new System.Drawing.Point(140, 60);
+            this.comboBoxEars.Name = "comboBoxEars";
+            this.comboBoxEars.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEars.TabIndex = 31;
+            // 
+            // labelEars
+            // 
+            this.labelEars.AutoSize = true;
+            this.labelEars.Location = new System.Drawing.Point(137, 44);
+            this.labelEars.Name = "labelEars";
+            this.labelEars.Size = new System.Drawing.Size(28, 13);
+            this.labelEars.TabIndex = 30;
+            this.labelEars.Text = "Ears";
+            // 
+            // comboBoxTail
+            // 
+            this.comboBoxTail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTail.FormattingEnabled = true;
+            this.comboBoxTail.Location = new System.Drawing.Point(271, 60);
+            this.comboBoxTail.Name = "comboBoxTail";
+            this.comboBoxTail.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTail.TabIndex = 33;
+            // 
+            // labelTail
+            // 
+            this.labelTail.AutoSize = true;
+            this.labelTail.Location = new System.Drawing.Point(268, 44);
+            this.labelTail.Name = "labelTail";
+            this.labelTail.Size = new System.Drawing.Size(24, 13);
+            this.labelTail.TabIndex = 32;
+            this.labelTail.Text = "Tail";
+            // 
+            // checkBoxDLC
+            // 
+            this.checkBoxDLC.AutoSize = true;
+            this.checkBoxDLC.Location = new System.Drawing.Point(370, 178);
+            this.checkBoxDLC.Name = "checkBoxDLC";
+            this.checkBoxDLC.Size = new System.Drawing.Size(53, 17);
+            this.checkBoxDLC.TabIndex = 24;
+            this.checkBoxDLC.Text = "DLC?";
+            this.checkBoxDLC.UseVisualStyleBackColor = true;
+            // 
             // PalicoEditDialog
             // 
             this.AcceptButton = this.buttonOK;
@@ -677,12 +821,25 @@
         private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.TabPage tabPageStyle;
         private System.Windows.Forms.TextBox textBoxCoatRGBA;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCoatRGBA;
         private System.Windows.Forms.TextBox textBoxVestRGBA;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelVestRGBA;
         private System.Windows.Forms.TextBox textBoxRightEyeRGBA;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelRightEyeRGBA;
         private System.Windows.Forms.TextBox textBoxLeftEyeRGBA;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelLeftEyeRGBA;
+        private System.Windows.Forms.ComboBox comboBoxTail;
+        private System.Windows.Forms.Label labelTail;
+        private System.Windows.Forms.ComboBox comboBoxEars;
+        private System.Windows.Forms.Label labelEars;
+        private System.Windows.Forms.ComboBox comboBoxCoat;
+        private System.Windows.Forms.Label labelCoat;
+        private System.Windows.Forms.ComboBox comboBoxClothing;
+        private System.Windows.Forms.Label labelClothing;
+        private System.Windows.Forms.ComboBox comboBoxEyes;
+        private System.Windows.Forms.Label labelEyes;
+        private System.Windows.Forms.ComboBox comboBoxVoice;
+        private System.Windows.Forms.Label labelVoice;
+        private System.Windows.Forms.CheckBox checkBoxDLC;
     }
 }

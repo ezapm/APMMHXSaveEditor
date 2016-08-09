@@ -412,12 +412,20 @@ namespace APMMHXSaveEditor.Util
             palico.Greeting = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_PALICO_GREETINGS), 0, Constants.SIZEOF_PALICO_GREETINGS);
             palico.NameGiver = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
             palico.PreviousMaster = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_NAME), 0, Constants.SIZEOF_NAME);
-            palico.Unknown2 = binaryReader.ReadBytes(62);
+            palico.Unknown2 = binaryReader.ReadBytes(51);
+            palico.Voice = binaryReader.ReadByte();
+            palico.Eyes = binaryReader.ReadByte();
+            palico.Clothing = binaryReader.ReadByte();
+            palico.Unknown3 = binaryReader.ReadBytes(2);
+            palico.Coat = binaryReader.ReadByte();
+            palico.Ears = binaryReader.ReadByte();
+            palico.Tail = binaryReader.ReadByte();
+            palico.Unknown4 = binaryReader.ReadBytes(3);
             palico.CoatRGBAValue = binaryReader.ReadBytes(4);
             palico.LeftEyeRGBAValue = binaryReader.ReadBytes(4);
             palico.RightEyeRGBAValue = binaryReader.ReadBytes(4);
             palico.VestRGBAValue = binaryReader.ReadBytes(4);
-            palico.Unknown3 = binaryReader.ReadBytes(21);
+            palico.Unknown5 = binaryReader.ReadBytes(21);
 
             return palico;
         }
@@ -460,13 +468,21 @@ namespace APMMHXSaveEditor.Util
             Encoding.UTF8.GetBytes(palico.PreviousMaster, 0, palico.PreviousMaster.Length, palicoPreviousOwner, 0);
             binaryWriter.Write(palicoPreviousOwner);
 
-            //RGBA
+            //Design
             binaryWriter.Write(palico.Unknown2);
+            binaryWriter.Write(palico.Voice);
+            binaryWriter.Write(palico.Eyes);
+            binaryWriter.Write(palico.Clothing);
+            binaryWriter.Write(palico.Unknown3);
+            binaryWriter.Write(palico.Coat);
+            binaryWriter.Write(palico.Ears);
+            binaryWriter.Write(palico.Tail);
+            binaryWriter.Write(palico.Unknown4);
             binaryWriter.Write(palico.CoatRGBAValue);
             binaryWriter.Write(palico.LeftEyeRGBAValue);
             binaryWriter.Write(palico.RightEyeRGBAValue);
             binaryWriter.Write(palico.VestRGBAValue);
-            binaryWriter.Write(palico.Unknown3);
+            binaryWriter.Write(palico.Unknown5);
 
             return buffer;
         }
