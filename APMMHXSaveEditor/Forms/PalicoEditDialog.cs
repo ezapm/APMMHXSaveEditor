@@ -104,7 +104,7 @@ namespace APMMHXSaveEditor.Forms
             Palico.RightEyeRGBAValue = Converters.StringToByteArray(textBoxRightEyeRGBA.Text);
             Palico.VestRGBAValue = Converters.StringToByteArray(textBoxVestRGBA.Text);
 
-            Palico.Unknown2[4] = checkBoxDLC.Checked ? (byte)(Palico.Unknown2[4] | 0x80) : (byte)(Palico.Unknown2[4] & 0x70);
+            Palico.Unknown2[4] = checkBoxDLC.Checked ? (byte)(Palico.Unknown2[4] | 0x80) : (byte)(Palico.Unknown2[4] & ~(0x80));
         }
 
         private void loadEquippedActions()
