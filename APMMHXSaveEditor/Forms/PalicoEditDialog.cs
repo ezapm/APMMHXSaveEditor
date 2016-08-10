@@ -17,12 +17,12 @@ namespace APMMHXSaveEditor.Forms
     public partial class PalicoEditDialog : Form
     {
 
-        public Palico Palico;
+        public Palico _Palico;
 
         public PalicoEditDialog(Palico palico)
         {
             InitializeComponent();
-            this.Palico = palico;
+            this._Palico = palico;
 
             comboBoxForte.DataSource = GameConstants.PalicoForte;
             comboBoxClothing.DataSource = GameConstants.PalicoClothing;
@@ -52,68 +52,77 @@ namespace APMMHXSaveEditor.Forms
 
         private void loadPalico()
         {
-            textBoxName.Text = Palico.Name;
-            numericUpDownLevel.Value = Palico.Level + 1;
-            numericUpDownXP.Value = Palico.XP;
-            numericUpDownEnthusiasm.Value = Palico.Enthusiasm;
-            numericUpDownTarget.Value = Palico.Target;
-            textBoxLearnedActionRNG.Text = BitConverter.ToString(BitConverter.GetBytes(Palico.LearnedActionRNG)).Replace("-", "");
-            textBoxLearnedSkillRNG.Text = BitConverter.ToString(BitConverter.GetBytes(Palico.LearnedSkillRNG)).Replace("-", "");
-            textBoxNameGiver.Text = Palico.NameGiver;
-            textBoxPreviousOwner.Text = Palico.PreviousMaster;
-            textBoxGreetings.Text = Palico.Greeting;
-            comboBoxForte.SelectedIndex = Palico.Forte;
-            textBoxCoatRGBA.Text = BitConverter.ToString(Palico.CoatRGBAValue).Replace("-", "");
-            textBoxLeftEyeRGBA.Text = BitConverter.ToString(Palico.LeftEyeRGBAValue).Replace("-", "");
-            textBoxRightEyeRGBA.Text = BitConverter.ToString(Palico.RightEyeRGBAValue).Replace("-", "");
-            textBoxVestRGBA.Text = BitConverter.ToString(Palico.VestRGBAValue).Replace("-", "");
+            textBoxName.Text = _Palico.Name;
+            numericUpDownLevel.Value = _Palico.Level + 1;
+            numericUpDownXP.Value = _Palico.XP;
+            numericUpDownEnthusiasm.Value = _Palico.Enthusiasm;
+            numericUpDownTarget.Value = _Palico.Target;
+            textBoxLearnedActionRNG.Text = BitConverter.ToString(BitConverter.GetBytes(_Palico.LearnedActionRNG)).Replace("-", "");
+            textBoxLearnedSkillRNG.Text = BitConverter.ToString(BitConverter.GetBytes(_Palico.LearnedSkillRNG)).Replace("-", "");
+            textBoxNameGiver.Text = _Palico.NameGiver;
+            textBoxPreviousOwner.Text = _Palico.PreviousMaster;
+            textBoxGreetings.Text = _Palico.Greeting;
+            comboBoxForte.SelectedIndex = _Palico.Forte;
+            textBoxCoatRGBA.Text = BitConverter.ToString(_Palico.CoatRGBAValue).Replace("-", "");
+            textBoxLeftEyeRGBA.Text = BitConverter.ToString(_Palico.LeftEyeRGBAValue).Replace("-", "");
+            textBoxRightEyeRGBA.Text = BitConverter.ToString(_Palico.RightEyeRGBAValue).Replace("-", "");
+            textBoxVestRGBA.Text = BitConverter.ToString(_Palico.VestRGBAValue).Replace("-", "");
 
-            comboBoxClothing.SelectedIndex = Palico.Clothing;
-            comboBoxCoat.SelectedIndex = Palico.Coat;
-            comboBoxEars.SelectedIndex = Palico.Ears;
-            comboBoxEyes.SelectedIndex = Palico.Eyes;
-            comboBoxTail.SelectedIndex = Palico.Tail;
-            comboBoxVoice.SelectedIndex = Palico.Voice;
+            comboBoxClothing.SelectedIndex = _Palico.Clothing;
+            comboBoxCoat.SelectedIndex = _Palico.Coat;
+            comboBoxEars.SelectedIndex = _Palico.Ears;
+            comboBoxEyes.SelectedIndex = _Palico.Eyes;
+            comboBoxTail.SelectedIndex = _Palico.Tail;
+            comboBoxVoice.SelectedIndex = _Palico.Voice;
 
             loadEquippedActions();
             loadEquippedSkills();
             loadLearnedActions();
             loadLearnedSkills();
 
-            checkBoxDLC.Checked = ((Palico.Unknown2[4] >> 4) & 8) == 8;
+            checkBoxDLC.Checked = ((_Palico.Unknown2[4] >> 4) & 8) == 8;
         }
 
         private void savePalico()
         {
             //General
-            Palico.Name = textBoxName.Text;
-            Palico.Level = (byte)(numericUpDownLevel.Value - 1);
-            Palico.XP = (UInt32)numericUpDownXP.Value;
-            Palico.Forte = (byte)comboBoxForte.SelectedIndex;
-            Palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
-            Palico.Target = (byte)numericUpDownTarget.Value;
+            _Palico.Name = textBoxName.Text;
+            _Palico.Level = (byte)(numericUpDownLevel.Value - 1);
+            _Palico.XP = (UInt32)numericUpDownXP.Value;
+            _Palico.Forte = (byte)comboBoxForte.SelectedIndex;
+            _Palico.Enthusiasm = (byte)numericUpDownEnthusiasm.Value;
+            _Palico.Target = (byte)numericUpDownTarget.Value;
 
-            Palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
-            Palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
+            _Palico.LearnedActionRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedActionRNG.Text), 0);
+            _Palico.LearnedSkillRNG = BitConverter.ToUInt16(Converters.StringToByteArray(textBoxLearnedSkillRNG.Text), 0);
            
-            Palico.NameGiver = textBoxNameGiver.Text;
-            Palico.PreviousMaster = textBoxPreviousOwner.Text;
-            Palico.Greeting = textBoxGreetings.Text;
-            Palico.CoatRGBAValue = Converters.StringToByteArray(textBoxCoatRGBA.Text);
-            Palico.LeftEyeRGBAValue = Converters.StringToByteArray(textBoxLeftEyeRGBA.Text);
-            Palico.RightEyeRGBAValue = Converters.StringToByteArray(textBoxRightEyeRGBA.Text);
-            Palico.VestRGBAValue = Converters.StringToByteArray(textBoxVestRGBA.Text);
+            //Text
+            _Palico.NameGiver = textBoxNameGiver.Text;
+            _Palico.PreviousMaster = textBoxPreviousOwner.Text;
+            _Palico.Greeting = textBoxGreetings.Text;
+            
+            //Design
+            _Palico.CoatRGBAValue = Converters.StringToByteArray(textBoxCoatRGBA.Text);
+            _Palico.LeftEyeRGBAValue = Converters.StringToByteArray(textBoxLeftEyeRGBA.Text);
+            _Palico.RightEyeRGBAValue = Converters.StringToByteArray(textBoxRightEyeRGBA.Text);
+            _Palico.VestRGBAValue = Converters.StringToByteArray(textBoxVestRGBA.Text);
+            _Palico.Clothing = (byte)comboBoxClothing.SelectedIndex;
+            _Palico.Coat = (byte)comboBoxCoat.SelectedIndex;
+            _Palico.Ears = (byte)comboBoxEars.SelectedIndex;
+            _Palico.Eyes = (byte)comboBoxEyes.SelectedIndex;
+            _Palico.Tail = (byte)comboBoxTail.SelectedIndex;
+            _Palico.Voice = (byte)comboBoxVoice.SelectedIndex;
 
-            Palico.Unknown2[4] = checkBoxDLC.Checked ? (byte)(Palico.Unknown2[4] | 0x80) : (byte)(Palico.Unknown2[4] & ~(0x80));
+            _Palico.Unknown2[4] = checkBoxDLC.Checked ? (byte)(_Palico.Unknown2[4] | 0x80) : (byte)(_Palico.Unknown2[4] & ~(0x80));
         }
 
         private void loadEquippedActions()
         {
             listViewEquippedAction.Items.Clear();
-            for (int i = 0; i < Palico.EquippedActions.Length; i++)
+            for (int i = 0; i < _Palico.EquippedActions.Length; i++)
             {
                 ListViewItem lviAction = new ListViewItem((i + 1).ToString());
-                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[Palico.EquippedActions[i]]);
+                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[_Palico.EquippedActions[i]]);
                 listViewEquippedAction.Items.Add(lviAction);
             }
         }
@@ -121,10 +130,10 @@ namespace APMMHXSaveEditor.Forms
         private void loadEquippedSkills()
         {
             listViewEquippedSkills.Items.Clear();
-            for (int i = 0; i < Palico.EquippedActions.Length; i++)
+            for (int i = 0; i < _Palico.EquippedActions.Length; i++)
             {
                 ListViewItem lviSkill = new ListViewItem((i + 1).ToString());
-                lviSkill.SubItems.Add(GameConstants.PalicoSkills[Palico.EquippedSkills[i]]);
+                lviSkill.SubItems.Add(GameConstants.PalicoSkills[_Palico.EquippedSkills[i]]);
                 listViewEquippedSkills.Items.Add(lviSkill);
             }
         }
@@ -132,10 +141,10 @@ namespace APMMHXSaveEditor.Forms
         private void loadLearnedActions()
         {
             listViewLearnedActions.Items.Clear();
-            for (int i = 0; i < Palico.LearnedActions.Length; i++)
+            for (int i = 0; i < _Palico.LearnedActions.Length; i++)
             {
                 ListViewItem lviAction = new ListViewItem((i + 1).ToString());
-                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[Palico.LearnedActions[i]]);
+                lviAction.SubItems.Add(GameConstants.PalicoSupportMoves[_Palico.LearnedActions[i]]);
                 listViewLearnedActions.Items.Add(lviAction);
             }
         }
@@ -143,10 +152,10 @@ namespace APMMHXSaveEditor.Forms
         private void loadLearnedSkills()
         {
             listViewLearnedSkills.Items.Clear();
-            for (int i = 0; i < Palico.LearnedSkills.Length; i++)
+            for (int i = 0; i < _Palico.LearnedSkills.Length; i++)
             {
                 ListViewItem lviSkill = new ListViewItem((i + 1).ToString());
-                lviSkill.SubItems.Add(GameConstants.PalicoSkills[Palico.LearnedSkills[i]]);
+                lviSkill.SubItems.Add(GameConstants.PalicoSkills[_Palico.LearnedSkills[i]]);
                 listViewLearnedSkills.Items.Add(lviSkill);
             }
         }
@@ -191,13 +200,13 @@ namespace APMMHXSaveEditor.Forms
             }
 
             int itemSelected = listViewEquippedSkills.SelectedItems[0].Index;
-            PalicoSkillEditorDialog psed = new PalicoSkillEditorDialog(this.Palico.EquippedSkills[itemSelected]);
+            PalicoSkillEditorDialog psed = new PalicoSkillEditorDialog(this._Palico.EquippedSkills[itemSelected]);
 
             psed.ShowDialog();
 
             if (psed.DialogResult == DialogResult.OK)
             {
-                this.Palico.EquippedSkills[itemSelected] = psed.SkillID;
+                this._Palico.EquippedSkills[itemSelected] = psed.SkillID;
                 loadEquippedSkills();
                 int indexSelected = itemSelected;
                 listViewEquippedSkills.Items[indexSelected].Selected = true;
@@ -216,13 +225,13 @@ namespace APMMHXSaveEditor.Forms
             }
 
             int itemSelected = listViewLearnedSkills.SelectedItems[0].Index;
-            PalicoSkillEditorDialog psed = new PalicoSkillEditorDialog(this.Palico.LearnedSkills[itemSelected]);
+            PalicoSkillEditorDialog psed = new PalicoSkillEditorDialog(this._Palico.LearnedSkills[itemSelected]);
 
             psed.ShowDialog();
 
             if (psed.DialogResult == DialogResult.OK)
             {
-                this.Palico.LearnedSkills[itemSelected] = psed.SkillID;
+                this._Palico.LearnedSkills[itemSelected] = psed.SkillID;
                 loadLearnedSkills();
                 int indexSelected = itemSelected;
                 listViewLearnedSkills.Items[indexSelected].Selected = true;
@@ -241,13 +250,13 @@ namespace APMMHXSaveEditor.Forms
             }
 
             int itemSelected = listViewEquippedAction.SelectedItems[0].Index;
-            PalicoActionEditorDialog paed = new PalicoActionEditorDialog(Palico.EquippedActions[itemSelected]);
+            PalicoActionEditorDialog paed = new PalicoActionEditorDialog(_Palico.EquippedActions[itemSelected]);
 
             paed.ShowDialog();
 
             if (paed.DialogResult == DialogResult.OK)
             {
-                this.Palico.EquippedActions[itemSelected] = paed.ActionID;
+                this._Palico.EquippedActions[itemSelected] = paed.ActionID;
                 loadEquippedActions();
                 int indexSelected = itemSelected;
                 listViewEquippedAction.Items[indexSelected].Selected = true;
@@ -266,13 +275,13 @@ namespace APMMHXSaveEditor.Forms
             }
 
             int itemSelected = listViewLearnedActions.SelectedItems[0].Index;
-            PalicoActionEditorDialog paed = new PalicoActionEditorDialog(Palico.LearnedActions[itemSelected]);
+            PalicoActionEditorDialog paed = new PalicoActionEditorDialog(_Palico.LearnedActions[itemSelected]);
 
             paed.ShowDialog();
 
             if (paed.DialogResult == DialogResult.OK)
             {
-                this.Palico.LearnedActions[itemSelected] = paed.ActionID;
+                this._Palico.LearnedActions[itemSelected] = paed.ActionID;
                 loadLearnedActions();
                 int indexSelected = itemSelected;
                 listViewLearnedActions.Items[indexSelected].Selected = true;
@@ -284,7 +293,7 @@ namespace APMMHXSaveEditor.Forms
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            byte[] temp = DataExtractor.PackPalico(this.Palico);
+            byte[] temp = DataExtractor.PackPalico(this._Palico);
             try
             {
                 using (SaveFileDialog sfd = new SaveFileDialog())
@@ -297,8 +306,8 @@ namespace APMMHXSaveEditor.Forms
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
                         savePalico();
-                        File.WriteAllBytes(sfd.FileName, DataExtractor.PackPalico(this.Palico));
-                        this.Palico = DataExtractor.GetPalcio(temp);
+                        File.WriteAllBytes(sfd.FileName, DataExtractor.PackPalico(this._Palico));
+                        this._Palico = DataExtractor.GetPalcio(temp);
                         MessageBox.Show(string.Format("Exported palico to {0}", sfd.FileName), "Success!");
                     }
                 }
@@ -306,13 +315,13 @@ namespace APMMHXSaveEditor.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Save Unsucessful");
-                this.Palico = DataExtractor.GetPalcio(temp);
+                this._Palico = DataExtractor.GetPalcio(temp);
             }
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            byte[] temp = DataExtractor.PackPalico(this.Palico);
+            byte[] temp = DataExtractor.PackPalico(this._Palico);
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
@@ -332,7 +341,7 @@ namespace APMMHXSaveEditor.Forms
                     return;
                 }
 
-                this.Palico = DataExtractor.GetPalcio(fileData);
+                this._Palico = DataExtractor.GetPalcio(fileData);
                 loadPalico();
 
                 ofd.Dispose();
@@ -340,7 +349,7 @@ namespace APMMHXSaveEditor.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Loading Error");
-                this.Palico = DataExtractor.GetPalcio(temp);
+                this._Palico = DataExtractor.GetPalcio(temp);
             }
         }
 
