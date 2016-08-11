@@ -433,7 +433,7 @@ namespace APMMHXSaveEditor
             {
                 ListViewItem lvi = new ListViewItem((i + 1).ToString());
                 lvi.SubItems.Add(GameConstants.EquipmentTypes[saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[0]]);
-                lvi.SubItems.Add(saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[1].ToString());
+                lvi.SubItems.Add(string.Format("Equipment ID: {0}", (saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[2]) << 8 | saveFile.Players[slot].PalicoEquipment[index + i].EquipmentBytes[1]));
                 listViewPalicoEquipBox.Items.Add(lvi);
             }
         }
