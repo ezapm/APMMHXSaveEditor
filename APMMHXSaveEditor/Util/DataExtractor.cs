@@ -340,16 +340,14 @@ namespace APMMHXSaveEditor.Util
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS, SeekOrigin.Begin);
                 for (int i = 0; i < Constants.TOTAL_SHOUTOUTS; i++)
                 {
-                    byte[] shoutoutBuff = new byte[Constants.SIZEOF_SHOUTOUT];
-                    Encoding.UTF8.GetBytes(player.ShoutOuts[i], 0, Constants.SIZEOF_SHOUTOUT, shoutoutBuff, 0);
+                    byte[] shoutoutBuff = Encoding.UTF8.GetBytes(player.ShoutOuts[i]);
                     binaryWriter.Write(shoutoutBuff);
                 }
 
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.AUTOMATIC_SHOUTOUT_OFFSETS, SeekOrigin.Begin);
                 for (int i = 0; i < Constants.TOTAL_AUTOMATIC_SHOUTOUTS; i++)
                 {
-                    byte[] shoutoutBuff = new byte[Constants.SIZEOF_AUTOMATIC_SHOUTOUT];
-                    Encoding.UTF8.GetBytes(player.AutomaticShoutOuts[i], 0, Constants.SIZEOF_AUTOMATIC_SHOUTOUT, shoutoutBuff, 0);
+                    byte[] shoutoutBuff = Encoding.UTF8.GetBytes(player.AutomaticShoutOuts[i]);
                     binaryWriter.Write(shoutoutBuff);
                 }
             }
