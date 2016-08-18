@@ -174,6 +174,21 @@ namespace APMMHXSaveEditor.Util
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
                 player.UnlockedBoxData = binaryReader.ReadBytes(8);
 
+                //Shoutouts
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS, SeekOrigin.Begin);
+                player.ShoutOuts = new string[Constants.TOTAL_SHOUTOUTS];
+                for (int i = 0; i < Constants.TOTAL_SHOUTOUTS; i++)
+                {
+                    player.ShoutOuts[i] = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_SHOUTOUT), 0, Constants.SIZEOF_SHOUTOUT);
+                }
+
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.AUTOMATIC_SHOUTOUT_OFFSETS, SeekOrigin.Begin);
+                player.AutomaticShoutOuts = new string[Constants.TOTAL_AUTOMATIC_SHOUTOUTS];
+                for (int i = 0; i < Constants.TOTAL_AUTOMATIC_SHOUTOUTS; i++)
+                {
+                    player.AutomaticShoutOuts[i] = Encoding.UTF8.GetString(binaryReader.ReadBytes(Constants.SIZEOF_AUTOMATIC_SHOUTOUT), 0, Constants.SIZEOF_AUTOMATIC_SHOUTOUT);
+                }
+
                 players[index] = player;
             }
 
@@ -321,6 +336,22 @@ namespace APMMHXSaveEditor.Util
                 //Unlocked Box Data
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
                 binaryWriter.Write(player.UnlockedBoxData);
+
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS, SeekOrigin.Begin);
+                for (int i = 0; i < Constants.TOTAL_SHOUTOUTS; i++)
+                {
+                    byte[] shoutoutBuff = new byte[Constants.SIZEOF_SHOUTOUT];
+                    Encoding.UTF8.GetBytes(player.ShoutOuts[i], 0, Constants.SIZEOF_SHOUTOUT, shoutoutBuff, 0);
+                    binaryWriter.Write(shoutoutBuff);
+                }
+
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.AUTOMATIC_SHOUTOUT_OFFSETS, SeekOrigin.Begin);
+                for (int i = 0; i < Constants.TOTAL_AUTOMATIC_SHOUTOUTS; i++)
+                {
+                    byte[] shoutoutBuff = new byte[Constants.SIZEOF_AUTOMATIC_SHOUTOUT];
+                    Encoding.UTF8.GetBytes(player.AutomaticShoutOuts[i], 0, Constants.SIZEOF_AUTOMATIC_SHOUTOUT, shoutoutBuff, 0);
+                    binaryWriter.Write(shoutoutBuff);
+                }
             }
         }
 

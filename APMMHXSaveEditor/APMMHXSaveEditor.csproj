@@ -130,6 +130,18 @@
     <Compile Include="Forms\SetItemBoxItemAmountDialog.Designer.cs">
       <DependentUpon>SetItemBoxItemAmountDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ShoutoutsEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShoutoutsEditDialog.Designer.cs">
+      <DependentUpon>ShoutoutsEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShoutoutTextEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShoutoutTextEditDialog.Designer.cs">
+      <DependentUpon>ShoutoutTextEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Converters.cs" />
@@ -170,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetItemBoxItemAmountDialog.resx">
       <DependentUpon>SetItemBoxItemAmountDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShoutoutsEditDialog.resx">
+      <DependentUpon>ShoutoutsEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShoutoutTextEditDialog.resx">
+      <DependentUpon>ShoutoutTextEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

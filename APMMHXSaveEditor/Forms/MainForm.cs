@@ -1103,5 +1103,21 @@ namespace APMMHXSaveEditor
             listViewPalicoEquipBox.Items[indexSelected].Selected = true;
             listViewPalicoEquipBox.TopItem = listViewPalicoEquipBox.SelectedItems[0];
         }
+
+        private void buttonEditShoutouts_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            ShoutoutsEditDialog sed = new ShoutoutsEditDialog(saveFile.Players[currentPlayer].ShoutOuts, saveFile.Players[currentPlayer].AutomaticShoutOuts);
+            sed.ShowDialog();
+
+            if(sed.DialogResult == DialogResult.OK)
+            {
+                saveFile.Players[currentPlayer].ShoutOuts = sed.Shoutouts;
+                saveFile.Players[currentPlayer].AutomaticShoutOuts = sed.AutomaticShoutouts;
+            }
+
+            sed.Dispose();
+        }
     }
 }

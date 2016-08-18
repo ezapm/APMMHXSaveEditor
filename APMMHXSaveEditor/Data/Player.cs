@@ -58,6 +58,10 @@ namespace APMMHXSaveEditor.Data
 
         public GuildCard PlayerGuildCard { get; set; }
 
+        //Shoutouts
+        public string[] ShoutOuts { get; set; }
+        public string[] AutomaticShoutOuts { get; set; }
+
         public Player()
         {
         }

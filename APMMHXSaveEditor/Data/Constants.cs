@@ -8,7 +8,7 @@ namespace APMMHXSaveEditor.Data
 {
     public static class Constants
     {
-        public const string EDITOR_VERSION = "APM MHGen Save Editor v0.14d";
+        public const string EDITOR_VERSION = "APM MHGen Save Editor v0.15";
 
         public const UInt16 TOTAL_ITEM_BOX_SLOTS = 1400;
         public const UInt16 TOTAL_PALICO_EQUIPMENT_SLOTS = 700;
@@ -29,6 +29,10 @@ namespace APMMHXSaveEditor.Data
         public const UInt16 SIZEOF_CRAFTABLE_WEAPON = 40;
         public const UInt16 SIZEOF_CRAFTABLE_PALICO_GEAR = 104;
 
+        public const UInt16 SIZEOF_SHOUTOUT = 104;
+        public const UInt16 SIZEOF_AUTOMATIC_SHOUTOUT = 104;
+        public const UInt16 SIZEOF_GAME_SHOUTOUT = 36;
+
         public const UInt16 ITEM_PER_BOX = 100;
         public const UInt16 ITEM_PER_POUCH = 8;
 
@@ -39,5 +43,8 @@ namespace APMMHXSaveEditor.Data
 
         public const UInt16 TOTAL_WEAPONS = 15;
         public const UInt16 TOTAL_MONSTERHUNTS = 71;
+
+        public const UInt16 TOTAL_SHOUTOUTS = 24;
+        public const UInt16 TOTAL_AUTOMATIC_SHOUTOUTS = 9;
     }
 }

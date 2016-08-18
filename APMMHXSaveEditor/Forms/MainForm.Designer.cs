@@ -60,6 +60,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.buttonEditShoutouts = new System.Windows.Forms.Button();
             this.buttonEditGuildCard = new System.Windows.Forms.Button();
             this.labelPlayTime = new System.Windows.Forms.Label();
             this.numericUpDownPlayTime = new System.Windows.Forms.NumericUpDown();
@@ -450,6 +451,7 @@
             // tabPageGeneral
             // 
             this.tabPageGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageGeneral.Controls.Add(this.buttonEditShoutouts);
             this.tabPageGeneral.Controls.Add(this.buttonEditGuildCard);
             this.tabPageGeneral.Controls.Add(this.labelPlayTime);
             this.tabPageGeneral.Controls.Add(this.numericUpDownPlayTime);
@@ -477,6 +479,16 @@
             this.tabPageGeneral.Size = new System.Drawing.Size(542, 271);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
+            // 
+            // buttonEditShoutouts
+            // 
+            this.buttonEditShoutouts.Location = new System.Drawing.Point(105, 242);
+            this.buttonEditShoutouts.Name = "buttonEditShoutouts";
+            this.buttonEditShoutouts.Size = new System.Drawing.Size(87, 23);
+            this.buttonEditShoutouts.TabIndex = 21;
+            this.buttonEditShoutouts.Text = "Edit Shoutouts";
+            this.buttonEditShoutouts.UseVisualStyleBackColor = true;
+            this.buttonEditShoutouts.Click += new System.EventHandler(this.buttonEditShoutouts_Click);
             // 
             // buttonEditGuildCard
             // 
@@ -1692,6 +1704,7 @@
         private System.Windows.Forms.ToolStripMenuItem copyPalicoEqToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastePalicoEqToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePalicoEqToolStripMenuItem;
+        private System.Windows.Forms.Button buttonEditShoutouts;
     }
 }
 
