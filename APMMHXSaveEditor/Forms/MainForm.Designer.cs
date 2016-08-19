@@ -410,10 +410,10 @@
             // 
             // exportCharmsToolStripMenuItem
             // 
-            this.exportCharmsToolStripMenuItem.Enabled = false;
             this.exportCharmsToolStripMenuItem.Name = "exportCharmsToolStripMenuItem";
             this.exportCharmsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.exportCharmsToolStripMenuItem.Text = "Export Charms";
+            this.exportCharmsToolStripMenuItem.Click += new System.EventHandler(this.exportCharmsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

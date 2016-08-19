@@ -1119,5 +1119,44 @@ namespace APMMHXSaveEditor
 
             sed.Dispose();
         }
+
+        private void exportCharmsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "Text File (*.txt)|*.txt|All files (*.*)|*.*";
+                    sfd.FilterIndex = 1;
+                    sfd.RestoreDirectory = true;
+                    sfd.FileName = "mycharms.txt";
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        string exportString = "#Format: Slots,Skill1,Points1,Skill2,Points2";
+
+                        foreach (Equipment equip in saveFile.Players[currentPlayer].EquipmentBox)
+                        {
+                            if (equip.EquipmentBytes[0] == 6)
+                            {
+                                exportString += string.Format("\r\n{0},{1},{2},{3},{4}",
+                                    equip.EquipmentBytes[0x10], GameConstants.EquipmentSkills[equip.EquipmentBytes[0x0C]], (sbyte)equip.EquipmentBytes[0x0E],
+                                    equip.EquipmentBytes[0x0D] != 0 ? GameConstants.EquipmentSkills[equip.EquipmentBytes[0x0D]] : "", 
+                                    equip.EquipmentBytes[0x0D] != 0 ? ((sbyte)equip.EquipmentBytes[0x0F]).ToString() : "");
+                            }
+                        }
+
+                        File.WriteAllText(sfd.FileName, exportString);
+                        MessageBox.Show(string.Format("Exported charms to: {0}",sfd.FileName));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Unsucessful");
+            }
+        }
     }
 }

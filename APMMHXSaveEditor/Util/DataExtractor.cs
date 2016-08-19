@@ -337,16 +337,17 @@ namespace APMMHXSaveEditor.Util
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
                 binaryWriter.Write(player.UnlockedBoxData);
 
-                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS, SeekOrigin.Begin);
+                //Shoutouts
                 for (int i = 0; i < Constants.TOTAL_SHOUTOUTS; i++)
                 {
+                    binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS + (i * Constants.SIZEOF_SHOUTOUT), SeekOrigin.Begin);
                     byte[] shoutoutBuff = Encoding.UTF8.GetBytes(player.ShoutOuts[i]);
                     binaryWriter.Write(shoutoutBuff);
                 }
 
-                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.AUTOMATIC_SHOUTOUT_OFFSETS, SeekOrigin.Begin);
                 for (int i = 0; i < Constants.TOTAL_AUTOMATIC_SHOUTOUTS; i++)
                 {
+                    binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.AUTOMATIC_SHOUTOUT_OFFSETS + (i * Constants.SIZEOF_AUTOMATIC_SHOUTOUT), SeekOrigin.Begin);
                     byte[] shoutoutBuff = Encoding.UTF8.GetBytes(player.AutomaticShoutOuts[i]);
                     binaryWriter.Write(shoutoutBuff);
                 }
