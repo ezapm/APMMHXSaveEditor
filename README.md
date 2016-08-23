@@ -25,3 +25,5 @@ Charm Exporter (Export charms to Athena's format)
 More to come 
 
 GBATemp thread: https://gbatemp.net/threads/apm-mhx-mhgen-save-editor.434421/
+
+To use: Download the binaries from either the Releases tab or from a link in the GBATemp thread
