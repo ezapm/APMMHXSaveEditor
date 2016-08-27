@@ -61,6 +61,8 @@ namespace APMMHXSaveEditor.Forms
 
             binaryReader.BaseStream.Seek(GuildCardOffsets.GUILD_CARD_ID_OFFSET, SeekOrigin.Begin);
             textBoxGuildCardID.Text = BitConverter.ToString(binaryReader.ReadBytes(8)).Replace("-", "");
+
+            binaryReader.BaseStream.Seek(GuildCardOffsets.PLAYTIME_OFFSET, SeekOrigin.Begin);
             numericUpDownPlayTime.Value = binaryReader.ReadUInt32();
 
             binaryReader.BaseStream.Seek(GuildCardOffsets.STREET_PASS_OFFSETS, SeekOrigin.Begin);
@@ -101,6 +103,8 @@ namespace APMMHXSaveEditor.Forms
 
             binaryWriter.BaseStream.Seek(GuildCardOffsets.GUILD_CARD_ID_OFFSET, SeekOrigin.Begin);
             binaryWriter.Write(Converters.StringToByteArray(textBoxGuildCardID.Text.PadLeft(16, '0')));
+
+            binaryWriter.BaseStream.Seek(GuildCardOffsets.PLAYTIME_OFFSET, SeekOrigin.Begin);
             binaryWriter.Write((UInt32)numericUpDownPlayTime.Value);
 
             binaryWriter.BaseStream.Seek(GuildCardOffsets.STREET_PASS_OFFSETS, SeekOrigin.Begin);
