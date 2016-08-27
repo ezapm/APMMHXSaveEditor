@@ -108,6 +108,7 @@ namespace APMMHXSaveEditor.Data
 
     public static class GuildCardOffsets
     {
+        public static UInt16 GUILD_CARD_ID_OFFSET = 0x0828; //Size 8
         //Guild Card Offsets by Ukee
         public static UInt16 PLAYTIME_OFFSET = 0x088C; //Size 4
         public static UInt16 VILLAGE_WEAPON_USAGE_OFFSET = 0x0830; //Size 30

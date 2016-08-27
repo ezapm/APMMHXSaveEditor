@@ -57,14 +57,16 @@
             this.comboBoxWeapons = new System.Windows.Forms.ComboBox();
             this.labelWeaponType = new System.Windows.Forms.Label();
             this.tabPageMonsterHunts = new System.Windows.Forms.TabPage();
+            this.numericUpDownMonsterCaptures = new System.Windows.Forms.NumericUpDown();
+            this.labelMonsterCapture = new System.Windows.Forms.Label();
+            this.numericUpDownMonsterKills = new System.Windows.Forms.NumericUpDown();
+            this.labelMonsterKills = new System.Windows.Forms.Label();
             this.comboBoxMonsters = new System.Windows.Forms.ComboBox();
             this.labelMonsters = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.labelMonsterKills = new System.Windows.Forms.Label();
-            this.numericUpDownMonsterKills = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMonsterCaptures = new System.Windows.Forms.NumericUpDown();
-            this.labelMonsterCapture = new System.Windows.Forms.Label();
+            this.textBoxGuildCardID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlGuildCards.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStreetPasses)).BeginInit();
@@ -80,8 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHunterHubWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVillageWeapons)).BeginInit();
             this.tabPageMonsterHunts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCaptures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGuildCards
@@ -99,6 +101,8 @@
             // tabPageGeneral
             // 
             this.tabPageGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageGeneral.Controls.Add(this.textBoxGuildCardID);
+            this.tabPageGeneral.Controls.Add(this.label1);
             this.tabPageGeneral.Controls.Add(this.numericUpDownStreetPasses);
             this.tabPageGeneral.Controls.Add(this.labelStreetPasses);
             this.tabPageGeneral.Controls.Add(this.numericUpDownPlayTime);
@@ -117,7 +121,7 @@
             this.numericUpDownStreetPasses.Location = new System.Drawing.Point(287, 36);
             this.numericUpDownStreetPasses.Name = "numericUpDownStreetPasses";
             this.numericUpDownStreetPasses.Size = new System.Drawing.Size(135, 20);
-            this.numericUpDownStreetPasses.TabIndex = 5;
+            this.numericUpDownStreetPasses.TabIndex = 7;
             // 
             // labelStreetPasses
             // 
@@ -125,7 +129,7 @@
             this.labelStreetPasses.Location = new System.Drawing.Point(208, 38);
             this.labelStreetPasses.Name = "labelStreetPasses";
             this.labelStreetPasses.Size = new System.Drawing.Size(75, 13);
-            this.labelStreetPasses.TabIndex = 4;
+            this.labelStreetPasses.TabIndex = 6;
             this.labelStreetPasses.Text = "Street Passes:";
             // 
             // numericUpDownPlayTime
@@ -133,7 +137,7 @@
             this.numericUpDownPlayTime.Location = new System.Drawing.Point(67, 36);
             this.numericUpDownPlayTime.Name = "numericUpDownPlayTime";
             this.numericUpDownPlayTime.Size = new System.Drawing.Size(135, 20);
-            this.numericUpDownPlayTime.TabIndex = 3;
+            this.numericUpDownPlayTime.TabIndex = 5;
             // 
             // labelPlayTime
             // 
@@ -141,14 +145,14 @@
             this.labelPlayTime.Location = new System.Drawing.Point(8, 38);
             this.labelPlayTime.Name = "labelPlayTime";
             this.labelPlayTime.Size = new System.Drawing.Size(56, 13);
-            this.labelPlayTime.TabIndex = 2;
+            this.labelPlayTime.TabIndex = 4;
             this.labelPlayTime.Text = "Play Time:";
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(67, 10);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(355, 20);
+            this.textBoxName.Size = new System.Drawing.Size(135, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // labelName
@@ -359,6 +363,38 @@
             this.tabPageMonsterHunts.TabIndex = 3;
             this.tabPageMonsterHunts.Text = "Monsters";
             // 
+            // numericUpDownMonsterCaptures
+            // 
+            this.numericUpDownMonsterCaptures.Location = new System.Drawing.Point(148, 55);
+            this.numericUpDownMonsterCaptures.Name = "numericUpDownMonsterCaptures";
+            this.numericUpDownMonsterCaptures.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMonsterCaptures.TabIndex = 7;
+            // 
+            // labelMonsterCapture
+            // 
+            this.labelMonsterCapture.AutoSize = true;
+            this.labelMonsterCapture.Location = new System.Drawing.Point(145, 39);
+            this.labelMonsterCapture.Name = "labelMonsterCapture";
+            this.labelMonsterCapture.Size = new System.Drawing.Size(52, 13);
+            this.labelMonsterCapture.TabIndex = 6;
+            this.labelMonsterCapture.Text = "Captures:";
+            // 
+            // numericUpDownMonsterKills
+            // 
+            this.numericUpDownMonsterKills.Location = new System.Drawing.Point(11, 55);
+            this.numericUpDownMonsterKills.Name = "numericUpDownMonsterKills";
+            this.numericUpDownMonsterKills.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMonsterKills.TabIndex = 5;
+            // 
+            // labelMonsterKills
+            // 
+            this.labelMonsterKills.AutoSize = true;
+            this.labelMonsterKills.Location = new System.Drawing.Point(8, 39);
+            this.labelMonsterKills.Name = "labelMonsterKills";
+            this.labelMonsterKills.Size = new System.Drawing.Size(28, 13);
+            this.labelMonsterKills.TabIndex = 4;
+            this.labelMonsterKills.Text = "Kills:";
+            // 
             // comboBoxMonsters
             // 
             this.comboBoxMonsters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -398,37 +434,21 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // labelMonsterKills
+            // textBoxGuildCardID
             // 
-            this.labelMonsterKills.AutoSize = true;
-            this.labelMonsterKills.Location = new System.Drawing.Point(8, 39);
-            this.labelMonsterKills.Name = "labelMonsterKills";
-            this.labelMonsterKills.Size = new System.Drawing.Size(28, 13);
-            this.labelMonsterKills.TabIndex = 4;
-            this.labelMonsterKills.Text = "Kills:";
+            this.textBoxGuildCardID.Location = new System.Drawing.Point(287, 10);
+            this.textBoxGuildCardID.Name = "textBoxGuildCardID";
+            this.textBoxGuildCardID.Size = new System.Drawing.Size(135, 20);
+            this.textBoxGuildCardID.TabIndex = 3;
             // 
-            // numericUpDownMonsterKills
+            // label1
             // 
-            this.numericUpDownMonsterKills.Location = new System.Drawing.Point(11, 55);
-            this.numericUpDownMonsterKills.Name = "numericUpDownMonsterKills";
-            this.numericUpDownMonsterKills.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownMonsterKills.TabIndex = 5;
-            // 
-            // numericUpDownMonsterCaptures
-            // 
-            this.numericUpDownMonsterCaptures.Location = new System.Drawing.Point(148, 55);
-            this.numericUpDownMonsterCaptures.Name = "numericUpDownMonsterCaptures";
-            this.numericUpDownMonsterCaptures.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownMonsterCaptures.TabIndex = 7;
-            // 
-            // labelMonsterCapture
-            // 
-            this.labelMonsterCapture.AutoSize = true;
-            this.labelMonsterCapture.Location = new System.Drawing.Point(145, 39);
-            this.labelMonsterCapture.Name = "labelMonsterCapture";
-            this.labelMonsterCapture.Size = new System.Drawing.Size(52, 13);
-            this.labelMonsterCapture.TabIndex = 6;
-            this.labelMonsterCapture.Text = "Captures:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(208, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Guild Card ID:";
             // 
             // GuildCardEditorDialog
             // 
@@ -462,8 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVillageWeapons)).EndInit();
             this.tabPageMonsterHunts.ResumeLayout(false);
             this.tabPageMonsterHunts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCaptures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,5 +527,7 @@
         private System.Windows.Forms.Label labelMonsterKills;
         private System.Windows.Forms.NumericUpDown numericUpDownMonsterCaptures;
         private System.Windows.Forms.Label labelMonsterCapture;
+        private System.Windows.Forms.TextBox textBoxGuildCardID;
+        private System.Windows.Forms.Label label1;
     }
 }
