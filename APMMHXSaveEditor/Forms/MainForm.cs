@@ -813,6 +813,30 @@ namespace APMMHXSaveEditor
             }
         }
 
+        private void allFoodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Unlock all Food Ingredients?", "Unlock all Ingredients?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                saveFile.Players[currentPlayer].UnlockedFoodData = Tools.GetFullFoodRecipes();
+                MessageBox.Show("You now have all Ingredients!", "Success!");
+            }
+        }
+
+        private void allAwardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFile == null) { return; }
+
+            DialogResult dialogResult = MessageBox.Show("Unlock all Awards?", "Unlock all Awards?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                saveFile.Players[currentPlayer].AwardData = Tools.GetFullRewards();
+                MessageBox.Show("You now have 100% awards!", "Success!");
+            }
+        }
+
         private void comboBoxPalicoEquipBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (saveFile == null) { return; }

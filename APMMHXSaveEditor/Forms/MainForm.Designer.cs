@@ -45,6 +45,8 @@
             this.allCraftableWeaponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCraftablePalicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allBoxSlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allAwardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBoxToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setItemAmountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -297,7 +299,9 @@
             this.allCraftableArmorToolStripMenuItem,
             this.allCraftableWeaponsToolStripMenuItem,
             this.allCraftablePalicoToolStripMenuItem,
-            this.allBoxSlotsToolStripMenuItem});
+            this.allBoxSlotsToolStripMenuItem,
+            this.allFoodToolStripMenuItem,
+            this.allAwardsToolStripMenuItem});
             this.unlockToolStripMenuItem.Name = "unlockToolStripMenuItem";
             this.unlockToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.unlockToolStripMenuItem.Text = "Unlock";
@@ -329,6 +333,20 @@
             this.allBoxSlotsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.allBoxSlotsToolStripMenuItem.Text = "All Box Slots";
             this.allBoxSlotsToolStripMenuItem.Click += new System.EventHandler(this.allBoxSlotsToolStripMenuItem_Click);
+            // 
+            // allFoodToolStripMenuItem
+            // 
+            this.allFoodToolStripMenuItem.Name = "allFoodToolStripMenuItem";
+            this.allFoodToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.allFoodToolStripMenuItem.Text = "All Ingredients";
+            this.allFoodToolStripMenuItem.Click += new System.EventHandler(this.allFoodToolStripMenuItem_Click);
+            // 
+            // allAwardsToolStripMenuItem
+            // 
+            this.allAwardsToolStripMenuItem.Name = "allAwardsToolStripMenuItem";
+            this.allAwardsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.allAwardsToolStripMenuItem.Text = "All Awards";
+            this.allAwardsToolStripMenuItem.Click += new System.EventHandler(this.allAwardsToolStripMenuItem_Click);
             // 
             // itemBoxToolsToolStripMenuItem
             // 
@@ -1705,6 +1723,8 @@
         private System.Windows.Forms.ToolStripMenuItem pastePalicoEqToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePalicoEqToolStripMenuItem;
         private System.Windows.Forms.Button buttonEditShoutouts;
+        private System.Windows.Forms.ToolStripMenuItem allAwardsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allFoodToolStripMenuItem;
     }
 }
 

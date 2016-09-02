@@ -155,5 +155,23 @@ namespace APMMHXSaveEditor.Util
         {
             return DataExtractor.GetPalcio(new byte[Constants.SIZEOF_PALICO]);
         }
+
+        /// <summary>
+        /// Get flags for 100% completed awards
+        /// </summary>
+        /// <returns>Returns a byte array that contains data for 100% completed awards</returns>
+        public static byte[] GetFullRewards()
+        {
+            return new byte[13] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F };
+        }
+
+        /// <summary>
+        /// Get flags for all food recipes
+        /// </summary>
+        /// <returns>Return a byte array that contains data for 100% food recipes</returns>
+        public static byte[] GetFullFoodRecipes()
+        {
+            return new byte[] { 0xFF, 0xFF, 0xFF, 0x7F };
+        }
     }
 }

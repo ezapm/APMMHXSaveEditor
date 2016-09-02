@@ -174,6 +174,14 @@ namespace APMMHXSaveEditor.Util
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
                 player.UnlockedBoxData = binaryReader.ReadBytes(8);
 
+                //Food Flags
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.FOOD_FLAG_OFFSETS, SeekOrigin.Begin);
+                player.UnlockedFoodData = binaryReader.ReadBytes(Constants.SIZEOF_FOOD_FLAGS);
+
+                //Award Flags
+                binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.AWARD_FLAG_OFFSETS, SeekOrigin.Begin);
+                player.AwardData = binaryReader.ReadBytes(Constants.SIZEOF_AWARD_FLAGS);
+
                 //Shoutouts
                 binaryReader.BaseStream.Seek(player.SaveOffset + Offsets.SHOUTOUT_OFFSETS, SeekOrigin.Begin);
                 player.ShoutOuts = new string[Constants.TOTAL_SHOUTOUTS];
@@ -336,6 +344,14 @@ namespace APMMHXSaveEditor.Util
                 //Unlocked Box Data
                 binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.UNLOCKED_BOXES_OFFSET, SeekOrigin.Begin);
                 binaryWriter.Write(player.UnlockedBoxData);
+
+                //Food flags
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.FOOD_FLAG_OFFSETS, SeekOrigin.Begin);
+                binaryWriter.Write(player.UnlockedFoodData);
+
+                //Award Data
+                binaryWriter.BaseStream.Seek(player.SaveOffset + Offsets.AWARD_FLAG_OFFSETS, SeekOrigin.Begin);
+                binaryWriter.Write(player.AwardData);
 
                 //Shoutouts
                 for (int i = 0; i < Constants.TOTAL_SHOUTOUTS; i++)

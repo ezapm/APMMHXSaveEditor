@@ -75,6 +75,9 @@ namespace APMMHXSaveEditor.Data
         public const UInt32 CRAFTABLE_ARMOR_SHOP_OFFSET = 0x2316;
         public const UInt32 CRAFTABLE_PALICO_GEAR_OFFSET = 0x02ABE;
 
+        public const UInt16 FOOD_FLAG_OFFSETS = 0x1A32; //Size 4
+        public const UInt16 AWARD_FLAG_OFFSETS = 0x1B8A; //Size 13
+
         public const UInt32 PLAYER_GUILD_CARD_OFFSET = 0x09F0FE; //Size 5208
 
         public const UInt16 UNLOCKED_BOXES_OFFSET = 0x1A22; //Size 8
