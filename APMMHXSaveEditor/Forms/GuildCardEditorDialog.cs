@@ -93,6 +93,17 @@ namespace APMMHXSaveEditor.Forms
             {
                 arenaWeaponUsage[i] = binaryReader.ReadUInt16();
             }
+
+            //Character Information
+            binaryReader.BaseStream.Seek(GuildCardOffsets.GUILDCARD_CHARACTER_VOICE_OFFSET, SeekOrigin.Begin);
+            numericUpDownVoice.Value = binaryReader.ReadByte();
+            numericUpDownEyeColor.Value = binaryReader.ReadByte();
+            numericUpDownClothing.Value = binaryReader.ReadByte();
+            comboBoxGender.SelectedIndex = binaryReader.ReadByte();
+            binaryReader.ReadByte();
+            numericUpDownHair.Value = binaryReader.ReadByte();
+            numericUpDownFace.Value = binaryReader.ReadByte();
+            numericUpDownFeatures.Value = binaryReader.ReadByte();
         }
 
         private void saveGuildCard()
@@ -130,6 +141,17 @@ namespace APMMHXSaveEditor.Forms
             {
                 binaryWriter.Write(arenaWeaponUsage[i]);
             }
+
+            //Character Information
+            binaryWriter.BaseStream.Seek(GuildCardOffsets.GUILDCARD_CHARACTER_VOICE_OFFSET, SeekOrigin.Begin);
+            binaryWriter.Write((byte)numericUpDownVoice.Value);
+            binaryWriter.Write((byte)numericUpDownEyeColor.Value);
+            binaryWriter.Write((byte)numericUpDownClothing.Value);
+            binaryWriter.Write((byte)comboBoxGender.SelectedIndex);
+            binaryWriter.BaseStream.Seek(1, SeekOrigin.Current);
+            binaryWriter.Write((byte)numericUpDownHair.Value);
+            binaryWriter.Write((byte)numericUpDownFace.Value);
+            binaryWriter.Write((byte)numericUpDownFeatures.Value);
         }
 
         private void buttonOK_Click(object sender, EventArgs e)

@@ -125,5 +125,7 @@ namespace APMMHXSaveEditor.Data
         public static UInt16 ARENA_QUEST_OFFSETS = 0x07E2; //Size 2
         public static UInt16 STREET_PASS_OFFSETS = 0x07E8; //Size 2
         public static UInt16 MONSTER_HUNT_OFFSETS = 0x0EE0; //Size 552 (69 Monsters, 8 Bytes Each)
+
+        public static UInt16 GUILDCARD_CHARACTER_VOICE_OFFSET = 0x19; //Size 1
     }
 }

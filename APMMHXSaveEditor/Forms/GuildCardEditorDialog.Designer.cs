@@ -30,6 +30,8 @@
         {
             this.tabControlGuildCards = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.textBoxGuildCardID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownStreetPasses = new System.Windows.Forms.NumericUpDown();
             this.labelStreetPasses = new System.Windows.Forms.Label();
             this.numericUpDownPlayTime = new System.Windows.Forms.NumericUpDown();
@@ -65,8 +67,21 @@
             this.labelMonsters = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.textBoxGuildCardID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabPageCharacter = new System.Windows.Forms.TabPage();
+            this.labelVoice = new System.Windows.Forms.Label();
+            this.numericUpDownVoice = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownEyeColor = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownClothing = new System.Windows.Forms.NumericUpDown();
+            this.labelClothing = new System.Windows.Forms.Label();
+            this.labelEyeColor = new System.Windows.Forms.Label();
+            this.labelFeatures = new System.Windows.Forms.Label();
+            this.comboBoxGender = new System.Windows.Forms.ComboBox();
+            this.numericUpDownFeatures = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownFace = new System.Windows.Forms.NumericUpDown();
+            this.labelFace = new System.Windows.Forms.Label();
+            this.numericUpDownHair = new System.Windows.Forms.NumericUpDown();
+            this.labelHair = new System.Windows.Forms.Label();
+            this.labelGender = new System.Windows.Forms.Label();
             this.tabControlGuildCards.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStreetPasses)).BeginInit();
@@ -84,11 +99,19 @@
             this.tabPageMonsterHunts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCaptures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).BeginInit();
+            this.tabPageCharacter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEyeColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClothing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHair)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGuildCards
             // 
             this.tabControlGuildCards.Controls.Add(this.tabPageGeneral);
+            this.tabControlGuildCards.Controls.Add(this.tabPageCharacter);
             this.tabControlGuildCards.Controls.Add(this.tabPageQuests);
             this.tabControlGuildCards.Controls.Add(this.tabPageWeaponUsage);
             this.tabControlGuildCards.Controls.Add(this.tabPageMonsterHunts);
@@ -115,6 +138,22 @@
             this.tabPageGeneral.Size = new System.Drawing.Size(443, 176);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
+            // 
+            // textBoxGuildCardID
+            // 
+            this.textBoxGuildCardID.Location = new System.Drawing.Point(287, 10);
+            this.textBoxGuildCardID.Name = "textBoxGuildCardID";
+            this.textBoxGuildCardID.Size = new System.Drawing.Size(135, 20);
+            this.textBoxGuildCardID.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(208, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Guild Card ID:";
             // 
             // numericUpDownStreetPasses
             // 
@@ -434,21 +473,145 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // textBoxGuildCardID
+            // tabPageCharacter
             // 
-            this.textBoxGuildCardID.Location = new System.Drawing.Point(287, 10);
-            this.textBoxGuildCardID.Name = "textBoxGuildCardID";
-            this.textBoxGuildCardID.Size = new System.Drawing.Size(135, 20);
-            this.textBoxGuildCardID.TabIndex = 3;
+            this.tabPageCharacter.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageCharacter.Controls.Add(this.labelVoice);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownVoice);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownEyeColor);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownClothing);
+            this.tabPageCharacter.Controls.Add(this.labelClothing);
+            this.tabPageCharacter.Controls.Add(this.labelEyeColor);
+            this.tabPageCharacter.Controls.Add(this.labelFeatures);
+            this.tabPageCharacter.Controls.Add(this.comboBoxGender);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownFeatures);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownFace);
+            this.tabPageCharacter.Controls.Add(this.labelFace);
+            this.tabPageCharacter.Controls.Add(this.numericUpDownHair);
+            this.tabPageCharacter.Controls.Add(this.labelHair);
+            this.tabPageCharacter.Controls.Add(this.labelGender);
+            this.tabPageCharacter.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCharacter.Name = "tabPageCharacter";
+            this.tabPageCharacter.Size = new System.Drawing.Size(443, 176);
+            this.tabPageCharacter.TabIndex = 4;
+            this.tabPageCharacter.Text = "Character";
             // 
-            // label1
+            // labelVoice
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Guild Card ID:";
+            this.labelVoice.AutoSize = true;
+            this.labelVoice.Location = new System.Drawing.Point(134, 42);
+            this.labelVoice.Name = "labelVoice";
+            this.labelVoice.Size = new System.Drawing.Size(34, 13);
+            this.labelVoice.TabIndex = 22;
+            this.labelVoice.Text = "Voice";
+            // 
+            // numericUpDownVoice
+            // 
+            this.numericUpDownVoice.Location = new System.Drawing.Point(137, 58);
+            this.numericUpDownVoice.Name = "numericUpDownVoice";
+            this.numericUpDownVoice.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownVoice.TabIndex = 23;
+            // 
+            // numericUpDownEyeColor
+            // 
+            this.numericUpDownEyeColor.Location = new System.Drawing.Point(266, 58);
+            this.numericUpDownEyeColor.Name = "numericUpDownEyeColor";
+            this.numericUpDownEyeColor.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownEyeColor.TabIndex = 25;
+            // 
+            // numericUpDownClothing
+            // 
+            this.numericUpDownClothing.Location = new System.Drawing.Point(14, 97);
+            this.numericUpDownClothing.Name = "numericUpDownClothing";
+            this.numericUpDownClothing.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownClothing.TabIndex = 27;
+            // 
+            // labelClothing
+            // 
+            this.labelClothing.AutoSize = true;
+            this.labelClothing.Location = new System.Drawing.Point(11, 81);
+            this.labelClothing.Name = "labelClothing";
+            this.labelClothing.Size = new System.Drawing.Size(45, 13);
+            this.labelClothing.TabIndex = 26;
+            this.labelClothing.Text = "Clothing";
+            // 
+            // labelEyeColor
+            // 
+            this.labelEyeColor.AutoSize = true;
+            this.labelEyeColor.Location = new System.Drawing.Point(263, 42);
+            this.labelEyeColor.Name = "labelEyeColor";
+            this.labelEyeColor.Size = new System.Drawing.Size(52, 13);
+            this.labelEyeColor.TabIndex = 24;
+            this.labelEyeColor.Text = "Eye Color";
+            // 
+            // labelFeatures
+            // 
+            this.labelFeatures.AutoSize = true;
+            this.labelFeatures.Location = new System.Drawing.Point(8, 42);
+            this.labelFeatures.Name = "labelFeatures";
+            this.labelFeatures.Size = new System.Drawing.Size(48, 13);
+            this.labelFeatures.TabIndex = 20;
+            this.labelFeatures.Text = "Features";
+            // 
+            // comboBoxGender
+            // 
+            this.comboBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGender.FormattingEnabled = true;
+            this.comboBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBoxGender.Location = new System.Drawing.Point(8, 18);
+            this.comboBoxGender.Name = "comboBoxGender";
+            this.comboBoxGender.Size = new System.Drawing.Size(120, 21);
+            this.comboBoxGender.TabIndex = 15;
+            // 
+            // numericUpDownFeatures
+            // 
+            this.numericUpDownFeatures.Location = new System.Drawing.Point(11, 58);
+            this.numericUpDownFeatures.Name = "numericUpDownFeatures";
+            this.numericUpDownFeatures.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownFeatures.TabIndex = 21;
+            // 
+            // numericUpDownFace
+            // 
+            this.numericUpDownFace.Location = new System.Drawing.Point(265, 19);
+            this.numericUpDownFace.Name = "numericUpDownFace";
+            this.numericUpDownFace.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownFace.TabIndex = 19;
+            // 
+            // labelFace
+            // 
+            this.labelFace.AutoSize = true;
+            this.labelFace.Location = new System.Drawing.Point(262, 3);
+            this.labelFace.Name = "labelFace";
+            this.labelFace.Size = new System.Drawing.Size(31, 13);
+            this.labelFace.TabIndex = 18;
+            this.labelFace.Text = "Face";
+            // 
+            // numericUpDownHair
+            // 
+            this.numericUpDownHair.Location = new System.Drawing.Point(137, 19);
+            this.numericUpDownHair.Name = "numericUpDownHair";
+            this.numericUpDownHair.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownHair.TabIndex = 17;
+            // 
+            // labelHair
+            // 
+            this.labelHair.AutoSize = true;
+            this.labelHair.Location = new System.Drawing.Point(134, 3);
+            this.labelHair.Name = "labelHair";
+            this.labelHair.Size = new System.Drawing.Size(26, 13);
+            this.labelHair.TabIndex = 16;
+            this.labelHair.Text = "Hair";
+            // 
+            // labelGender
+            // 
+            this.labelGender.AutoSize = true;
+            this.labelGender.Location = new System.Drawing.Point(5, 3);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(42, 13);
+            this.labelGender.TabIndex = 14;
+            this.labelGender.Text = "Gender";
             // 
             // GuildCardEditorDialog
             // 
@@ -484,6 +647,14 @@
             this.tabPageMonsterHunts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCaptures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterKills)).EndInit();
+            this.tabPageCharacter.ResumeLayout(false);
+            this.tabPageCharacter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEyeColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClothing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHair)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -529,5 +700,20 @@
         private System.Windows.Forms.Label labelMonsterCapture;
         private System.Windows.Forms.TextBox textBoxGuildCardID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPageCharacter;
+        private System.Windows.Forms.Label labelVoice;
+        private System.Windows.Forms.NumericUpDown numericUpDownVoice;
+        private System.Windows.Forms.NumericUpDown numericUpDownEyeColor;
+        private System.Windows.Forms.NumericUpDown numericUpDownClothing;
+        private System.Windows.Forms.Label labelClothing;
+        private System.Windows.Forms.Label labelEyeColor;
+        private System.Windows.Forms.Label labelFeatures;
+        private System.Windows.Forms.ComboBox comboBoxGender;
+        private System.Windows.Forms.NumericUpDown numericUpDownFeatures;
+        private System.Windows.Forms.NumericUpDown numericUpDownFace;
+        private System.Windows.Forms.Label labelFace;
+        private System.Windows.Forms.NumericUpDown numericUpDownHair;
+        private System.Windows.Forms.Label labelHair;
+        private System.Windows.Forms.Label labelGender;
     }
 }
